@@ -15,30 +15,59 @@ export default function Panel() {
 
 
   return (
-    <div className='panel' >
-      {id}
 
 
-      {id ?
-      id == 1 ? <Lekkeband></Lekkeband> :null
+    <>
+    {id ?  <div className='panel' >
 
-      : <div className="panelframe">
-      <img width={250} src="LOGO.png" alt="" />
+{id ?
+id == 1 ? <Lekkeband></Lekkeband> :null
+
+: <div className="homepanelframe">
+<img width={250} src="LOGO.png" alt="" />
+
+
+
+
+<Services></Services>
 
 
  
 
-<Services></Services>
-  
-
-       
-     
 
 
 
-    </div>
+</div>
 }
-     
-    </div>
+
+</div> :   
+     <div className='homepanel' >
+
+{id ?
+id == 1 ? <Lekkeband></Lekkeband> :null
+
+: <div className="homepanelframe">
+<img width={250} src="LOGO.png" alt="" />
+
+
+
+
+<Services></Services>
+
+
+ 
+
+
+
+
+</div>
+}
+
+</div>}
+    
+ 
+    </>
+
+   
   )
 }

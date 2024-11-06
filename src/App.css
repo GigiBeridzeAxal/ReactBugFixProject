@@ -172,4 +172,24 @@
   cursor: pointer;
   margin-top: 5px;  border-bottom-left-radius: 14px;
   border-bottom-right-radius: 14px;
+  text-decoration: none;
+}
+
+.homepanel{
+ display: flex;
+  height: 90vh;
+  width: 400px;
+  margin: 25px;
+  border-radius: .5rem;
+  background-color: black;
+  align-items: center;
+  justify-content: center;
+}
+.homepanelframe{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 95%;
+
+  
 }

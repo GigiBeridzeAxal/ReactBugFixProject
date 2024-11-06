@@ -9,6 +9,10 @@ export default function Lekkeband() {
     const [q4 , setq4] = useState(false)
     const [q5 , setq5] = useState(false)
     const [q6 , setq6] = useState(false)
+    const [q7 , setq7] = useState(false)
+    const [q8 , setq8] = useState(false)
+    const [q9 , setq9] = useState(false)
+
 
 
 
@@ -63,15 +67,90 @@ export default function Lekkeband() {
                     </div> : null}
                 </div>
                 <div className="question">
-                    <button onClick={() => q4 == true ? setq4(false) : setq4(true) } className="questiontittle">Waaraan herken je een platte band? <img width={20} src="Down.png" alt="" /> </button>
+                    <button onClick={() => q4 == true ? setq4(false) : setq4(true) } className="questiontittle">Een lekke autoband, het reservewiel monteren!<img width={20} src="Down.png" alt="" /> </button>
                     {q4 == true ? <div className='Answer' >
-                        U merkt zichtbaar drukverlies of krijgt een melding van de bandenspanningssensoren.
-                    Soms ervaar je minder duidelijke symptomen zoals een afwijking naar 1 zijde, trilling in het
-                    stuur, rubber geur, tikkend geluid,...
+                        <ul>
+                            <li>Controleer dat uw wagen veilig staat, trek te handrem aan</li>
+                            <li>Los de wielbouten 1 omwenteling</li>
+                            <li>Krik de wagen op op de voorziene krikpunten (zie instructieboekje)</li>
+                            <li>Vervang de lekke band van uw wagen door het reservewiel</li>
+                            <li>Draai de wielbouten tegenaan, laat de wagen zakken & trek de wielbouten vervolgens zo hard mogelijk aan.</li>
+
+
+                         </ul>
+
+                    </div> : null}
+                </div>
+                <div className="question">
+                    <button onClick={() => q5 == true ? setq5(false) : setq5(true) } className="questiontittle">Platte band auto & geen reservewiel te bespeuren!<img width={20} src="Down.png" alt="" /> </button>
+                    {q5 == true ? <div className='Answer' >
+                        U heeft een lekke band en merkt op dat het reservewiel ontbreekt! Dit is geen vergissing!
+                        We leven in een wereld waar constructeurs uitgedaagd worden de lat steeds hoger te leggen.
+                Omwille van gewichts en ruimte besparing werd het reservewiel uit de auto geweerd.
+                In plaats daarvan werd een noodkit voorzien die bestaat uit een kleine 12v compressor en een vulling lijm.
+                In de praktijk merken we op dat dit geen waardig alternatief is voor het volwaardig reservewiel.
+                Sommige constructeurs voorzien het reservewiel als optie!
+                Mobiele Bandencentrale heeft geen reservewiel nodig om jou te helpen! Wij herstellen of vervangen uw band ter plaatse!
+
+                    </div> : null}
+                </div>
+
+                <div className="question">
+                    <button onClick={() => q6 == true ? setq6(false) : setq6(true) } className="questiontittle">Autoband reparatie<img width={20} src="Down.png" alt="" /> </button>
+                    {q6 == true ? <div className='Answer' >
+                        Een auto band reparatie is kosten besparend! Na de banden herstelling is uw band even goed!
+                        Er zijn verschillende redenen waarom autobanden druk kunnen verliezen:
+                        <li>Een scherp voorwerp in de band (Bijv. een nagelin de band, glas in de band, ...)</li>
+                            <li>Een rubber ventiel dat verstorven is</li>
+                            <li>Een bandenspanningssensor die lekt</li>
+                            <li>Een scheur in de band (door bijv. Een klapband, een put of een stoeprand geraakt)</li>
+                            <li>Een vorige banden reparatie die slecht werd uitgevoerd </li>
+                            Helaas kunnen niet alle bovenstaande oorzaken hersteld worden of kan er gevolgschade ontstaan zijn!
+                            Ook dan biedt Mobiele Bandencentrale de oplossing door uw banden ter plaatse te vervangen!
+
+                    </div> : null}
+                </div>
+
+                <div className="question">
+                    <button onClick={() => q7 == true ? setq7(false) : setq7(true) } className="questiontittle">Voorwaarden autoband reparatie<img width={20} src="Down.png" alt="" /> </button>
+                    {q7 == true ? <div className='Answer' >
+                        Allereerst controleren wij de buitenzijde en zoeken wij de oorzaak,
+                        vervolgens controleren we de binnenzijde, Is er gevolgschade?
+                        <li>Uw band mag NIET versleten zijn.</li>
+                        <li>Er mag GEEN gevolgschade zijn ( !!! Rij NIET verder op een lekke band!!! )</li>
+                            <li>Uw band mag NIET gerepareerd worden op de hiel of zijwand (of 5cm daarvan) </li>
+                            <li>Het voorwerp mag NIET schuin in uw band binnendrongen zijn</li>
+                            <li>het gat mag niet groter zijn dan 3mm</li>
+                           
+
+                    </div> : null}
+                </div>
+
+                <div className="question">
+                    <button onClick={() => q8 == true ? setq8(false) : setq8(true) } className="questiontittle">Hoe verloopt onze pechverhelping? <img width={20} src="Down.png" alt="" /> </button>
+                    {q8 == true ? <div className='Answer' >
+                        Voor bandenpech verhelping ter plaatse kan u ons telefonisch contacteren.
+                        (Ook via Whatsapp, wat handig is om ons enkele foto's of uw realtime locatie door te sturen.)
+                        Wij stellen u enkele vragen zoals
+                        <li>Wat heeft u opgemerkt?</li>
+                        <li>Heeft u een vermoeden wat de oorzaak van uw lekke band is?</li>
+                            <li>Was u aan het rijden toen u opmerkte dat de autoband plat was?</li>
+                            <li>Zit de platte band vooraan of achteraan?</li>
+                            <li>Welke is de bandenmaat van uw wagen?</li>
+                           
 
 
                     </div> : null}
                 </div>
+                <div className="question">
+                    <button onClick={() => q9 == true ? setq9(false) : setq9(true) } className="questiontittle">Een platte band? Autoband repareren? Aan welke voertuigen werkt de Mobiele Bandencentrale?<img width={20} src="Down.png" alt="" /> </button>
+                    {q9 == true ? <div className='Answer' >
+                        platte band? Wij herstellen en vervangen banden van ieder type personenvoertuig (oldtimers, sportwagens, sedans, ...) maar ook lichte vracht (bestelwagens, aanhangwagens, terreinwagens), zelfs uw Mobile Home!
+
+
+                    </div> : null}
+                </div>
+
 
 
 
