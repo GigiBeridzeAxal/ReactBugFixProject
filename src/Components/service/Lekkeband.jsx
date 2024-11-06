@@ -8,7 +8,7 @@ export default function Lekkeband() {
 
   return (
     <div className="service">
-        <img width={250} src="Logo.png" alt="" />
+        <img width={250} src="LOGO.png" alt="" />
         <div className="serviceframe">
             
             <h1>PECHBIJSTAND LEKKE BAND</h1>
@@ -18,7 +18,12 @@ export default function Lekkeband() {
                 
                 <div className="question">
                     <button onClick={() => q1 == true ? setq1(false) : setq1(true) } className="questiontittle">Platte band auto weetjes: <img width={20} src="Down.png" alt="" /> </button>
-                    {q1 == true ? <div className='Answer' >awdawdawd</div> : null}
+                    {q1 == true ? <div className='Answer' >
+                         <ul>
+                            <li>1 op 4 pechgevallen zijn banden gerelateerd!</li>
+                         </ul>
+
+                    </div> : null}
                 </div>
 
 
