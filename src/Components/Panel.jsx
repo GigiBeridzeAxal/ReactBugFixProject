@@ -1,31 +1,44 @@
 import React from 'react'
+import {Router , Routes , Route , useNavigate , Link , useParams} from 'react-router-dom'
+import Services from './Services'
+import Lekkeband from './service/Lekkeband'
 
 export default function Panel() {
+  const {id} = useParams()
+
+  console.log(id)
+
+  
+   
+
+
+
+
   return (
     <div className='panel' >
-
-      <div className="panelframe">
-        <img width={250} src="LOGO.png" alt="" />
-        
-
-        <div className="services">
-        ONLINEBANDENKOPEN
-          <a href=""><img src="LEKKEBANDPECHBIJSTAND.png" alt="" /></a>
-          <a href=""><img src="ZOMERWINTERWISSEL.png" alt="" /></a>
-          <a href=""><img src="ONLINEBANDENKOPEN.png" alt="" /></a>
-          <a href=""><img src="GEENBRANDSTOF.png" alt="" /></a>
-          <a href=""><img src="BATTERIJLEEG.png" alt="" /></a>
-          <a href=""><img src="SLOTBOUTVERWIJDEREN.png" alt="" /></a>
-          <a href=""><img src="TAKELEN.png" alt="" /></a>
-          <a href=""><img src="B2BBANDENWISSEL.png" alt="" /></a>
+      {id}
 
 
-        </div>
+      {id ?
+      id == 1 ? <Lekkeband></Lekkeband> :null
+
+      : <div className="panelframe">
+      <img width={250} src="LOGO.png" alt="" />
+
+
+ 
+
+<Services></Services>
+  
+
+       
+     
 
 
 
-      </div>
-
+    </div>
+}
+     
     </div>
   )
 }

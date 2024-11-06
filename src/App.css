@@ -85,3 +85,47 @@
   width: 16rem;
   height: 4rem;
 }
+.service{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 95%;
+  width: 100%;
+  align-items: center;
+  
+
+  
+}
+.serviceframe{
+  height: 85%;
+  width: 96%;
+}
+.serviceframe h1{
+  --tw-text-opacity: 1;
+    color: rgb(34 197 94 / var(--tw-text-opacity));
+    font-size: 20px;
+    text-align: center;
+}
+.questions{
+  width: 95%;
+}
+.question{
+  width: 100%;
+}
+.question button{
+  background: none;
+  border: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.questiontittle{
+  font-size: 18px;
+  --tw-text-opacity: 1;
+  color: rgb(239 68 68 / var(--tw-text-opacity));
+}
+.Answer{
+  color: white;
+  padding: 5px;
+}
