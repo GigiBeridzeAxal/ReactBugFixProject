@@ -20,9 +20,18 @@
   height: 90vh;
   width: 400px;
   margin: 25px;
+  border-radius: .5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   
 }
 .panelframe{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 95%;
+  
 
 }
 .Footer{
@@ -66,4 +75,13 @@
   display: flex;
   gap: .5rem;
   font-size: 14px;
+}
+.services{
+  gap: 15px;
+  display: flex;
+  flex-direction: column;
+}
+.services img{
+  width: 16rem;
+  height: 4rem;
 }
