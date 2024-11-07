@@ -11,6 +11,12 @@ export default function Orderpechbjistan() {
     const [locationchanged , setlocationchanged] = useState(false)
     const [order , setorder] = useState(false)
 
+    const [region , setregion] = useState()
+    const [chooser , setchooser] = useState()
+
+    const [regionprice , setregionprice] = useState(0)
+    const [chooserprice , setchooserprice] = useState(0)
+
     const MyLocat = () => {
         navigator.geolocation.getCurrentPosition((position) => {
             const lat = position.coords.latitude
@@ -44,16 +50,17 @@ export default function Orderpechbjistan() {
                 <div className="regions">
                     <div className="regiontittle">KIES UW REGIO</div>
                     <div className="regionbtn">
-                        <img width={120} src="WestVla.webp" alt="" />
-                        <img width={120} src="OostVla.webp" alt="" />
-                        <img width={120} src="Antwerpen.webp" alt="" />
+                        {region == "WestVla" ?<button className="choosedbutton" > <img width={120} src="WestVla.webp" alt="" /></button> :<button onClick={() => setregion("WestVla") | setregionprice(50) } className="notchoosedbtn" > <img width={120} src="WestVla.webp" alt="" /></button>}
+                        {region == "OostVla" ?<button className="choosedbutton" > <img width={120} src="OostVla.webp" alt="" /></button> :<button onClick={() => setregion("OostVla") | setregionprice(0) }  className="notchoosedbtn" > <img width={120} src="OostVla.webp" alt="" /></button>}
+                        {region == "Antwerpen" ?<button className="choosedbutton" > <img width={120} src="Antwerpen.webp" alt="" /></button> :<button onClick={() => setregion("Antwerpen") | setregionprice(50) } className="notchoosedbtn" > <img width={120} src="Antwerpen.webp" alt="" /></button>}
+
                     </div>
                 </div>
                 <div className="choose">
                     <div className="choosetittle">KIES INDIEN VAN TOEPASSING</div>
                     <div className="chooselist">
-                        <button><img width={112} src="velvebroken.webp" alt="" /></button>
-                        <button><img width={112} src="visiOrDroveFlat.webp" alt="" /></button>
+                        {chooser == "velvebroken" ?<button  ><img className="choosedchooser" width={112} src="velvebroken.webp" alt="" /></button> :  <button onClick={() => setchooser("velvebroken") | setchooserprice(50) } className="notchoosedchooser" ><img width={112} src="velvebroken.webp" alt="" /></button> }
+                        {chooser == "visiOrDroveFlat" ?<button  ><img className="choosedchooser" width={112} src="visiOrDroveFlat.webp" alt="" /></button> :  <button onClick={() => setchooser("visiOrDroveFlat") | setchooserprice(0) }  className="notchoosedchooser" ><img width={112} src="visiOrDroveFlat.webp" alt="" /></button> }
                     </div>
                 </div>
                 <div className="bandemat">
@@ -83,94 +90,73 @@ export default function Orderpechbjistan() {
 
                         </select>
                         <select name="" id="">
-                        <option value="315">315</option>
-                        <option value="325">325</option>
-                        <option value="335">335</option>
-                        <option value="305">305</option>
-                        <option value="295">295</option>
-                        <option value="285">285</option>
-                        <option value="275">275</option>
-                        <option value="265">265</option>
-                        <option value="255">255</option>
-                        <option value="245">245</option>
-                        <option value="235">235</option>
-                        <option value="225">225</option>
-                        <option value="215">215</option>
-                        <option value="205">205</option>
-                        <option value="195">195</option>
-                        <option value="185">185</option>
-                        <option value="175">175</option>
-                        <option value="165">165</option>
-                        <option value="155">155</option>
+                        <option value="20">20</option>
+                        <option value="25">25</option>
+                        <option value="30">30</option>
+                        <option value="35">35</option>
+                        <option value="40">40</option>
+                        <option value="45">45</option>
+                        <option value="50">50</option>
+                        <option value="55">55</option>
+                        <option value="60">60</option>
+                        <option value="65">65</option>
+                        <option value="70">70</option>
+                        <option value="75">75</option>
+                        <option value="80">80</option>
+
 
 
                         </select>
                         <select name="" id="">
-                        <option value="315">315</option>
-                        <option value="325">325</option>
-                        <option value="335">335</option>
-                        <option value="305">305</option>
-                        <option value="295">295</option>
-                        <option value="285">285</option>
-                        <option value="275">275</option>
-                        <option value="265">265</option>
-                        <option value="255">255</option>
-                        <option value="245">245</option>
-                        <option value="235">235</option>
-                        <option value="225">225</option>
-                        <option value="215">215</option>
-                        <option value="205">205</option>
-                        <option value="195">195</option>
-                        <option value="185">185</option>
-                        <option value="175">175</option>
-                        <option value="165">165</option>
-                        <option value="155">155</option>
+                        <option value="R10"> R10 </option>
+                        <option value="R11">R11</option>
+                        <option value="R12">R12</option>
+                        <option value="R13">R13</option>
+                        <option value="R14">R14</option>
+                        <option value="R15">R15</option>
+                        <option value="R16">R16</option>
+                        <option value="R17">R17</option>
+                        <option value="R18">R18</option>
+                        <option value="R19">R19</option>
+                        <option value="R20">R20</option>
+                        <option value="R21">R21</option>
+                        <option value="R22">R22</option>
+                        <option value="R23">R23</option>
 
 
                         </select>
                         <select name="" id="">
-                        <option value="315">315</option>
-                        <option value="325">325</option>
-                        <option value="335">335</option>
-                        <option value="305">305</option>
-                        <option value="295">295</option>
-                        <option value="285">285</option>
-                        <option value="275">275</option>
-                        <option value="265">265</option>
-                        <option value="255">255</option>
-                        <option value="245">245</option>
-                        <option value="235">235</option>
-                        <option value="225">225</option>
-                        <option value="215">215</option>
-                        <option value="205">205</option>
-                        <option value="195">195</option>
-                        <option value="185">185</option>
-                        <option value="175">175</option>
-                        <option value="165">165</option>
-                        <option value="155">155</option>
+                        <option value="50">50</option>
+                        <option value="51">51</option>
+                        <option value="52">52</option>
+                        <option value="53">53</option>
+                        <option value="54">54</option>
+                        <option value="55">55</option>
+                        <option value="56">56</option>
+                        <option value="57">57</option>
+                        <option value="58">58</option>
+                        <option value="59">59</option>
+                        <option value="60">60</option>
+                        <option value="61">61</option>
+                        <option value="62">62</option>
+                        <option value="63">63</option>
+                        <option value="64">64</option>
+                        <option value="65">65</option>
+                        <option value="66">66</option>
+                        <option value="67">67</option>
+                        <option value="68">68</option>
+                        <option value="69">69</option>
 
 
                         </select>
                         <select name="" id="">
-                        <option value="315">315</option>
-                        <option value="325">325</option>
-                        <option value="335">335</option>
-                        <option value="305">305</option>
-                        <option value="295">295</option>
-                        <option value="285">285</option>
-                        <option value="275">275</option>
-                        <option value="265">265</option>
-                        <option value="255">255</option>
-                        <option value="245">245</option>
-                        <option value="235">235</option>
-                        <option value="225">225</option>
-                        <option value="215">215</option>
-                        <option value="205">205</option>
-                        <option value="195">195</option>
-                        <option value="185">185</option>
-                        <option value="175">175</option>
-                        <option value="165">165</option>
-                        <option value="155">155</option>
+                        <option value="R">R</option>
+                        <option value="S">S</option>
+                        <option value="T">T</option>
+                        <option value="H">H</option>
+                        <option value="V">V</option>
+                        <option value="W">W</option>
+                        <option value="Y">Y</option>
 
 
                         </select>
@@ -181,10 +167,11 @@ export default function Orderpechbjistan() {
                     
                 </div>
                 <div className="price">
-                    <div className="totalprice"> €0 BTW INCL.</div>
+                    <div className="totalprice"> € {regionprice + chooserprice} BTW INCL.</div>
                     <p>(*) Kostprijs aankoop banden niet inbegrepen</p>
                 </div>
             </div>
+            <button className='orderbutton' >prijsofferte/interventie aanvragen in 2 stappen</button>
             
 
             
