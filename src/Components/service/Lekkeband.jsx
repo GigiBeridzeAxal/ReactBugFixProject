@@ -28,7 +28,7 @@ export default function Lekkeband() {
             <div className="questions">
                 
             <div className="question">
-                    <button onClick={() => q1 == true ? setq1(false) : setq1(true) } className="questiontittle">Platte band auto weetjes: <img width={20} src="Down.png" alt="" /> </button>
+                    <button onClick={() => q1 == true ? setq1(false) : setq1(true) } className="questiontittle">Platte band auto weetjes: { q1 == true ?<img width={20} src="Up.png" alt="" /> : <img width={20} src="Down.png" alt="" />   }</button>
                     {q1 == true ? <div className='Answer' >
                          <ul>
                             <li>1 op 4 pechgevallen zijn banden gerelateerd!</li>
@@ -44,7 +44,7 @@ export default function Lekkeband() {
                     </div> : null}
                 </div>
                 <div className="question">
-                    <button onClick={() => q2 == true ? setq2(false) : setq2(true) } className="questiontittle">Waaraan herken je een platte band? <img width={20} src="Down.png" alt="" /> </button>
+                    <button onClick={() => q2 == true ? setq2(false) : setq2(true) } className="questiontittle">Waaraan herken je een platte band? { q2 == true ?<img width={20} src="Up.png" alt="" /> : <img width={20} src="Down.png" alt="" />   } </button>
                     {q2 == true ? <div className='Answer' >
                         U merkt zichtbaar drukverlies of krijgt een melding van de bandenspanningssensoren.
                     Soms ervaar je minder duidelijke symptomen zoals een afwijking naar 1 zijde, trilling in het
@@ -54,7 +54,7 @@ export default function Lekkeband() {
                     </div> : null}
                 </div>
                 <div className="question">
-                    <button onClick={() => q3 == true ? setq3(false) : setq3(true) } className="questiontittle">Kan je doorrijden met een spijker in je band? <img width={20} src="Down.png" alt="" /> </button>
+                    <button onClick={() => q3 == true ? setq3(false) : setq3(true) } className="questiontittle">Kan je doorrijden met een spijker in je band? { q3 == true ?<img width={20} src="Up.png" alt="" /> : <img width={20} src="Down.png" alt="" />   } </button>
                     {q3 == true ? <div className='Answer' >
                         Er is geen drukverlies,mogelijks zit de spijker niet door de band heen. Het is belangrijk deze
         direct te laten controleren door een bandenspecialist. U kan voorzichtig verder rijden tot de
@@ -67,7 +67,7 @@ export default function Lekkeband() {
                     </div> : null}
                 </div>
                 <div className="question">
-                    <button onClick={() => q4 == true ? setq4(false) : setq4(true) } className="questiontittle">Een lekke autoband, het reservewiel monteren!<img width={20} src="Down.png" alt="" /> </button>
+                    <button onClick={() => q4 == true ? setq4(false) : setq4(true) } className="questiontittle">Een lekke autoband, het reservewiel monteren!{ q4 == true ?<img width={20} src="Up.png" alt="" /> : <img width={20} src="Down.png" alt="" />   } </button>
                     {q4 == true ? <div className='Answer' >
                         <ul>
                             <li>Controleer dat uw wagen veilig staat, trek te handrem aan</li>
@@ -82,7 +82,7 @@ export default function Lekkeband() {
                     </div> : null}
                 </div>
                 <div className="question">
-                    <button onClick={() => q5 == true ? setq5(false) : setq5(true) } className="questiontittle">Platte band auto & geen reservewiel te bespeuren!<img width={20} src="Down.png" alt="" /> </button>
+                    <button onClick={() => q5 == true ? setq5(false) : setq5(true) } className="questiontittle">Platte band auto & geen reservewiel te bespeuren!{ q5 == true ?<img width={20} src="Up.png" alt="" /> : <img width={20} src="Down.png" alt="" />   } </button>
                     {q5 == true ? <div className='Answer' >
                         U heeft een lekke band en merkt op dat het reservewiel ontbreekt! Dit is geen vergissing!
                         We leven in een wereld waar constructeurs uitgedaagd worden de lat steeds hoger te leggen.
@@ -96,7 +96,7 @@ export default function Lekkeband() {
                 </div>
 
                 <div className="question">
-                    <button onClick={() => q6 == true ? setq6(false) : setq6(true) } className="questiontittle">Autoband reparatie<img width={20} src="Down.png" alt="" /> </button>
+                    <button onClick={() => q6 == true ? setq6(false) : setq6(true) } className="questiontittle">Autoband reparatie{ q6 == true ?<img width={20} src="Up.png" alt="" /> : <img width={20} src="Down.png" alt="" />   }</button>
                     {q6 == true ? <div className='Answer' >
                         Een auto band reparatie is kosten besparend! Na de banden herstelling is uw band even goed!
                         Er zijn verschillende redenen waarom autobanden druk kunnen verliezen:
@@ -112,7 +112,7 @@ export default function Lekkeband() {
                 </div>
 
                 <div className="question">
-                    <button onClick={() => q7 == true ? setq7(false) : setq7(true) } className="questiontittle">Voorwaarden autoband reparatie<img width={20} src="Down.png" alt="" /> </button>
+                    <button onClick={() => q7 == true ? setq7(false) : setq7(true) } className="questiontittle">Voorwaarden autoband reparatie{ q7 == true ?<img width={20} src="Up.png" alt="" /> : <img width={20} src="Down.png" alt="" />   } </button>
                     {q7 == true ? <div className='Answer' >
                         Allereerst controleren wij de buitenzijde en zoeken wij de oorzaak,
                         vervolgens controleren we de binnenzijde, Is er gevolgschade?
@@ -127,7 +127,7 @@ export default function Lekkeband() {
                 </div>
 
                 <div className="question">
-                    <button onClick={() => q8 == true ? setq8(false) : setq8(true) } className="questiontittle">Hoe verloopt onze pechverhelping? <img width={20} src="Down.png" alt="" /> </button>
+                    <button onClick={() => q8 == true ? setq8(false) : setq8(true) } className="questiontittle">Hoe verloopt onze pechverhelping? { q8 == true ?<img width={20} src="Up.png" alt="" /> : <img width={20} src="Down.png" alt="" />   } </button>
                     {q8 == true ? <div className='Answer' >
                         Voor bandenpech verhelping ter plaatse kan u ons telefonisch contacteren.
                         (Ook via Whatsapp, wat handig is om ons enkele foto's of uw realtime locatie door te sturen.)
@@ -143,7 +143,7 @@ export default function Lekkeband() {
                     </div> : null}
                 </div>
                 <div className="question">
-                    <button onClick={() => q9 == true ? setq9(false) : setq9(true) } className="questiontittle">Een platte band? Autoband repareren? Aan welke voertuigen werkt de Mobiele Bandencentrale?<img width={20} src="Down.png" alt="" /> </button>
+                    <button onClick={() => q9 == true ? setq9(false) : setq9(true) } className="questiontittle">Een platte band? Autoband repareren? Aan welke voertuigen werkt de Mobiele Bandencentrale?{ q9 == true ?<img width={20} src="Up.png" alt="" /> : <img width={20} src="Down.png" alt="" />   } </button>
                     {q9 == true ? <div className='Answer' >
                         platte band? Wij herstellen en vervangen banden van ieder type personenvoertuig (oldtimers, sportwagens, sedans, ...) maar ook lichte vracht (bestelwagens, aanhangwagens, terreinwagens), zelfs uw Mobile Home!
 

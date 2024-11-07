@@ -110,7 +110,7 @@
 .questions{
   width: 95%;
   overflow: hidden;
-  height: 90%;
+  height: 80%;
   overflow-y: scroll;
   gap: 25px;
   display: flex;
@@ -149,6 +149,9 @@
   color: white;
   padding: 5px;
   text-align: start;
+  width: 100%;
+}
+.tire{
   width: 100%;
 }
 
@@ -192,4 +195,19 @@
   height: 95%;
 
   
+}
+.titldesc{
+  width: 100%;
+
+  font-style: italic;
+  color: white;
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: 5px;
+
+
+}
+.links{
+  --tw-text-opacity: 1;
+  color: rgb(96 165 250 / var(--tw-text-opacity));
 }
