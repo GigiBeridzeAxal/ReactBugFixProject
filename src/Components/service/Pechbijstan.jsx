@@ -5,6 +5,9 @@ export default function Pechbijstan() {
     const [q1 , setq1] = useState(false)
     const [q2 , setq2] = useState(false)
     const [q3 , setq3] = useState(false)
+    
+
+    const [map , setmap] = useState(false)
 
   return (
     <div className="service">
@@ -13,7 +16,8 @@ export default function Pechbijstan() {
             
             <h1>PECHBIJSTAND ZONDER BRANDSTOF GEVALLEN</h1>
 
-
+            
+            
             <div className="questions">
                 
             <div className="question">
