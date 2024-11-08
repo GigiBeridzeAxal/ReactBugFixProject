@@ -386,3 +386,84 @@
   width: 100%;
   height: 100vh;
 }
+.phone{
+  display: flex;
+  align-items: center;
+
+}
+.country{
+  max-width: 20%;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0px !important;
+  margin: 0;
+}
+.country div{
+  padding: 0px;
+}
+.phoneinput{
+  width: 100%;
+  
+  border: 0;
+  outline: 0;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  height: 37px;
+}
+.phonevalues{
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  display: flex;
+  align-items: center;
+  background-color: white;
+  width: 100%;
+}
+
+.label{
+  padding-bottom: 10px;
+  color: white;
+}
+.formval{
+  display: flex;
+  flex-direction: column;
+}
+.email{
+  padding: 10px;
+  border-radius: 10px;
+
+}
+.vorwarden{
+  text-decoration: underline;
+  text-align: start !important;
+
+  color: white !important;
+}
+
+.terms{
+  color: white  ;
+  padding: 30px;
+  
+}
+.Whatsappsubmit{
+  padding: 10px;
+  --tw-bg-opacity: 1;
+  background-color: rgb(74 222 128 / var(--tw-bg-opacity));
+  border: 0;
+  border-radius: 5px;
+  color: white;
+}
+.Emailsubmit{
+  margin-top: 10px;
+  padding: 10px;
+  --tw-bg-opacity: 1;
+  background-color: rgb(74 222 128 / var(--tw-bg-opacity));
+  border: 0;
+  border-radius: 5px;
+  color: white;
+}
+.bericht{
+  height: 100px;
+  border-radius: 10px;
+}

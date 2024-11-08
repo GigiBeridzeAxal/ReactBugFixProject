@@ -1,8 +1,10 @@
 import { APIProvider , Map , Marker } from "@vis.gl/react-google-maps";
+import ReactFlagsSelect from "react-flags-select";
+import { getCountryCallingCode } from 'libphonenumber-js';
 
 
-
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import axios from "axios";
 export default function Orderpechbjistan() {
     
     
@@ -18,6 +20,31 @@ export default function Orderpechbjistan() {
     const [regionprice , setregionprice] = useState(0)
     const [chooserprice , setchooserprice] = useState(0)
 
+
+    const [country ,setcountry] = useState()
+    const [countryocode , setcountrycode] = useState()
+
+    useEffect(() => {
+
+
+        const getcountry = async() => {
+            try{
+                console.log("Working")
+    
+                const response = await axios.get('https://ipinfo.io/?token=9921af2e78e840');
+                const countrycode = getCountryCallingCode(response.data.country)
+                setcountrycode(countrycode)
+                setcountry(response.data.country)
+    
+            }catch(err){
+    
+            }
+        }
+        getcountry()
+    },[])
+
+
+
     const MyLocat = () => {
         navigator.geolocation.getCurrentPosition((position) => {
             const lat = position.coords.latitude
@@ -30,7 +57,46 @@ export default function Orderpechbjistan() {
     }
 
     return(
-   validationopened == true ? null :
+   validationopened == true ? <>
+   
+   <form className="formval"  >
+
+     <label className="label" >Telefoon Nummer</label>
+     <div className="phone">
+        <div className="country"><ReactFlagsSelect showSelectedLabel={false} showOptionLabel={false} onSelect={(sel) => setcountry(sel)}  selected={country}  >
+            
+            </ReactFlagsSelect></div>
+            <div className="phonevalues">
+                <div className="phonecode">+{countryocode}</div>
+            <input required maxLength={9} minLength={9} className="phoneinput" type="text" />
+            </div>
+
+
+     </div>
+     <label className="label" >Email Adres</label>
+     <input className="email" required  type="email" />
+
+     <label className="label" >Bericht</label>
+     <textarea className="bericht" required name="" id=""></textarea>
+
+     <div className="terms" >
+     < h1 className="vorwarden">Voorwaarden</h1>
+     <p className="acepter" >Accepteer het privacybeleid voordat u een verzoek indient.</p>
+
+     <div className="termcheckbox">
+        <input type="checkbox" /> Ik heb het privacybeleid gelezen en ga ermee akkoord
+     </div>
+
+     </div>
+
+
+     <button className="Whatsappsubmit" >Uw aanvraag doorsturen per Whatsapp</button>
+     <button className="Emailsubmit" >Uw aanvraag doorsturen per mail</button>
+
+
+   </form>
+
+   </> :
     <>
     
     
@@ -61,7 +127,7 @@ export default function Orderpechbjistan() {
                     <div className="choose">
                         <div className="choosetittle">KIES INDIEN VAN TOEPASSING</div>
                         <div className="chooselist">
-                            {chooser == "velvebroken" ?<button  ><img className="choosedchooser" width={112} src="velvebroken.webp" alt="" /></button> :  <button onClick={() => setchooser("velvebroken") | setchooserprice(50) } className="notchoosedchooser" ><img width={112} src="velvebroken.webp" alt="" /></button> }
+                            {chooser == "velvebroken" ?<button  ><img className="choosedchooser" width={112} src="velveBroken.webp" alt="" /></button> :  <button onClick={() => setchooser("velvebroken") | setchooserprice(50) } className="notchoosedchooser" ><img width={112} src="velvebroken.webp" alt="" /></button> }
                             {chooser == "visiOrDroveFlat" ?<button  ><img className="choosedchooser" width={112} src="visiOrDroveFlat.webp" alt="" /></button> :  <button onClick={() => setchooser("visiOrDroveFlat") | setchooserprice(0) }  className="notchoosedchooser" ><img width={112} src="visiOrDroveFlat.webp" alt="" /></button> }
                         </div>
                     </div>
