@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import Orderpechbjistan from '../Orders/Orderpechbjistan'
+import Orderpechbjistan from '../Orders/Orderlekkband'
+import Onlinebandenorder from '../Orders/Onlinebandenorder'
 
 export default function Onlinebanden() {
 
@@ -13,7 +14,7 @@ export default function Onlinebanden() {
     const [q8 , setq8] = useState(false)
     const [q9 , setq9] = useState(false)
 
-    const [map , setmap] = useState(false)
+    const [order , setorder] = useState(false)
 
 
 
@@ -23,10 +24,10 @@ export default function Onlinebanden() {
     <div className="service">
         <img width={250} src="LOGO.png" alt="" />
         <div className="serviceframe">
-            
-            <h1>ONLINE BANDEN KOPEN MET MONTAGE AAN HUIS</h1>
+            {order == true ? null :             <h1>ONLINE BANDEN KOPEN MET MONTAGE AAN HUIS</h1>}
 
-            {map == true ? <Orderpechbjistan></Orderpechbjistan> :   <div className="questions">
+
+            {order == true ? <Onlinebandenorder></Onlinebandenorder> :   <div className="questions">
                 
                 <div className="question">
                         <button onClick={() => q1 == true ? setq1(false) : setq1(true) } className="questiontittle">Waarom kan het nodig zijn uw banden te vervangen?{ q1 == true ?<img width={20} src="Up.png" alt="" /> : <img width={20} src="Down.png" alt="" />   }</button>
@@ -132,8 +133,9 @@ export default function Onlinebanden() {
             
 
         </div>
-        <button className='button1' >prijsofferte/interventie aanvragen in 2 stappen</button>
-        <a href='tel:+1-0470-07-75-25' className='autocall' >Direct Contact</a>
+        {order == true ? null : <> <button onClick={() => setorder(true)} className='button1' >prijsofferte/interventie aanvragen in 2 stappen</button>
+        <a href='tel:+1-0470-07-75-25' className='autocall' >Direct Contact</a></> }
+       
     </div>
   )
 }

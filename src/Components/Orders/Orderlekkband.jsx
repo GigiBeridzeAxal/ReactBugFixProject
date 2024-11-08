@@ -118,9 +118,9 @@ export default function Orderpechbjistan() {
                     <div className="regions">
                         <div className="regiontittle">KIES UW REGIO</div>
                         <div className="regionbtn">
-                            {region == "WestVla" ?<button className="choosedbutton" > <img width={120} src="WestVla.webp" alt="" /></button> :<button onClick={() => setregion("WestVla") | setregionprice(50) } className="notchoosedbtn" > <img width={120} src="WestVla.webp" alt="" /></button>}
-                            {region == "OostVla" ?<button className="choosedbutton" > <img width={120} src="OostVla.webp" alt="" /></button> :<button onClick={() => setregion("OostVla") | setregionprice(0) }  className="notchoosedbtn" > <img width={120} src="OostVla.webp" alt="" /></button>}
-                            {region == "Antwerpen" ?<button className="choosedbutton" > <img width={120} src="Antwerpen.webp" alt="" /></button> :<button onClick={() => setregion("Antwerpen") | setregionprice(50) } className="notchoosedbtn" > <img width={120} src="Antwerpen.webp" alt="" /></button>}
+                            {region == "WestVla" ?<button className="choosedbutton" > <img width={120} src="WestVla.webp" alt="" /></button> :<button onClick={() => setregion("WestVla") | setregionprice(145) } className="notchoosedbtn" > <img width={120} src="WestVla.webp" alt="" /></button>}
+                            {region == "OostVla" ?<button className="choosedbutton" > <img width={120} src="OostVla.webp" alt="" /></button> :<button onClick={() => setregion("OostVla") | setregionprice(95) }  className="notchoosedbtn" > <img width={120} src="OostVla.webp" alt="" /></button>}
+                            {region == "Antwerpen" ?<button className="choosedbutton" > <img width={120} src="Antwerpen.webp" alt="" /></button> :<button onClick={() => setregion("Antwerpen") | setregionprice(145) } className="notchoosedbtn" > <img width={120} src="Antwerpen.webp" alt="" /></button>}
     
                         </div>
                     </div>

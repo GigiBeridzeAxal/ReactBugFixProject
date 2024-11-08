@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Orderpechbjistan from '../Orders/Orderpechbijstan'
 
 export default function Pechbijstan() {
     
@@ -14,11 +15,11 @@ export default function Pechbijstan() {
         <img width={250} src="LOGO.png" alt="" />
         <div className="serviceframe">
             
-            <h1>PECHBIJSTAND ZONDER BRANDSTOF GEVALLEN</h1>
+            {map == true ?null:            <h1>PECHBIJSTAND ZONDER BRANDSTOF GEVALLEN</h1> }
+
 
             
-            
-            <div className="questions">
+            {map == true ?  <Orderpechbjistan></Orderpechbjistan> :   <div className="questions">
                 
             <div className="question">
                     <button onClick={() => q1 == true ? setq1(false) : setq1(true) } className="questiontittle">Hoelang kan ik nog rijden in reserve? { q1 == true ?<img width={20} src="Up.png" alt="" /> : <img width={20} src="Down.png" alt="" />   }</button>
@@ -47,13 +48,15 @@ export default function Pechbijstan() {
 
 
             </div>
-            
+             }
+         
 
             
 
         </div>
-        <button className='button1' >prijsofferte/interventie aanvragen in 2 stappen</button>
-        <a href='tel:+1-0470-07-75-25' className='autocall' >Direct Contact</a>
+        {map == true ? null : <>        <button onClick={() => setmap(true)} className='button1' >prijsofferte/interventie aanvragen in 2 stappen</button>
+            <a href='tel:+1-0470-07-75-25' className='autocall' >Direct Contact</a></> }
+
     </div>
   )
 }
