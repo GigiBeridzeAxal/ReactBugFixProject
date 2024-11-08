@@ -127,7 +127,7 @@ export default function Orderpechbjistan() {
                     <div className="choose">
                         <div className="choosetittle">KIES INDIEN VAN TOEPASSING</div>
                         <div className="chooselist">
-                            {chooser == "velvebroken" ?<button  ><img className="choosedchooser" width={112} src="velveBroken.webp" alt="" /></button> :  <button onClick={() => setchooser("velvebroken") | setchooserprice(50) } className="notchoosedchooser" ><img width={112} src="velvebroken.webp" alt="" /></button> }
+                            {chooser == "velvebroken" ?<button  ><img className="choosedchooser" width={112} src="velveBroken.webp" alt="" /></button> :  <button onClick={() => setchooser("velvebroken") | setchooserprice(50) } className="notchoosedchooser" ><img width={112} src="velveBroken.webp" alt="" /></button> }
                             {chooser == "visiOrDroveFlat" ?<button  ><img className="choosedchooser" width={112} src="visiOrDroveFlat.webp" alt="" /></button> :  <button onClick={() => setchooser("visiOrDroveFlat") | setchooserprice(0) }  className="notchoosedchooser" ><img width={112} src="visiOrDroveFlat.webp" alt="" /></button> }
                         </div>
                     </div>
