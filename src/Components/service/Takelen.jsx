@@ -5,198 +5,120 @@ import { getCountryCallingCode } from 'libphonenumber-js';
 
 import React, { useEffect, useState } from 'react'
 import axios from "axios";
+import useWatsapp from "../Hooks/useWatsapp";
+import useEmail from "../Hooks/useEmail";
+import Ordertakelen from "../Orders/Ordertakelen";
 
 export default function Takelen() {
-    const [center ,setcenter] = useState({lat:0.5353, lng:0.53515})
-    const [markerpos , setmarkerpos] = useState({ lat: 50.84852676025505, lng: 4.350960265625017 } )
-    const [locationchanged , setlocationchanged] = useState(false)
-    const [order , setorder] = useState(false)
-    const [validationopened , setvalidationopened] = useState(false)
-
-    const [region , setregion] = useState()
-    const [chooser , setchooser] = useState()
-
-    const [regionprice , setregionprice] = useState(0)
-    const [chooserprice , setchooserprice] = useState(0)
-
-
-    const [country ,setcountry] = useState()
-    const [countryocode , setcountrycode] = useState()
-
-    useEffect(() => {
-
-
-        const getcountry = async() => {
-            try{
-                console.log("Working")
     
-                const response = await axios.get('https://ipinfo.io/?token=9921af2e78e840');
-                const countrycode = getCountryCallingCode(response.data.country)
-                setcountrycode(countrycode)
-                setcountry(response.data.country)
+
     
-            }catch(err){
-    
-            }
-        }
-        getcountry()
-    },[])
+    const [q1 , setq1] = useState(false)
+    const [q2 , setq2] = useState(false)
+    const [q3 , setq3] = useState(false)
+    const [q4 , setq4] = useState(false)
+    const [q5 , setq5] = useState(false)
+    const [q6 , setq6] = useState(false)
+    const [q7 , setq7] = useState(false)
+    const [q8 , setq8] = useState(false)
+    const [q9 , setq9] = useState(false)
+
+    const [order , setorder] = useState(true)
 
 
 
-    const MyLocat = () => {
-        navigator.geolocation.getCurrentPosition((position) => {
-            const lat = position.coords.latitude
-            const lng = position.coords.longitude
-            console.log(lat , lng)
-            setmarkerpos({ lat , lng})
-            setcenter({lat, lng})
-            setlocationchanged(true)
-        })
-    }
 
-    return(
-   validationopened == true ? <>
-   
-   <form className="formval"  >
 
-     <label className="label" >Telefoon Nummer</label>
-     <div className="phone">
-        <div className="country"><ReactFlagsSelect showSelectedLabel={false} showOptionLabel={false} onSelect={(sel) => setcountry(sel)}  selected={country}  >
+  return (
+    <div className="service">
+        <img width={250} src="LOGO.png" alt="" />
+        <div className="serviceframe">
             
-            </ReactFlagsSelect></div>
-            <div className="phonevalues">
-                <div className="phonecode">+{countryocode}</div>
-            <input required maxLength={9} minLength={9} className="phoneinput" type="text" />
+
+            {order == true ? null: <>         <h1>SLOTBOUTEN VERWIJDEREN</h1>
+            <div className="titldesc">
+            <q > Prijs verwijderen slotbout in onze vestiging: €50, indien uw voertuig niet meer mobiel is kunnen we transport voorzien</q>
+
             </div>
-
-
-     </div>
-     <label className="label" >Email Adres</label>
-     <input className="email" required  type="email" />
-
-     <label className="label" >Bericht</label>
-     <textarea className="bericht" required name="" id=""></textarea>
-
-     <div className="terms" >
-     < h1 className="vorwarden">Voorwaarden</h1>
-     <p className="acepter" >Accepteer het privacybeleid voordat u een verzoek indient.</p>
-
-     <div className="termcheckbox">
-        <input type="checkbox" /> Ik heb het privacybeleid gelezen en ga ermee akkoord
-     </div>
-
-     </div>
-
-
-     <button className="Whatsappsubmit" >Uw aanvraag doorsturen per Whatsapp</button>
-     <button className="Emailsubmit" >Uw aanvraag doorsturen per mail</button>
-
-
-   </form>
-
-   </> :
-    <>
+</>}
+   
+             {order == true ? <Ordertakelen></Ordertakelen> :  <div className="questions">
+                
+                <div className="question">
+                        <button onClick={() => q1 == true ? setq1(false) : setq1(true) } className="questiontittle">{ q1 == true ?<div className='minus' >-   </div> : <div className='plus' >+</div>   }Redenen waarom de anti diefstal bout verwijderd moet worden:</button>
+                        {q1 == true ? <div className='Answer' >
+    
+                                <li>De anti diefstal sleutel verloren</li>
+                                <li>de anti diefstal sleutel of bout is beschadigd</li>
+                                <li>de bout werd te hard aangedraaid</li>
     
     
     
     
-    {order == true  ? null: <div className="locationframe" >
-                Waar is uw voertuig?
+                        </div> : null}
+                    </div>
+                    <div className="question">
+                        <button onClick={() => q2 == true ? setq2(false) : setq2(true) } className="questiontittle">{ q2 == true ?<div className='minus' >-   </div> : <div className='plus' >+</div>   }Eigenschappen van anti diefstal bouten die het moeilijker maken ze los te krijgen  </button>
+                        {q2 == true ? <div className='Answer' >
+                            <li>Diepliggende bouten</li>
+                            <li>weinig ruimte tussen dop & velg</li>
+                            <li>gepolijst oppervlakte (</li>
+                            <li>Gehard staal wat boren bemoeilijkt</li>
+                            <li>Vrijdraaiende ring (bijv. MC guard wheellock, bloempatroon, </li>
     
-                {locationchanged == true  ? <button onClick={() => setorder(true)} >Doorgaan</button>:<button onClick={() => MyLocat()} >Zoek mij</button>}
+                        </div> : null}
+                    </div>
+                    <div className="question">
+                        <button onClick={() => q3 == true ? setq3(false) : setq3(true) } className="questiontittle">{ q3 == true ?<div className='minus' >-   </div> : <div className='plus' >+</div>   }Anti diefstal bouten losmaken </button>
+                        {q3 == true ? <div className='Answer' >
+                            <h4>SLOTBOUT   VERWIJDEREN   OPTIE A: Veiligheidsbouten die niet uitgerust zijn met vrijloop ring:</h4>
+                            <p>                        Dopsleutel over kloppen: ga opzoek naar een dopsleutel die spant over de veiligheidsdop.
+                        Bij voorkeur een 12kant. Deze hebben meer raakvlakken over de veiligheidsbout.
+                        Engelse wieldopmaten hebben de voorkeur maar metrische wieldoppen behoren zeker ook tot de mogelijkheden!
+                        Gebruik een zware hamer om de wieldop over de veiligheidsbout te slaan.
+                        Naast grip nemen op de veiligheidsbout heeft de trilling als voordeel dat de veiligheidsbout 'losser' komt te staan!
+                        De slotbout verwijderen: Wanneer de bout niet verder opschuift probeer je met een wielsleutel de bout los te draaien.</p>
+    
+                        <a className='links' href="https://www.youtube.com/watch?v=ymSu_insGqU">Bijv. Dopsleutel overkloppen</a>
+                        <p>slotbout sleutel. De slotbout verwijderaars worden gebruikt op een slagmoersleutel en draaien zich
+                        als het ware vast op de veiligheidsbout.</p>
+                        <a className='links' href="https://www.youtube.com/watch?v=53_xf90NaDU">Bijv. Slotbout verwijderaar</a>
+                        <p>wielbout uitboren</p>
+    
+                        <a className='links' href="https://www.youtube.com/watch?v=53_xf90NaDU">Bijv. Slotbout verwijderaar</a>
+    
+                        </div> : null}
+                    </div>
+                    <div className="question">
+                        <button onClick={() => q4 == true ? setq4(false) : setq4(true) } className="questiontittle">{ q4 == true ?<div className='minus' >-   </div> : <div className='plus' >+</div>   }SLOTBOUT LOSMAKEN OPTIE B: Veiligheidsbouten uitgerust zijn met vrijloop ring:</button>
+                        {q4 == true ? <div className='Answer' >
+                            <li>Dopsleutel over kloppen:</li>
+                            Soms kan je een dopsleutel over de losdraaiende ring slaan die omwille van de spanning toch gripeert en toelaat de bout te verwijderen,
+                    Als dit niet mogelijk is moet je de losdraaiende ring zien te verwijderen (met een bijtel of vastzetten dmv las).
+                    Nadien kan je deze met bovenstaande methodes verwijderen.
+                        </div> : null}
+                    </div>
+                    <div className="question">
+                        <button onClick={() => q5 == true ? setq5(false) : setq5(true) } className="questiontittle">{ q5 == true ?<div className='minus' >-   </div> : <div className='plus' >+</div>   }SLOTBOUT UITBOREN OPTIE C: </button>
+                        {q5 == true ? <div className='Answer' >
+                            <li>Deze optie is de allerlaaste optie wanneer geen van bovenstaande methodes werkt.</li>
+                        </div> : null}
+                    </div>
+    
+    
     
     
     
                 </div>}
-               
-                {order == true  ?
-                <>
-    
-                <div>
-                    <div className="regions">
-                        <div className="regiontittle">KIES UW REGIO</div>
-                        <div className="regionbtn">
-                            {region == "WestVla" ?<button className="choosedbutton" > <img width={120} src="WestVla.webp" alt="" /></button> :<button onClick={() => setregion("WestVla") | setregionprice(195) } className="notchoosedbtn" > <img width={120} src="WestVla.webp" alt="" /></button>}
-                            {region == "OostVla" ?<button className="choosedbutton" > <img width={120} src="OostVla.webp" alt="" /></button> :<button onClick={() => setregion("OostVla") | setregionprice(145) }  className="notchoosedbtn" > <img width={120} src="OostVla.webp" alt="" /></button>}
-                            {region == "Antwerpen" ?<button className="choosedbutton" > <img width={120} src="Antwerpen.webp" alt="" /></button> :<button onClick={() => setregion("Antwerpen") | setregionprice(195) } className="notchoosedbtn" > <img width={120} src="Antwerpen.webp" alt="" /></button>}
-    
-                        </div>
-                        <div className="price">
-                        <div className="totalprice"> € {regionprice + chooserprice} </div>
-                        <p>(*) Prijs excl. Aankoop batterij</p>
-                    </div>
-                    </div>
-                  
-                   
-                   
-                        
-                    </div>
-                    <form className="formval"  >
+           
+            
 
-<label className="label" >Telefoon Nummer</label>
-<div className="phone">
-</div>
-       <div className="phonevalues">
-       <input required maxLength={9} minLength={9} className="phoneinput" type="text" />
+            
 
-
-</div>
-<label className="label" >Email Adres</label>
-<input className="email" required  type="email" />
-
-<label className="label" >Bericht</label>
-<textarea className="bericht" required name="" id=""></textarea>
-
-<div className="terms" >
-< h1 className="vorwarden">Voorwaarden</h1>
-<p className="acepter" >Accepteer het privacybeleid voordat u een verzoek indient.</p>
-
-<div className="termcheckbox">
-   <input type="checkbox" /> Ik heb het privacybeleid gelezen en ga ermee akkoord
-</div>
-
-</div>
-
-
-<button className="Whatsappsubmit" >Uw aanvraag doorsturen per Whatsapp</button>
-<button className="Emailsubmit" >Uw aanvraag doorsturen per mail</button>
-<br />
-
-
-</form>
-
-                
-    
-                
-                </>
-                
-                :  <div className="map" >
-                
-             
-                <APIProvider onLoad={() => console.log("Loaded")} apiKey="AIzaSyBYrVjCDtU5vIiwetkkggADFrFhW8VVjQ4
-        ">
-         <Map
-              defaultZoom={10}
-              center={markerpos}
-              >
-                
-                <Marker  draggable onDragEnd={(e) => setmarkerpos(e.latLng.toJSON() | setlocationchanged(true) |  console.log(e.latLng.toJSON()) )} position={markerpos} ></Marker>
-        
-        </Map>
-        </APIProvider>
         </div>
-         }
-    
-              
-    
-    </>
-    
-        
-    
-    
+        {order == true ? null : <>   <button onClick={() => setorder(true)} className='button1' >prijsofferte/interventie aanvragen in 2 stappen</button>
+            <a href='tel:+1-0470-07-75-25' className='autocall' >Direct Contact</a></>}
      
-    
-      )
- 
+    </div>
+  )
 }

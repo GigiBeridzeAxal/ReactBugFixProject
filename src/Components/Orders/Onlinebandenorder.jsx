@@ -5,6 +5,7 @@ import { getCountryCallingCode } from 'libphonenumber-js';
 
 import React, { useEffect, useState } from 'react'
 import axios from "axios";
+import useOnlineemail from "../Hooks/useOnlineemail";
 export default function Onlinebandenorder() {
     
     
@@ -19,12 +20,25 @@ export default function Onlinebandenorder() {
 
     const [regionprice , setregionprice] = useState(0)
     const [chooserprice , setchooserprice] = useState(0)
-
+    const [email , setemail] = useState()
+    const [desc , setdesc] = useState()
+    const [number , setnumber] = useState()
 
     const [country ,setcountry] = useState()
     const [countryocode , setcountrycode] = useState()
+    const [TypeBand , setTypeBand] = useState("Summer")
 
    
+    const Sendmail = (e) => {
+        e.preventDefault();
+        console.log("Working")
+
+        const Aanvrag = "ONLINE BANDEN KOPEN MET MONTAGE AAN HUIS"
+        useOnlineemail(email , number , desc  , Aanvrag , TypeBand )
+
+
+
+    }
 
 
     const MyLocat = () => {
@@ -212,10 +226,10 @@ export default function Onlinebandenorder() {
                         </div>
                         <div className="TypeBand">
                             <label htmlFor="">Type Band</label>      
-                            <select name="" id="">
-                            <option value="R">Summer</option>
-                            <option value="S">Winter</option>
-                            <option value="T">All Seasons</option>
+                            <select onChange={(e) => setTypeBand(e.target.value)} name="" id="">
+                            <option value="Summer">Summer</option>
+                            <option value="Winter">Winter</option>
+                            <option value="All Seasons">All Seasons</option>
 
     
     
@@ -229,30 +243,30 @@ export default function Onlinebandenorder() {
                     
   
                 </div>
-                <form className="formval"  >
+                <form onSubmit={(e) => Sendmail(e)} className="formval"  >
 
 <label className="label" >Telefoon Nummer</label>
 <div className="phone">
 
        <div className="phonevalues">
 
-       <input required maxLength={9} minLength={9} className="phoneinput" type="text" />
+       <input onChange={(e) => setnumber(e.target.value)} required maxLength={9} minLength={9} className="phoneinput" type="text" />
        </div>
 
 
 </div>
 <label className="label" >Email Adres</label>
-<input className="email" required  type="email" />
+<input onChange={(e) => setemail(e.target.value)} className="email" required  type="email" />
 
 <label className="label" >Bericht</label>
-<textarea className="bericht" required name="" id=""></textarea>
+<textarea onChange={(e) => setdesc(e.target.value)} className="bericht" required name="" id=""></textarea>
 
 <div className="terms" >
 < h1 className="vorwarden">Voorwaarden</h1>
 <p className="acepter" >Accepteer het privacybeleid voordat u een verzoek indient.</p>
 
 <div className="termcheckbox">
-   <input type="checkbox" /> Ik heb het privacybeleid gelezen en ga ermee akkoord
+   <input  type="checkbox" /> Ik heb het privacybeleid gelezen en ga ermee akkoord
 </div>
 
 </div>

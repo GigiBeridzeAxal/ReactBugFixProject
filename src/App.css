@@ -363,9 +363,9 @@
   margin-top: 15px;
 }
 .orderbutton{
-
+  position: absolute;
   padding-top: 25px;
-  bottom: -0.1%;
+  bottom: 1%;
   left: -8px;
   padding: 15px;
   width: 400px;
@@ -627,7 +627,7 @@ border-radius: 10px;
 }
 
 @media (max-width:450px) {
-
+  
   .Main{
     justify-content: center;
   }

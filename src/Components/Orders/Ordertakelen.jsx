@@ -7,8 +7,8 @@ import React, { useEffect, useState } from 'react'
 import axios from "axios";
 import useEmail from "../Hooks/useEmail";
 import useWatsapp from "../Hooks/useWatsapp";
-export default function Orderpechbjistan() {
-    
+export default function Ordertakelen() {
+     
     
     const [center ,setcenter] = useState({lat:0.5353, lng:0.53515})
     const [markerpos , setmarkerpos] = useState({ lat: 50.84852676025505, lng: 4.350960265625017 } )
@@ -42,7 +42,7 @@ export default function Orderpechbjistan() {
 }
 
 const Sendwatsapp = () =>{
-    const Aanvraag = "PECHBIJSTAND LEKKE BAND"
+    const Aanvraag = "TAKELEN"
     const price = chooserprice + regionprice
     
 
@@ -53,7 +53,7 @@ const Sendwatsapp = () =>{
 
 const Sendemail = async(e) => {
 
-    const Aanvraag = "PECHBIJSTAND LEKKE BAND"
+    const Aanvraag = "TAKELEN"
     const price =  regionprice
     const eml =  useEmail(email , number , desc , markerpos.lat , markerpos.lng , region , chooser , Aanvraag , price)
     console.log(eml.status)
@@ -133,19 +133,8 @@ const Sendemail = async(e) => {
                 <>
     
                 <div>
-                    <div className="regions">
-                        <div className="regiontittle">KIES UW REGIO</div>
-                        <div className="regionbtn">
-                            {region == "WestVla" ?<button className="choosedbutton" > <img width={120} src="WestVla.webp" alt="" /></button> :<button onClick={() => setregion("WestVla") | setregionprice(195) } className="notchoosedbtn" > <img width={120} src="WestVla.webp" alt="" /></button>}
-                            {region == "OostVla" ?<button className="choosedbutton" > <img width={120} src="OostVla.webp" alt="" /></button> :<button onClick={() => setregion("OostVla") | setregionprice(145) }  className="notchoosedbtn" > <img width={120} src="OostVla.webp" alt="" /></button>}
-                            {region == "Antwerpen" ?<button className="choosedbutton" > <img width={120} src="Antwerpen.webp" alt="" /></button> :<button onClick={() => setregion("Antwerpen") | setregionprice(195) } className="notchoosedbtn" > <img width={120} src="Antwerpen.webp" alt="" /></button>}
-    
-                        </div>
-                        <div className="price">
-                        <div className="totalprice"> € {regionprice + chooserprice} </div>
-                        <p>(*) Prijs excl. Brandstof</p>
-                    </div>
-                    </div>
+                  
+
                   
                     {watsappmenu == true ?  <div className="watsappmenu">
         <div className="watframe">
@@ -238,7 +227,7 @@ const Sendemail = async(e) => {
          }
     
               
-    
+              
     </>
     
         

@@ -5,6 +5,11 @@ import { getCountryCallingCode } from 'libphonenumber-js';
 
 import React, { useEffect, useState } from 'react'
 import axios from "axios";
+import useEmail from "../Hooks/useEmail";
+
+
+
+import useWatsapp from "../Hooks/useWatsapp";
 export default function OrderPlattebatterij() {
     
     
@@ -13,20 +18,55 @@ export default function OrderPlattebatterij() {
     const [locationchanged , setlocationchanged] = useState(false)
     const [order , setorder] = useState(false)
     const [validationopened , setvalidationopened] = useState(false)
+    const [user , setuser] = useState("Wazaa")
 
     const [region , setregion] = useState()
     const [chooser , setchooser] = useState()
 
     const [regionprice , setregionprice] = useState(0)
     const [chooserprice , setchooserprice] = useState(0)
+    const [watsappmenu , setwatsappmenu] = useState(false)
 
-
+    const [email , setemail] = useState()
+    const [desc , setdesc] = useState()
+    const [number , setnumber] = useState()
+    
     const [country ,setcountry] = useState()
     const [countryocode , setcountrycode] = useState()
+    const [emailsended , setemailsended] = useState(false)
+    const changewindow = () => {window.location = '/'}
+
+
+    const watmenu = () => {
+   
+
+        setwatsappmenu(true)
+
+}
+
+const Sendwatsapp = () =>{
+    const Aanvraag = "PECHBIJSTAND PLATTE BATTERIJL"
+    const price = chooserprice + regionprice
+    
+
+    useWatsapp(email , number , desc , markerpos.lat , markerpos.lng , region , chooser , Aanvraag , price)
+
+
+}
+
+const Sendemail = async(e) => {
+
+    const Aanvraag = "PECHBIJSTAND PLATTE BATTERIJL"
+    const price =  regionprice
+    const eml =  useEmail(email , number , desc , markerpos.lat , markerpos.lng , region , chooser , Aanvraag , price)
+    console.log(eml.status)
+    if(eml.status == 200){
+        setemailsended(true)
+    }
 
 
 
-
+}
 
     const MyLocat = () => {
         navigator.geolocation.getCurrentPosition((position) => {
@@ -106,29 +146,60 @@ export default function OrderPlattebatterij() {
                         </div>
                         <div className="price">
                         <div className="totalprice"> € {regionprice + chooserprice} </div>
-                        <p>(*) Prijs excl. Aankoop batterij</p>
+                        <p>(*) Prijs excl. Brandstof</p>
                     </div>
                     </div>
                   
-                   
+                    {watsappmenu == true ?  <div className="watsappmenu">
+        <div className="watframe">
+            <img src="Warning.png" alt="" />
+        <div className="watmenutittle">Je Wordt doorgestuurd naar WhatsApp</div>
+        <div className="watdesc">Ja , er wordt een nieuw WhatsApp-tabblad geopend en de volgende pagina wordt hier geopend.</div>
+
+        <div className="watbtns">
+            <button className="yesbtn"  onClick={() => Sendwatsapp()} >Yes</button>
+            <button className="cancelbtn" onClick={() => setwatsappmenu(false)} >Cancel</button>
+        </div>
+        </div>
+       
+
+
+     </div>
+ : null}
+ {emailsended == true ?  <div className="watsappmenu">
+        <div className="watframe">
+            <img src="Warning.png" alt="" />
+        <div className="watmenutittle">Een bericht succesvol verzonden</div>
+        <div className="watdesc">Bedankt voor het gebruik van onze service</div>
+
+        <div className="watbtns">
+            <button className="yesbtn" onClick={() => setemailsended(false) | changewindow()} >Ok!</button>
+        </div>
+        </div>
+       
+
+
+     </div>
+ : null}
                    
                         
                     </div>
-                    <form className="formval"  >
-
+                    <div className="formval"  >
 <label className="label" >Telefoon Nummer</label>
 <div className="phone">
-</div>
+
        <div className="phonevalues">
-       <input required maxLength={9} minLength={9} className="phoneinput" type="text" />
+
+       <input onChange={(e) => setnumber(e.target.value)} required maxLength={9} minLength={9} className="phoneinput" type="text" />
+       </div>
 
 
 </div>
 <label className="label" >Email Adres</label>
-<input className="email" required  type="email" />
+<input onChange={(e) => setemail(e.target.value)} className="email" required  type="email" />
 
 <label className="label" >Bericht</label>
-<textarea className="bericht" required name="" id=""></textarea>
+<textarea onChange={(e) => setdesc(e.target.value)} className="bericht" required name="" id=""></textarea>
 
 <div className="terms" >
 < h1 className="vorwarden">Voorwaarden</h1>
@@ -141,16 +212,15 @@ export default function OrderPlattebatterij() {
 </div>
 
 
-<button className="Whatsappsubmit" >Uw aanvraag doorsturen per Whatsapp</button>
-<button className="Emailsubmit" >Uw aanvraag doorsturen per mail</button>
+<button onClick={() => watmenu(true)} className="Whatsappsubmit" >Uw aanvraag doorsturen per Whatsapp</button>
+<button  onClick={() => Sendemail()} className="Emailsubmit" >Uw aanvraag doorsturen per mail</button>
 <br />
+</div>
 
-
-</form>
 
                 
     
-                
+       
                 </>
                 
                 :  <div className="map" >
@@ -171,7 +241,7 @@ export default function OrderPlattebatterij() {
          }
     
               
-    
+              
     </>
     
         

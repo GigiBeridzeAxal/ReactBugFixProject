@@ -3,14 +3,14 @@
 import axios from 'axios'
 import React from 'react'
 
-export default function useEmail(email , number , desc , lat , lng , region , chooser , Aanvraag , price) {
-
+export default function useZoomeremail(email , number , desc , Stockage , price , Aanvraag) {
+    console.log(Stockage)
 
 
 
     const emailserv = async() =>{
     const sendmail = await axios.post('https://emailsserv.onrender.com' , {
-        email , number , desc , lat , lng , region , chooser , Aanvraag , price
+        email:email , number , desc , Stockage , price , Aanvraag
     })
     if(sendmail){
         return{status:200}

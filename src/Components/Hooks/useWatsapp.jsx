@@ -26,13 +26,17 @@ export default function useWatsapp(email , number , desc , lat , lng ,region , c
     Vraag Details aan
 
     Aanvraag Type: ${Aanvraag}
-    Prijs: ${price} €
+    ${price ? `Prijs: ${price} €` : ``}
+
     Bericht: ${desc}
-    Region: ${region == "WestVla" ? "west-vlaanderen" : null}
+    ${region ? `    Region: ${region == "WestVla" ? "west-vlaanderen" : null}` : ``}
+
 
     Locatiedetails
 
-    Location:https://react-bug-fix-project.vercel.app/map/${lat}/${lng}
+    ${lat ?`    Location:https://react-bug-fix-project.vercel.app/map/${lat}/${lng}` :``}
+
+
     
     `)
 

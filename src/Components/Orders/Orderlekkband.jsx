@@ -36,6 +36,9 @@ export default function Orderpechbjistan() {
     const [numbersucces , setnumbersucc] = useState()
     const [descsucc , setdescsucc] = useState()
     const [emailsucc , setemailsucc] = useState()
+    const [emailsended , setemailsended] = useState(false)
+
+    const changewindow = () => {window.location = '/'}
 
    
     const watmenu = () => {
@@ -63,11 +66,16 @@ export default function Orderpechbjistan() {
         }
     }
 
-    const Sendemail = (e) => {
-        e.preventDefault();
+    const Sendemail = async(e) => {
+
         const Aanvraag = "PECHBIJSTAND LEKKE BAND"
         const price = chooserprice + regionprice
-        useEmail(email , number , desc , markerpos.lat , markerpos.lng , region , chooser , Aanvraag , price)
+        const eml =  useEmail(email , number , desc , markerpos.lat , markerpos.lng , region , chooser , Aanvraag , price)
+        console.log(eml.status)
+        if(eml.status == 200){
+            setemailsended(true)
+        }
+
 
 
     }
@@ -127,6 +135,21 @@ export default function Orderpechbjistan() {
         <div className="watbtns">
             <button className="yesbtn"  onClick={() => Sendwatsapp()} >Yes</button>
             <button className="cancelbtn" onClick={() => setwatsappmenu(false)} >Cancel</button>
+        </div>
+        </div>
+       
+
+
+     </div>
+ : null}
+ {emailsended == true ?  <div className="watsappmenu">
+        <div className="watframe">
+            <img src="Warning.png" alt="" />
+        <div className="watmenutittle">Een bericht succesvol verzonden</div>
+        <div className="watdesc">Bedankt voor het gebruik van onze service</div>
+
+        <div className="watbtns">
+            <button className="yesbtn" onClick={() => setemailsended(false) | changewindow()} >Ok!</button>
         </div>
         </div>
        
@@ -285,18 +308,20 @@ export default function Orderpechbjistan() {
                         <p>(*) Kostprijs aankoop banden niet inbegrepen</p>
 
                     </div>
-                    <button onClick={() => validopener()} className='orderbutton' >prijsofferte/interventie aanvragen in 2 stappen</button>
-                    <br />
-
+    
                 </div>
   
                 
-    
+                <button onClick={() => validopener()} className='orderbutton' >prijsofferte/interventie aanvragen in 2 stappen</button>
+                    <br />
+
                 
                 </>
                 
                 
+                
                 :  <div className="map" >
+                    
                 
              
                 <APIProvider onLoad={() => console.log("Loaded")} apiKey="AIzaSyBYrVjCDtU5vIiwetkkggADFrFhW8VVjQ4
@@ -310,6 +335,7 @@ export default function Orderpechbjistan() {
         
         </Map>
         </APIProvider>
+        
         </div>
          }
     
