@@ -39,30 +39,10 @@ export default function Orderpechbjistan() {
 
    
     const watmenu = () => {
-        if(!email || !number || !desc || numbersucces || descsucc || emailsucc){
-            if(!email || email.length < 8){
-                setemailsucc(true)
-
-            }else{
-                setemailsucc(false)
-            }
-            if(!descsucc || desc.length < 15){
-                setdescsucc(true)
-
-            }else{
-                setdescsucc(false)
-            }
-            if(!numbersucces || number.length < 5){
-                setemailsucc(true)
-
-            }else{
-                setnumbersucc(false)
-            }
-        }else{
+   
 
             setwatsappmenu(true)
 
-        }
     }
 
     const Sendwatsapp = () =>{
