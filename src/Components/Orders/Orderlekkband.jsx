@@ -116,13 +116,14 @@ export default function Orderpechbjistan() {
             <div className="phonevalues">
 
             <input onChange={(e)=>setnumber(e.target.value)}  required maxLength={9} minLength={9} className="phoneinput" type="text" />
+            {numbersucces == true ? <div className="error">Bericht is vereist. Beschrijf uw verzoek</div> : null}
             </div>
 
 
      </div>
      <label className="label" >Email Adres</label>
      <input onChange={(e)=>setemail(e.target.value)} className="email" required  type="email" />
-
+     {emailsucc == true ? <div className="error">Bericht is vereist. Beschrijf uw verzoek</div> : null}
      <label className="label" >Bericht</label>
      <textarea onChange={(e)=> setdesc(e.target.value) | console.log(desc)} className="bericht" type="text" required ></textarea>
      {descsucc == true ? <div className="error">Bericht is vereist. Beschrijf uw verzoek</div> : null}
@@ -144,7 +145,7 @@ export default function Orderpechbjistan() {
         <div className="watdesc">Ja , er wordt een nieuw WhatsApp-tabblad geopend en de volgende pagina wordt hier geopend.</div>
 
         <div className="watbtns">
-            <button className="yesbtn"  onClick={() => Sendemail()} >Yes</button>
+            <button className="yesbtn"  onClick={() => Sendwatsapp()} >Yes</button>
             <button className="cancelbtn" onClick={() => setwatsappmenu(false)} >Cancel</button>
         </div>
         </div>
