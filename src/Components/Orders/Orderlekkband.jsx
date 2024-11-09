@@ -6,6 +6,7 @@ import { getCountryCallingCode } from 'libphonenumber-js';
 import React, { useEffect, useState } from 'react'
 import axios from "axios";
 import useEmail from "../Hooks/useEmail";
+import useWatsapp from "../Hooks/useWatsapp";
 export default function Orderpechbjistan() {
     
     
@@ -29,14 +30,32 @@ export default function Orderpechbjistan() {
     const [email , setemail] = useState()
     const [bericht , setbericht] = useState()
     const [number , setnumber] = useState()
+    const lat = markerpos.lat
+    const lng = markerpos.lng
 
    
 
+    const Sendwatsapp = () =>{
+        const Aanvraag = "PECHBIJSTAND LEKKE BAND"
+        const price = chooserprice + regionprice
+        useWatsapp(email , number , bericht , markerpos.lat , markerpos.lng , region , chooser , Aanvraag , price)
+
+
+    }
+
+    const validopener = () => {
+        if(!region || !chooser){
+
+        }else{
+            setvalidationopened(true)
+        }
+    }
 
     const Sendemail = (e) => {
         e.preventDefault();
-
-        useEmail(email , number , bericht , markerpos.lat , markerpos.lng)
+        const Aanvraag = "PECHBIJSTAND LEKKE BAND"
+        const price = chooserprice + regionprice
+        useEmail(email , number , bericht , markerpos.lat , markerpos.lng , region , chooser , Aanvraag , price)
 
 
     }
@@ -85,7 +104,7 @@ export default function Orderpechbjistan() {
      </div>
 
 
-     <button className="Whatsappsubmit" >Uw aanvraag doorsturen per Whatsapp</button>
+     <button onClick={() => Sendwatsapp()} className="Whatsappsubmit" >Uw aanvraag doorsturen per Whatsapp</button>
      <button onClick={(e) => Sendemail(e)}  className="Emailsubmit" >Uw aanvraag doorsturen per mail</button>
 
 
@@ -234,7 +253,7 @@ export default function Orderpechbjistan() {
                         <p>(*) Kostprijs aankoop banden niet inbegrepen</p>
                     </div>
                 </div>
-                <button onClick={() => setvalidationopened(true)} className='orderbutton' >prijsofferte/interventie aanvragen in 2 stappen</button>
+                <button onClick={() => validopener()} className='orderbutton' >prijsofferte/interventie aanvragen in 2 stappen</button>
                 
     
                 
