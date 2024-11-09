@@ -425,13 +425,11 @@
   
   border: 0;
   outline: 0;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
+border-radius: 10px;
   height: 37px;
 }
 .phonevalues{
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
+border-radius: 10px;
   display: flex;
   align-items: center;
   background-color: white;

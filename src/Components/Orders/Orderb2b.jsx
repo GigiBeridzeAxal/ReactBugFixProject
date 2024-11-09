@@ -5,8 +5,9 @@ import { getCountryCallingCode } from 'libphonenumber-js';
 
 import React, { useEffect, useState } from 'react'
 import axios from "axios";
-
-export default function Takelen() {
+export default function Orderb2b() {
+    
+    
     const [center ,setcenter] = useState({lat:0.5353, lng:0.53515})
     const [markerpos , setmarkerpos] = useState({ lat: 50.84852676025505, lng: 4.350960265625017 } )
     const [locationchanged , setlocationchanged] = useState(false)
@@ -23,24 +24,7 @@ export default function Takelen() {
     const [country ,setcountry] = useState()
     const [countryocode , setcountrycode] = useState()
 
-    useEffect(() => {
-
-
-        const getcountry = async() => {
-            try{
-                console.log("Working")
-    
-                const response = await axios.get('https://ipinfo.io/?token=9921af2e78e840');
-                const countrycode = getCountryCallingCode(response.data.country)
-                setcountrycode(countrycode)
-                setcountry(response.data.country)
-    
-            }catch(err){
-    
-            }
-        }
-        getcountry()
-    },[])
+   
 
 
 
@@ -62,11 +46,9 @@ export default function Takelen() {
 
      <label className="label" >Telefoon Nummer</label>
      <div className="phone">
-        <div className="country"><ReactFlagsSelect showSelectedLabel={false} showOptionLabel={false} onSelect={(sel) => setcountry(sel)}  selected={country}  >
-            
-            </ReactFlagsSelect></div>
+
             <div className="phonevalues">
-                <div className="phonecode">+{countryocode}</div>
+
             <input required maxLength={9} minLength={9} className="phoneinput" type="text" />
             </div>
 
@@ -100,34 +82,14 @@ export default function Takelen() {
     
     
     
-    
-    {order == true  ? null: <div className="locationframe" >
-                Waar is uw voertuig?
-    
-                {locationchanged == true  ? <button onClick={() => setorder(true)} >Doorgaan</button>:<button onClick={() => MyLocat()} >Zoek mij</button>}
-    
-    
-    
-                </div>}
+  
                
-                {order == true  ?
+
                 <>
     
                 <div>
-                    <div className="regions">
-                        <div className="regiontittle">KIES UW REGIO</div>
-                        <div className="regionbtn">
-                            {region == "WestVla" ?<button className="choosedbutton" > <img width={120} src="WestVla.webp" alt="" /></button> :<button onClick={() => setregion("WestVla") | setregionprice(195) } className="notchoosedbtn" > <img width={120} src="WestVla.webp" alt="" /></button>}
-                            {region == "OostVla" ?<button className="choosedbutton" > <img width={120} src="OostVla.webp" alt="" /></button> :<button onClick={() => setregion("OostVla") | setregionprice(145) }  className="notchoosedbtn" > <img width={120} src="OostVla.webp" alt="" /></button>}
-                            {region == "Antwerpen" ?<button className="choosedbutton" > <img width={120} src="Antwerpen.webp" alt="" /></button> :<button onClick={() => setregion("Antwerpen") | setregionprice(195) } className="notchoosedbtn" > <img width={120} src="Antwerpen.webp" alt="" /></button>}
-    
-                        </div>
-                        <div className="price">
-                        <div className="totalprice"> € {regionprice + chooserprice} </div>
-                        <p>(*) Prijs excl. Aankoop batterij</p>
-                    </div>
-                    </div>
-                  
+               
+           
                    
                    
                         
@@ -159,7 +121,7 @@ export default function Takelen() {
 </div>
 
 
-<button className="Whatsappsubmit" >Uw aanvraag doorsturen per Whatsapp</button>
+
 <button className="Emailsubmit" >Uw aanvraag doorsturen per mail</button>
 <br />
 
@@ -171,22 +133,7 @@ export default function Takelen() {
                 
                 </>
                 
-                :  <div className="map" >
-                
-             
-                <APIProvider onLoad={() => console.log("Loaded")} apiKey="AIzaSyBYrVjCDtU5vIiwetkkggADFrFhW8VVjQ4
-        ">
-         <Map
-              defaultZoom={10}
-              center={markerpos}
-              >
-                
-                <Marker  draggable onDragEnd={(e) => setmarkerpos(e.latLng.toJSON() | setlocationchanged(true) |  console.log(e.latLng.toJSON()) )} position={markerpos} ></Marker>
-        
-        </Map>
-        </APIProvider>
-        </div>
-         }
+               
     
               
     

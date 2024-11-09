@@ -5,6 +5,7 @@ import { getCountryCallingCode } from 'libphonenumber-js';
 
 import React, { useEffect, useState } from 'react'
 import axios from "axios";
+import useEmail from "../Hooks/useEmail";
 export default function Orderpechbjistan() {
     
     
@@ -13,6 +14,7 @@ export default function Orderpechbjistan() {
     const [locationchanged , setlocationchanged] = useState(false)
     const [order , setorder] = useState(false)
     const [validationopened , setvalidationopened] = useState(false)
+    const [user,setuser] = useState("Wazaa")
 
     const [region , setregion] = useState()
     const [chooser , setchooser] = useState()
@@ -24,25 +26,20 @@ export default function Orderpechbjistan() {
     const [country ,setcountry] = useState()
     const [countryocode , setcountrycode] = useState()
 
-    useEffect(() => {
+    const [email , setemail] = useState()
+    const [bericht , setbericht] = useState()
+    const [number , setnumber] = useState()
+
+   
 
 
-        const getcountry = async() => {
-            try{
-                console.log("Working")
-    
-                const response = await axios.get('https://ipinfo.io/?token=9921af2e78e840');
-                const countrycode = getCountryCallingCode(response.data.country)
-                setcountrycode(countrycode)
-                setcountry(response.data.country)
-    
-            }catch(err){
-    
-            }
-        }
-        getcountry()
-    },[])
+    const Sendemail = (e) => {
+        e.preventDefault();
 
+        useEmail(email , number , bericht , markerpos.lat , markerpos.lng)
+
+
+    }
 
 
     const MyLocat = () => {
@@ -63,21 +60,19 @@ export default function Orderpechbjistan() {
 
      <label className="label" >Telefoon Nummer</label>
      <div className="phone">
-        <div className="country"><ReactFlagsSelect showSelectedLabel={false} showOptionLabel={false} onSelect={(sel) => setcountry(sel)}  selected={country}  >
-            
-            </ReactFlagsSelect></div>
+
             <div className="phonevalues">
-                <div className="phonecode">+{countryocode}</div>
-            <input required maxLength={9} minLength={9} className="phoneinput" type="text" />
+
+            <input onChange={(e)=>setnumber(e.target.value)}  required maxLength={9} minLength={9} className="phoneinput" type="text" />
             </div>
 
 
      </div>
      <label className="label" >Email Adres</label>
-     <input className="email" required  type="email" />
+     <input onChange={(e)=>setemail(e.target.value)} className="email" required  type="email" />
 
      <label className="label" >Bericht</label>
-     <textarea className="bericht" required name="" id=""></textarea>
+     <textarea onChange={(e)=>setbericht(e.target.value)} className="bericht" required name="" id=""></textarea>
 
      <div className="terms" >
      < h1 className="vorwarden">Voorwaarden</h1>
@@ -91,7 +86,7 @@ export default function Orderpechbjistan() {
 
 
      <button className="Whatsappsubmit" >Uw aanvraag doorsturen per Whatsapp</button>
-     <button className="Emailsubmit" >Uw aanvraag doorsturen per mail</button>
+     <button onClick={(e) => Sendemail(e)}  className="Emailsubmit" >Uw aanvraag doorsturen per mail</button>
 
 
    </form>

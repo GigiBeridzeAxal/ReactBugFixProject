@@ -20,7 +20,7 @@ export default function Plattebatterij() {
              {order == true ? <OrderPlattebatterij></OrderPlattebatterij> :     <div className="questions">
                 
                 <div className="question">
-                        <button onClick={() => q1 == true ? setq1(false) : setq1(true) } className="questiontittle">Batterij plat. Hoe kan ik de wagen starten? { q1 == true ?<img width={20} src="Up.png" alt="" /> : <img width={20} src="Down.png" alt="" />   }</button>
+                        <button onClick={() => q1 == true ? setq1(false) : setq1(true) } className="questiontittle">{ q1 == true ?<div className='minus' >-   </div> : <div className='plus' >+</div>   }Batterij plat. Hoe kan ik de wagen starten?</button>
                         {q1 == true ? <div className='Answer' >
                             De wagen in gang duwen:
                             <li>Zet het contact aan</li>
@@ -33,7 +33,7 @@ export default function Plattebatterij() {
                         </div> : null}
                     </div>
                     <div className="question">
-                        <button onClick={() => q2 == true ? setq2(false) : setq2(true) } className="questiontittle">De batterij van mijn elektrische wagen is plat. Hoe lossen jullie dit op? { q2 == true ?<img width={20} src="Up.png" alt="" /> : <img width={20} src="Down.png" alt="" />   } </button>
+                        <button onClick={() => q2 == true ? setq2(false) : setq2(true) } className="questiontittle">{ q2 == true ?<div className='minus' >-   </div> : <div className='plus' >+</div>   }De batterij van mijn elektrische wagen is plat. Hoe lossen jullie dit op?  </button>
                         {q2 == true ? <div className='Answer' >
                             Het heeft weinig nut de batterij van de wagen op te laden. Met een generator zou je na 1 uur laden net voldoende hebben om ongeveer 10kilometer te rijden. Het is veel kosten efficienter om de wagen te takelen naar een laadpaal.
                         </div> : null}

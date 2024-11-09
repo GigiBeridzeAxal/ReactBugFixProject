@@ -22,20 +22,20 @@ export default function Pechbijstan() {
             {map == true ?  <Orderpechbjistan></Orderpechbjistan> :   <div className="questions">
                 
             <div className="question">
-                    <button onClick={() => q1 == true ? setq1(false) : setq1(true) } className="questiontittle">Hoelang kan ik nog rijden in reserve? { q1 == true ?<img width={20} src="Up.png" alt="" /> : <img width={20} src="Down.png" alt="" />   }</button>
+                    <button onClick={() => q1 == true ? setq1(false) : setq1(true) } className="questiontittle">{ q1 == true ?<div className='minus' >-   </div> : <div className='plus' >+</div>   } Hoelang kan ik nog rijden in reserve? </button>
                     {q1 == true ? <div className='Answer' >
                         Meestal zit er een 5 tal liter brandstof in het gedeelte reserve. Daar kan u ongeveer 50km met rijden
 
                     </div> : null}
                 </div>
                 <div className="question">
-                    <button onClick={() => q2 == true ? setq2(false) : setq2(true) } className="questiontittle">Wat doen als je zonder brandstof valt? { q2 == true ?<img width={20} src="Up.png" alt="" /> : <img width={20} src="Down.png" alt="" />   } </button>
+                    <button onClick={() => q2 == true ? setq2(false) : setq2(true) } className="questiontittle"> { q2 == true ?<div className='minus' >-   </div> : <div className='plus' >+</div>   }Wat doen als je zonder brandstof valt? </button>
                     {q2 == true ? <div className='Answer' >
                         Op de autostrade: Laat de wagen uitbollen en maneuver voorzichtig naar de pechstrook. Opgelet, u heeft geen rem & of stuurbekrachtiging! Trek uw handrem aan. Plaats uw gevarendriehoek. Opgelet, vergeet uw flue hesje niet aan te trekken! Neem vervolgens plaats achter de berm en contacteer de pechhulpdienst.
                     </div> : null}
                 </div>
                 <div className="question">
-                    <button onClick={() => q3 == true ? setq3(false) : setq3(true) } className="questiontittle">Is het leegrijden van de brandstoftank gevaarlijk?{ q3 == true ?<img width={20} src="Up.png" alt="" /> : <img width={20} src="Down.png" alt="" />   } </button>
+                    <button onClick={() => q3 == true ? setq3(false) : setq3(true) } className="questiontittle">{ q3 == true ?<div className='minus' >-   </div> : <div className='plus' >+</div>   }Is het leegrijden van de brandstoftank gevaarlijk? </button>
                     {q3 == true ? <div className='Answer' >
                         Door het compleet leegrijden van je brandstoftank heb je (voornamelijk bij oudere wagens) kans om residu, vervuiling op te zuigen uit je brandstoftank en in je motor te pompen. Rij je toch de brandstoftank helemaal leeg, dan is het aan te raden de brandstoffilter te laten vervangen.
                         Wanneer er geen brandstof meer door de leidingen loopt, dan zal de brandstofpomp lucht opzuigen.

@@ -24,24 +24,7 @@ export default function Onlinebandenorder() {
     const [country ,setcountry] = useState()
     const [countryocode , setcountrycode] = useState()
 
-    useEffect(() => {
-
-
-        const getcountry = async() => {
-            try{
-                console.log("Working")
-    
-                const response = await axios.get('https://ipinfo.io/?token=9921af2e78e840');
-                const countrycode = getCountryCallingCode(response.data.country)
-                setcountrycode(countrycode)
-                setcountry(response.data.country)
-    
-            }catch(err){
-    
-            }
-        }
-        getcountry()
-    },[])
+   
 
 
     const MyLocat = () => {
@@ -62,11 +45,9 @@ export default function Onlinebandenorder() {
 
      <label className="label" >Telefoon Nummer</label>
      <div className="phone">
-        <div className="country"><ReactFlagsSelect showSelectedLabel={false} showOptionLabel={false} onSelect={(sel) => setcountry(sel)}  selected={country}  >
-            
-            </ReactFlagsSelect></div>
+
             <div className="phonevalues">
-                <div className="phonecode">+{countryocode}</div>
+   
             <input required maxLength={9} minLength={9} className="phoneinput" type="text" />
             </div>
 
@@ -252,11 +233,9 @@ export default function Onlinebandenorder() {
 
 <label className="label" >Telefoon Nummer</label>
 <div className="phone">
-   <div className="country"><ReactFlagsSelect showSelectedLabel={false} showOptionLabel={false} onSelect={(sel) => setcountry(sel)}  selected={country}  >
-       
-       </ReactFlagsSelect></div>
+
        <div className="phonevalues">
-           <div className="phonecode">+{countryocode}</div>
+
        <input required maxLength={9} minLength={9} className="phoneinput" type="text" />
        </div>
 

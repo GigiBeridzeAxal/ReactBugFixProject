@@ -20,7 +20,7 @@ export default function Zommerwinter() {
             {order == true ? <Zommerwinterorder></Zommerwinterorder> :  <div className="questions">
                 
                 <div className="question">
-                        <button onClick={() => q1 == true ? setq1(false) : setq1(true) } className="questiontittle">Bandenwissel: Wanneer zomerbanden of zomerwielen set plaatsen? { q1 == true ?<img width={20} src="Up.png" alt="" /> : <img width={20} src="Down.png" alt="" />   }</button>
+                        <button onClick={() => q1 == true ? setq1(false) : setq1(true) } className="questiontittle">{ q1 == true ?<div className='minus' >-   </div> : <div className='plus' >+</div>   }Bandenwissel: Wanneer zomerbanden of zomerwielen set plaatsen? </button>
                         {q1 == true ? <div className='Answer' >
                             De verandering van winter naar zomeruur is een handig geheugensteuntje voor de winter-zomer bandenwissel. Wanneer we de klok eind maart op zomertijd zetten, is het ook tijd voor de zomerbanden wissel. Als het warmer is dan 7 °C, dan slijten uw winterbanden aanzienlijk meer en hebt u minder grip dan uw zomerbanden. Door zowel in de zomer als in de winter de juiste banden te gebruiken, bent u in elk seizoen verzekerd van de beste rijprestaties.
     
@@ -28,14 +28,14 @@ export default function Zommerwinter() {
                         </div> : null}
                     </div>
                     <div className="question">
-                        <button onClick={() => q2 == true ? setq2(false) : setq2(true) } className="questiontittle">Bandenwissel: Wanneer winterbanden of winterwielen set plaatsen? { q2 == true ?<img width={20} src="Up.png" alt="" /> : <img width={20} src="Down.png" alt="" />   } </button>
+                        <button onClick={() => q2 == true ? setq2(false) : setq2(true) } className="questiontittle">{ q2 == true ?<div className='minus' >-   </div> : <div className='plus' >+</div>   }Bandenwissel: Wanneer winterbanden of winterwielen set plaatsen?  </button>
                         {q2 == true ? <div className='Answer' >
                             De verandering van zomer naar winteruur is een handig geheugensteuntje. voor de zomer-winter bandenwissel. Wanneer we de klok eind oktober op wintertijd zetten, is het ook tijd voor de winterbanden wissel. Als het kouder is dan 7 °C, dan hebben uw winterbanden aanzienlijk meer grip dan uw zomerbanden. Door zowel in de winter als in de zomer de juiste banden te gebruiken, bent u in elk seizoen verzekerd van de beste rijprestaties.
     
                         </div> : null}
                     </div>
                     <div className="question">
-                        <button onClick={() => q3 == true ? setq3(false) : setq3(true) } className="questiontittle">Hoe weet u welke banden er op uw wagen zitten?{ q3 == true ?<img width={20} src="Up.png" alt="" /> : <img width={20} src="Down.png" alt="" />   } </button>
+                        <button onClick={() => q3 == true ? setq3(false) : setq3(true) } className="questiontittle">{ q3 == true ?<div className='minus' >-   </div> : <div className='plus' >+</div>   }Hoe weet u welke banden er op uw wagen zitten? </button>
                         {q3 == true ? <div className='Answer' >
                             Winterbanden zijn vrij makkelijk te herkennen aan hun lamellenprofiel en aan het sneeuwvloksymbool op de zijkant van de band.
     

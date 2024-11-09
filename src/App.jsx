@@ -12,9 +12,10 @@ function App() {
   <Routes>
   <Route path='/map/:lat/:lng' element={<><Maps></Maps></>} ></Route>
   <Route path='/' element={<><Main></Main> <Footer></Footer></>} ></Route>
-    <Route path='/:id' element={<><Main></Main></>} ></Route>
+    <Route path='/:id' element={<><Main></Main></>}></Route>
   </Routes>
   </BrowserRouter>
+
 
 
   );

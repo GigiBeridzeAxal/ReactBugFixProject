@@ -30,7 +30,7 @@ export default function Onlinebanden() {
             {order == true ? <Onlinebandenorder></Onlinebandenorder> :   <div className="questions">
                 
                 <div className="question">
-                        <button onClick={() => q1 == true ? setq1(false) : setq1(true) } className="questiontittle">Waarom kan het nodig zijn uw banden te vervangen?{ q1 == true ?<img width={20} src="Up.png" alt="" /> : <img width={20} src="Down.png" alt="" />   }</button>
+                        <button onClick={() => q1 == true ? setq1(false) : setq1(true) } className="questiontittle">{ q1 == true ?<div className='minus' >-   </div> : <div className='plus' >+</div>   } Waarom kan het nodig zijn uw banden te vervangen?</button>
                         {q1 == true ? <div className='Answer' >
     
                                 <li>Uw banden zijn versleten</li>
@@ -43,7 +43,7 @@ export default function Onlinebanden() {
                         </div> : null}
                     </div>
                     <div className="question">
-                        <button onClick={() => q2 == true ? setq2(false) : setq2(true) } className="questiontittle">De banden van uw wagen zijn versleten: { q2 == true ?<img width={20} src="Up.png" alt="" /> : <img width={20} src="Down.png" alt="" />   } </button>
+                        <button onClick={() => q2 == true ? setq2(false) : setq2(true) } className="questiontittle">{ q2 == true ?<div className='minus' >-   </div> : <div className='plus' >+</div>   } De banden van uw wagen zijn versleten: </button>
                         {q2 == true ? <div className='Answer' >
                             <img  className='tire'  src="tire1.jpg" alt="" />
                             Draai het stuur van uw auto volledig naar 1 zijde zodat gemakkelijk het loopvlak van de band kan controleren.
@@ -57,7 +57,7 @@ export default function Onlinebanden() {
                         </div> : null}
                     </div>
                     <div className="question">
-                        <button onClick={() => q3 == true ? setq3(false) : setq3(true) } className="questiontittle">De banden van uw wagen zijn beschadigd: { q3 == true ?<img width={20} src="Up.png" alt="" /> : <img width={20} src="Down.png" alt="" />   } </button>
+                        <button onClick={() => q3 == true ? setq3(false) : setq3(true) } className="questiontittle" >{ q3 == true ?<div className='minus' >-   </div> : <div className='plus' >+</div>   } De banden van uw wagen zijn beschadigd:  </button>
                         {q3 == true ? <div className='Answer' >
                             Het is belangrijk dat je regelmatig de bandendruk van de wagen controleerd, maar ook de toestand van de banden moet regelmatig gecontroleerd worden!
                             Beschadigingen kunnen veroorzaakt worden door:
@@ -72,7 +72,7 @@ export default function Onlinebanden() {
                         </div> : null}
                     </div>
                     <div className="question">
-                        <button onClick={() => q4 == true ? setq4(false) : setq4(true) } className="questiontittle">De banden van uw wagen zijn verouderd:{ q4 == true ?<img width={20} src="Up.png" alt="" /> : <img width={20} src="Down.png" alt="" />   } </button>
+                        <button onClick={() => q4 == true ? setq4(false) : setq4(true) } className="questiontittle">{ q4 == true ?<div className='minus' >-   </div> : <div className='plus' >+</div>   } De banden van uw wagen zijn verouderd: </button>
                         {q4 == true ? <div className='Answer' >
                             Op de zijkant van de band kan je de DOT controleren. (bijv. 2520, 25ste week van 2020) Dit is de fabricage datum van de band.
                             Vanaf een band 5jaar oud is moet deze jaarlijks gecontroleerd worden.
@@ -82,7 +82,7 @@ export default function Onlinebanden() {
                         </div> : null}
                     </div>
                     <div className="question">
-                        <button onClick={() => q5 == true ? setq5(false) : setq5(true) } className="questiontittle">De aankoop van banden start bij het type band dat je nodig hebt: { q5 == true ?<img width={20} src="Up.png" alt="" /> : <img width={20} src="Down.png" alt="" />   } </button>
+                        <button onClick={() => q5 == true ? setq5(false) : setq5(true) } className="questiontittle">{ q5 == true ?<div className='minus' >-   </div> : <div className='plus' >+</div>   } De aankoop van banden start bij het type band dat je nodig hebt:  </button>
                         {q5 == true ? <div className='Answer' >
                             Uw banden zorgen voor veiligheid en comfort. Ze zijn dan ook het enige contact tussen uw wagen en de baan. Daarom is de keuze van uw banden belangrijk!
                             <li>minder dan 10.000km/jaar en/of met de wagen op wintersport dan raden wij aan om All-Season banden aan te schaffen.</li>
@@ -92,7 +92,7 @@ export default function Onlinebanden() {
                     </div>
     
                     <div className="question">
-                        <button onClick={() => q6 == true ? setq6(false) : setq6(true) } className="questiontittle">Waar kan ik de maat van mijn banden vinden? { q6 == true ?<img width={20} src="Up.png" alt="" /> : <img width={20} src="Down.png" alt="" />   } </button>
+                        <button onClick={() => q6 == true ? setq6(false) : setq6(true) } className="questiontittle">{ q6 == true ?<div className='minus' >-   </div> : <div className='plus' >+</div>   } Waar kan ik de maat van mijn banden vinden? </button>
                         {q6 == true ? <div className='Answer' >
                             Het is belangrijk dat u de bandenmaat steeds afleest op de zijkant van de band. De bandenmaat staat namelijk ook beschreven in je instructieboekje of het gelijkvormigheidsattest. Maar daar staan ook andere bandenmaten die niet op uw huidige configuratie gemonteerd kunnen worden!
     
@@ -100,7 +100,7 @@ export default function Onlinebanden() {
                     </div>
     
                     <div className="question">
-                        <button onClick={() => q7 == true ? setq7(false) : setq7(true) } className="questiontittle">Hoe lees ik de bandenmaat af?{ q7 == true ?<img width={20} src="Up.png" alt="" /> : <img width={20} src="Down.png" alt="" />   }</button>
+                        <button onClick={() => q7 == true ? setq7(false) : setq7(true) } className="questiontittle"> { q7 == true ?<div className='minus' >-   </div> : <div className='plus' >+</div>   } Hoe lees ik de bandenmaat af?</button>
                         {q7 == true ? <div className='Answer' >
                             Op de zijkant (de wang) van de band kan je de bandenmaat aflezen. In het onderstaande voorbeeld gebruiken wij bandenmaat 205/55 R16 91W
                             <li>205: De breedte van de band uitgedrukt in mm</li>
@@ -114,7 +114,7 @@ export default function Onlinebanden() {
                     </div>
     
                     <div className="question">
-                        <button onClick={() => q8 == true ? setq8(false) : setq8(true) } className="questiontittle">Online banden kopen en thuis laten plaatsen op afspraak, hoe werkt dat?{ q8 == true ?<img width={20} src="Up.png" alt="" /> : <img width={20} src="Down.png" alt="" />   } </button>
+                        <button onClick={() => q8 == true ? setq8(false) : setq8(true) } className="questiontittle">{ q8 == true ?<div className='minus' >-   </div> : <div className='plus' >+</div>   } Online banden kopen en thuis laten plaatsen op afspraak, hoe werkt dat? </button>
                         {q8 == true ? <div className='Answer' >
                             Bij MBC kan je je autobanden bestellen wanneer het je uitkomt. Vraag hieronder u prijsofferte aan, geef aan waar u naar op zoek bent (zomerbanden, winterbanden of All-Seasons) en ontvangt dezelfde dag uw prijsofferte. Als u akkoord bent nemen wij uw banden in bestelling (meestal 2 werkdagen) en leggen wij een afspraak vast om de banden aan huis te monteren. Na plaatsing ontvangt u uw factuur en kan u uw aankoop met bankcontact betalen.
     
