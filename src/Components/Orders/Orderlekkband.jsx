@@ -28,17 +28,49 @@ export default function Orderpechbjistan() {
     const [countryocode , setcountrycode] = useState()
 
     const [email , setemail] = useState()
-    const [bericht , setbericht] = useState()
+    const [desc , setdesc] = useState()
     const [number , setnumber] = useState()
     const lat = markerpos.lat
     const lng = markerpos.lng
+    const [watsappmenu , setwatsappmenu] = useState(false)
+    const [numbersucces , setnumbersucc] = useState()
+    const [descsucc , setdescsucc] = useState()
+    const [emailsucc , setemailsucc] = useState()
 
    
+    const watmenu = () => {
+        if(!email || !number || !desc || numbersucces || descsucc || emailsucc){
+            if(!email || email.length < 8){
+                setemailsucc(true)
+
+            }else{
+                setemailsucc(false)
+            }
+            if(!descsucc || desc.length < 15){
+                setdescsucc(true)
+
+            }else{
+                setdescsucc(false)
+            }
+            if(!numbersucces || number.length < 5){
+                setemailsucc(true)
+
+            }else{
+                setnumbersucc(false)
+            }
+        }else{
+
+            setwatsappmenu(true)
+
+        }
+    }
 
     const Sendwatsapp = () =>{
         const Aanvraag = "PECHBIJSTAND LEKKE BAND"
         const price = chooserprice + regionprice
-        useWatsapp(email , number , bericht , markerpos.lat , markerpos.lng , region , chooser , Aanvraag , price)
+        
+
+        useWatsapp(email , number , desc , markerpos.lat , markerpos.lng , region , chooser , Aanvraag , price)
 
 
     }
@@ -55,7 +87,7 @@ export default function Orderpechbjistan() {
         e.preventDefault();
         const Aanvraag = "PECHBIJSTAND LEKKE BAND"
         const price = chooserprice + regionprice
-        useEmail(email , number , bericht , markerpos.lat , markerpos.lng , region , chooser , Aanvraag , price)
+        useEmail(email , number , desc , markerpos.lat , markerpos.lng , region , chooser , Aanvraag , price)
 
 
     }
@@ -73,9 +105,10 @@ export default function Orderpechbjistan() {
     }
 
     return(
+        
    validationopened == true ? <>
-   
-   <form className="formval"  >
+      
+   <div className="formval"  >
 
      <label className="label" >Telefoon Nummer</label>
      <div className="phone">
@@ -91,7 +124,8 @@ export default function Orderpechbjistan() {
      <input onChange={(e)=>setemail(e.target.value)} className="email" required  type="email" />
 
      <label className="label" >Bericht</label>
-     <textarea onChange={(e)=>setbericht(e.target.value)} className="bericht" required name="" id=""></textarea>
+     <textarea onChange={(e)=> setdesc(e.target.value) | console.log(desc)} className="bericht" type="text" required ></textarea>
+     {descsucc == true ? <div className="error">Bericht is vereist. Beschrijf uw verzoek</div> : null}
 
      <div className="terms" >
      < h1 className="vorwarden">Voorwaarden</h1>
@@ -103,12 +137,29 @@ export default function Orderpechbjistan() {
 
      </div>
 
+    {watsappmenu == true ?  <div className="watsappmenu">
+        <div className="watframe">
+            <img src="Warning.png" alt="" />
+        <div className="watmenutittle">Je Wordt doorgestuurd naar WhatsApp</div>
+        <div className="watdesc">Ja , er wordt een nieuw WhatsApp-tabblad geopend en de volgende pagina wordt hier geopend.</div>
 
-     <button onClick={() => Sendwatsapp()} className="Whatsappsubmit" >Uw aanvraag doorsturen per Whatsapp</button>
+        <div className="watbtns">
+            <button className="yesbtn"  onClick={() => Sendemail()} >Yes</button>
+            <button className="cancelbtn" onClick={() => setwatsappmenu(false)} >Cancel</button>
+        </div>
+        </div>
+       
+
+
+     </div>
+ : null}
+    
+
+     <button onClick={() => watmenu(true)} className="Whatsappsubmit" >Uw aanvraag doorsturen per Whatsapp</button>
      <button onClick={(e) => Sendemail(e)}  className="Emailsubmit" >Uw aanvraag doorsturen per mail</button>
 
 
-   </form>
+   </div>
 
    </> :
     <>
@@ -258,6 +309,7 @@ export default function Orderpechbjistan() {
     
                 
                 </>
+                
                 
                 :  <div className="map" >
                 

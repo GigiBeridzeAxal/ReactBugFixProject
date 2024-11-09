@@ -1,12 +1,19 @@
 
 
 import axios from 'axios'
-import React from 'react'
+import React, { useState } from 'react'
 
-export default function useWatsapp(email , number , bericht , lat , lng ,region , chooser , Aanvraag , price) {
+export default function useWatsapp(email , number , desc , lat , lng ,region , chooser , Aanvraag , price) {
 
 
-    console.log(email , number , bericht , lat , lng, region , chooser )
+
+
+    console.log(email , number , desc , lat , lng, region , chooser )
+
+    
+
+  
+      
 
 
     const message = encodeURIComponent(`
@@ -20,8 +27,8 @@ export default function useWatsapp(email , number , bericht , lat , lng ,region 
 
     Aanvraag Type: ${Aanvraag}
     Prijs: ${price} €
-    Bericht: ${bericht}
-    Region: ${region}
+    Bericht: ${desc}
+    Region: ${region == "WestVla" ? "west-vlaanderen" : null}
 
     Locatiedetails
 

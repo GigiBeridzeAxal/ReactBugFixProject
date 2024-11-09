@@ -562,3 +562,65 @@ border-radius: 10px;
 .TypeBand select{
   width: 50%;
 }
+.watsappmenu{
+  position: fixed;
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(151, 151, 151, 0.23);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: 0;
+  top: 0;
+
+}
+.watframe{
+  background-color: white;
+  padding: 20px;
+  width: 400px;
+  height: 300px;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  text-align: center;
+}
+.watmenutittle{
+  font-size: 24px;
+  font-weight: 700;
+}
+.watbtns{
+
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.watbtns button{
+  padding: 15px;
+  cursor: pointer;
+
+
+}
+.yesbtn{
+  background-color: #3b82f6;
+  border: 0;
+  width: 80px;
+  color: white;
+  border-radius: 3px;
+}
+.cancelbtn{
+  background-color:#ef4444;
+  border: 0;
+  width: 80px;
+  color: white;
+  border-radius: 3px;
+
+
+}
+.error{
+  color: red;
+  padding: 5px;
+}
