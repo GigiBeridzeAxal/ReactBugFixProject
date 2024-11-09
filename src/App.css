@@ -644,6 +644,13 @@ border-radius: 10px;
 body{
   background-color: black;
 }
+.Vernden{
+  cursor: pointer;
+  transition: 0.1;
+}
+.Vernden:active{
+  background-color: #da004ca4;
+}
 
 @media (max-width:450px) {
   
