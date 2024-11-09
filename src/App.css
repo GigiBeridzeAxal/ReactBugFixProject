@@ -18,7 +18,7 @@
   right: 5%;
  
   height: 90vh;
-  width: 400px;
+  width: 390px;
   margin: 25px;
   border-radius: .5rem;
 
@@ -177,7 +177,7 @@
 .button1{
   --tw-bg-opacity: 1;
   background-color: rgb(34 197 94 / var(--tw-bg-opacity));
-  width: 400px;
+  width: 390px;
   border: 0;
   padding: 10px;
   color: white;
@@ -295,6 +295,9 @@
   font-weight: 700;
   
 }
+.regions{
+  width: 95%;
+}
 .chooselist{
   display: flex;
   align-items: center;
@@ -337,8 +340,8 @@
 .checkbox{
   display: flex;
   align-items: center;
-  text-align: center;
-  
+  font-size: 15px;
+  text-align: start;  
 }
 .checkbox input{
   width: 20px;
@@ -382,12 +385,17 @@
   background: none;
   border: 0;
 }
+.regionbtn img{
+  width: 100px;
+  height: 100px;
+}
 .choosedbutton{
   background-color: rgb(51, 51, 51);
   border: 0;
 }
 .regionbtn{
   display: flex;
+  justify-content: space-between;
 }
 .regionbtn button{
   width: 33.3%;
@@ -445,6 +453,7 @@ border-radius: 10px;
 .formval{
   display: flex;
   flex-direction: column;
+  width: 90%;
 }
 .email{
   padding: 10px;
@@ -505,6 +514,8 @@ border-radius: 10px;
 }
 .orderframe{
   width: 100%;
+  display: flex;
+  justify-content: center;
 }
 .bandeemchoose{
   width: 100%;
@@ -628,6 +639,10 @@ border-radius: 10px;
 
 .Answer{
   width: 95%;
+}
+
+body{
+  background-color: black;
 }
 
 @media (max-width:450px) {

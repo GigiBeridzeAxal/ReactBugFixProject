@@ -98,18 +98,14 @@ export default function Orderpechbjistan() {
     }
 
     const validopener = () => {
-        if(!region || !chooser){
+        if(!region){
 
             if(!region){
                 setregerr(true)
             }else{
                 setregerr(false)
             }
-            if(!chooser){
-                setcherr(true)
-            }else{
-                setcherr(false)
-            }
+
 
 
 
@@ -155,7 +151,7 @@ export default function Orderpechbjistan() {
 
             <div className="phonevalues">
 
-            <input onChange={(e)=>setnumber(e.target.value)}  required maxLength={9} minLength={9} className="phoneinput" type="text" />
+            <input onChange={(e)=>setnumber(e.target.value)}  required maxLength={10} minLength={9} className="phoneinput" type="text" />
             {numbersucces == true ? <div className="error">Bericht is vereist. Beschrijf uw verzoek</div> : null}
             </div>
 

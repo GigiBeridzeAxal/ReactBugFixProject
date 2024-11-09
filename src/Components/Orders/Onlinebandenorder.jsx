@@ -27,7 +27,8 @@ export default function Onlinebandenorder() {
     const [country ,setcountry] = useState()
     const [countryocode , setcountrycode] = useState()
     const [TypeBand , setTypeBand] = useState("Summer")
-
+    const [emailsended , setemailsended ] = useState(false)
+    const changewindow = () => {window.location = '/'}
    
     const Sendmail = (e) => {
         e.preventDefault();
@@ -35,6 +36,7 @@ export default function Onlinebandenorder() {
 
         const Aanvrag = "ONLINE BANDEN KOPEN MET MONTAGE AAN HUIS"
         useOnlineemail(email , number , desc  , Aanvrag , TypeBand )
+        setemailsended(true)
 
 
 
@@ -62,7 +64,7 @@ export default function Onlinebandenorder() {
 
             <div className="phonevalues">
    
-            <input required maxLength={9} minLength={9} className="phoneinput" type="text" />
+            <input required maxLength={10} minLength={9} className="phoneinput" type="text" />
             </div>
 
 
@@ -247,10 +249,25 @@ export default function Onlinebandenorder() {
 
 <label className="label" >Telefoon Nummer</label>
 <div className="phone">
+{emailsended == true ?  <div className="watsappmenu">
+        <div className="watframe">
+            <img src="Warning.png" alt="" />
+        <div className="watmenutittle">Een bericht succesvol verzonden</div>
+        <div className="watdesc">Bedankt voor het gebruik van onze service</div>
+
+        <div className="watbtns">
+            <button className="yesbtn" onClick={() => setemailsended(false) | changewindow()} >Ok!</button>
+        </div>
+        </div>
+       
+
+
+     </div>
+ : null}
 
        <div className="phonevalues">
 
-       <input onChange={(e) => setnumber(e.target.value)} required maxLength={9} minLength={9} className="phoneinput" type="text" />
+       <input onChange={(e) => setnumber(e.target.value)} required maxLength={10} minLength={9} className="phoneinput" type="text" />
        </div>
 
 

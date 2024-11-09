@@ -61,7 +61,7 @@ export default function B2b() {
 
         </div>
         {order == true ? null: <>        <button onClick={() => setorder(true)} className='button1' >prijsofferte/interventie aanvragen in 2 stappen</button>
-          <a href='tel:+1-0470-07-75-25' className='autocall' >Direct Contact</a></>}
+          <a href='tel:0032476452948' className='autocall' >Direct Contact</a></>}
 
     </div>
   )

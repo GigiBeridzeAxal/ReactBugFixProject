@@ -67,7 +67,7 @@ export default function Orderslotbouten() {
 
             <div className="phonevalues">
 
-            <input required maxLength={9} minLength={9} className="phoneinput" type="text" />
+            <input required maxLength={10} minLength={9} className="phoneinput" type="text" />
             </div>
 
 
@@ -118,7 +118,7 @@ export default function Orderslotbouten() {
 <div className="phone">
 </div>
        <div className="phonevalues">
-       <input onChange={(e) => setnumber(e.target.value)} required maxLength={9} minLength={9} className="phoneinput" type="text" />
+       <input onChange={(e) => setnumber(e.target.value)} required maxLength={10} minLength={9} className="phoneinput" type="text" />
 
 
 </div>

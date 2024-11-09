@@ -23,8 +23,8 @@ app.post('/' , (req,res) => {
       port: 465,
       secure: true, // true for port 465, false for other ports
       auth: {
-        user: "beridzegigi19@gmail.com",
-        pass: "cdcs xqtm mqsu qktj",
+        user: "Info@mobielebandencentrale.be",
+        pass: "Welkwachtwoordnu?",
       },
     });
     
