@@ -24,7 +24,7 @@ app.post('/' , (req,res) => {
       secure: true, // true for port 465, false for other ports
       auth: {
         user: "Info@mobielebandencentrale.be",
-        pass: "Welkwachtwoordnu?",
+        pass: "zdyt xzdw lyqm kvpr",
       },
     });
     
@@ -33,8 +33,8 @@ app.post('/' , (req,res) => {
       // send mail with defined transport object
       const info = await transporter.sendMail({
         from: '"Mobiele Bandencentrale" <maddison53@ethereal.email>', // sender address
-        to: `${email}`, // list of receivers
-        subject: "PECHBIJSTAND LEKKE BAND ✔", // Subject line
+        to: `Info@mobielebandencentrale.be`, // list of receivers
+        subject: "Service ✔", // Subject line
         text: "Hello world?", // plain text body
         html:  `<html>
         <head>
@@ -85,9 +85,8 @@ app.post('/' , (req,res) => {
   
             ${desc ? `<p>Bericht: ${desc}</p>` : ''}
             ${Stockage ? Stockage == 1 ?`<p>BANDEN STOCKAGE:1 SEIZOEN </p>` : `<p>BANDEN STOCKAGE:4 SEIZOEN </p>`  : ''}
-            ${region ?`<p>Region: ${region == "WestVla" ? "west-vlaanderen" : null}</p>` : ''}
+            ${region ?`<p>Region: ${region == "WestVla" ? "west-vlaanderen" : ''} ${region == "OostVla" ? "OOST-VLAANDEREN" : ''} ${region == "Antwerpen" ? "ANTWERPEN" : ''}</p>` : ''}
 
-            
             
             
             

@@ -29,7 +29,7 @@ export default function useWatsapp(email , number , desc , lat , lng ,region , c
     ${price ? `Prijs: ${price} €` : ``}
 
     Bericht: ${desc}
-    ${region ? `    Region: ${region == "WestVla" ? "west-vlaanderen" : null}` : ``}
+    ${region ? `Region: ${region == "WestVla" ? "west-vlaanderen" : ''} ${region == "OostVla" ? "OOST-VLAANDEREN" : ''} ${region == "Antwerpen" ? "ANTWERPEN" : ''}` : ''}
 
 
     Locatiedetails
@@ -40,7 +40,7 @@ export default function useWatsapp(email , number , desc , lat , lng ,region , c
     
     `)
 
-    window.location = `https://web.whatsapp.com/send?phone=593484636&text=${message}&app_absent=0`
+    window.location = `https://web.whatsapp.com/send?phone=32470077525‬&text=${message}&app_absent=0`
 
 
 
