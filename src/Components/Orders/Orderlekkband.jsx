@@ -283,9 +283,13 @@ export default function Orderpechbjistan() {
                     <div className="price">
                         <div className="totalprice"> € {regionprice + chooserprice} BTW INCL.</div>
                         <p>(*) Kostprijs aankoop banden niet inbegrepen</p>
+
                     </div>
+                    <button onClick={() => validopener()} className='orderbutton' >prijsofferte/interventie aanvragen in 2 stappen</button>
+                    <br />
+
                 </div>
-                <button onClick={() => validopener()} className='orderbutton' >prijsofferte/interventie aanvragen in 2 stappen</button>
+  
                 
     
                 
