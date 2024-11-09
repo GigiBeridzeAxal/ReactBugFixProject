@@ -37,14 +37,53 @@ export default function Orderpechbjistan() {
     const [descsucc , setdescsucc] = useState()
     const [emailsucc , setemailsucc] = useState()
     const [emailsended , setemailsended] = useState(false)
+    const [regionerr , setregerr] = useState(false)
+    const [choosererr , setcherr] = useState(false)
 
     const changewindow = () => {window.location = '/'}
 
    
     const watmenu = () => {
    
+        if(!number || !desc || !email){
 
-            setwatsappmenu(true)
+            if(!number){
+                setnumbersucc(true)
+
+            }else{
+                setnumbersucc(false)
+            }
+            if(!desc){
+                setdescsucc(true)
+
+            }else{
+                setdescsucc(false)
+            }
+            if(!email){
+                setemailsucc(true)
+
+            }else{
+                setemailsucc(false)
+            }
+
+        }else{
+
+            if(number.length < 9 || !email.includes('@')){
+                
+                if(number.length < 9){
+                    console.log(number.length)
+                }
+
+                if(!email.includes('@')){
+                    console.log(number.length)
+                }
+            }
+
+
+
+        }
+        setwatsappmenu(true)
+
 
     }
 
@@ -60,6 +99,19 @@ export default function Orderpechbjistan() {
 
     const validopener = () => {
         if(!region || !chooser){
+
+            if(!region){
+                setregerr(true)
+            }else{
+                setregerr(false)
+            }
+            if(!chooser){
+                setcherr(true)
+            }else{
+                setcherr(false)
+            }
+
+
 
         }else{
             setvalidationopened(true)
@@ -187,18 +239,22 @@ export default function Orderpechbjistan() {
                     <div className="regions">
                         <div className="regiontittle">KIES UW REGIO</div>
                         <div className="regionbtn">
-                            {region == "WestVla" ?<button className="choosedbutton" > <img width={120} src="WestVla.webp" alt="" /></button> :<button onClick={() => setregion("WestVla") | setregionprice(145) } className="notchoosedbtn" > <img width={120} src="WestVla.webp" alt="" /></button>}
-                            {region == "OostVla" ?<button className="choosedbutton" > <img width={120} src="OostVla.webp" alt="" /></button> :<button onClick={() => setregion("OostVla") | setregionprice(95) }  className="notchoosedbtn" > <img width={120} src="OostVla.webp" alt="" /></button>}
-                            {region == "Antwerpen" ?<button className="choosedbutton" > <img width={120} src="Antwerpen.webp" alt="" /></button> :<button onClick={() => setregion("Antwerpen") | setregionprice(145) } className="notchoosedbtn" > <img width={120} src="Antwerpen.webp" alt="" /></button>}
+                            {region == "WestVla" ?<button className="choosedbutton" > <img width={120} src="WestVla.webp" alt="" /></button> :<button onClick={() => setregion("WestVla") | setregionprice(195) } className="notchoosedbtn" > <img width={120} src="WestVla.webp" alt="" /></button>}
+                            {region == "OostVla" ?<button className="choosedbutton" > <img width={120} src="OostVla.webp" alt="" /></button> :<button onClick={() => setregion("OostVla") | setregionprice(145) }  className="notchoosedbtn" > <img width={120} src="OostVla.webp" alt="" /></button>}
+                            {region == "Antwerpen" ?<button className="choosedbutton" > <img width={120} src="Antwerpen.webp" alt="" /></button> :<button onClick={() => setregion("Antwerpen") | setregionprice(195) } className="notchoosedbtn" > <img width={120} src="Antwerpen.webp" alt="" /></button>}
     
                         </div>
+                        {regionerr == true ? <div className="error">Selecteer een van de</div> : null}
                     </div>
                     <div className="choose">
                         <div className="choosetittle">KIES INDIEN VAN TOEPASSING</div>
                         <div className="chooselist">
                             {chooser == "velvebroken" ?<button  ><img className="choosedchooser" width={112} src="velveBroken.webp" alt="" /></button> :  <button onClick={() => setchooser("velvebroken") | setchooserprice(50) } className="notchoosedchooser" ><img width={112} src="velveBroken.webp" alt="" /></button> }
                             {chooser == "visiOrDroveFlat" ?<button  ><img className="choosedchooser" width={112} src="visiOrDroveFlat.webp" alt="" /></button> :  <button onClick={() => setchooser("visiOrDroveFlat") | setchooserprice(0) }  className="notchoosedchooser" ><img width={112} src="visiOrDroveFlat.webp" alt="" /></button> }
+                      
                         </div>
+                        {choosererr == true ? <div className="error">Selecteer een van de</div> : null}
+                      
                     </div>
                     <div className="bandemat">
                         <div className="bandemattitle">Bandenmaat</div>

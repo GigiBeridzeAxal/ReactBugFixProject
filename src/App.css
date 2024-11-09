@@ -626,6 +626,10 @@ border-radius: 10px;
   padding: 5px;
 }
 
+.Answer{
+  width: 95%;
+}
+
 @media (max-width:450px) {
   
   .Main{
