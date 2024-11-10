@@ -166,6 +166,7 @@ export default function Lekkeband() {
         </div>
         {map == true ? null :<> <button onClick={() => setmap(true)} className='button1' >prijsofferte/interventie aanvragen in 2 stappen</button>
         <a href='tel:0032476452948' className='autocall' >Direct Contact</a></> }
+        <a href="https://wa.me/593484636">awdawdasd</a>
        
     </div>
   )
