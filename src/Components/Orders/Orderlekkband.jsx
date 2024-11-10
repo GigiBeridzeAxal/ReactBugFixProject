@@ -39,6 +39,40 @@ export default function Orderpechbjistan() {
     const [emailsended , setemailsended] = useState(false)
     const [regionerr , setregerr] = useState(false)
     const [choosererr , setcherr] = useState(false)
+    const [choosedregion , setchoosedregion] = useState()
+    const [region2price , setregion2price] = useState(145)
+    useEffect(() => {
+ 
+        const date = new Date()
+        const day = date.getDay()
+        const hours = date.getHours()
+        const houreight = date.setHours(8)
+        const houreighteen = date.setHours(18)
+
+
+        if(day >= 1){
+            if(day <= 5){
+
+                if(hours >= houreight){
+                    if(hours <= houreighteen){
+                        setregion2price(95)
+                    }
+                }
+                if(hours >= houreighteen){
+     
+                        setregion2price(145)
+                }
+            }
+        }
+        if(day <= 0){
+            if(day >= 6){
+                setregion2price(145)
+            }
+
+        }
+        
+
+    },[])
 
     const changewindow = () => {window.location = '/'}
 
@@ -144,7 +178,7 @@ export default function Orderpechbjistan() {
         
    validationopened == true ? <>
       
-   <div className="formval"  >
+      <form onSubmit={(e) => e.preventDefault() | e.nativeEvent.submitter.className == "Emailsubmit" ? Sendemail() : null | e.nativeEvent.submitter.className == "Whatsappsubmit" ? Sendwatsapp() : null } className="formval"  >
 
      <label className="label" >Telefoon Nummer</label>
      <div className="phone">
@@ -159,17 +193,17 @@ export default function Orderpechbjistan() {
      </div>
      <label className="label" >Email Adres</label>
      <input onChange={(e)=>setemail(e.target.value)} className="email" required  type="email" />
-     {emailsucc == true ? <div className="error">Bericht is vereist. Beschrijf uw verzoek</div> : null}
+
      <label className="label" >Bericht</label>
      <textarea onChange={(e)=> setdesc(e.target.value) | console.log(desc)} className="bericht" type="text" required ></textarea>
-     {descsucc == true ? <div className="error">Bericht is vereist. Beschrijf uw verzoek</div> : null}
+  
 
      <div className="terms" >
      < h1 className="vorwarden">Voorwaarden</h1>
      <p className="acepter" >Accepteer het privacybeleid voordat u een verzoek indient.</p>
 
      <div className="termcheckbox">
-        <input type="checkbox" /> Ik heb het privacybeleid gelezen en ga ermee akkoord
+        <input required type="checkbox" /> Ik heb het privacybeleid gelezen en ga ermee akkoord
      </div>
 
      </div>
@@ -207,11 +241,11 @@ export default function Orderpechbjistan() {
  : null}
     
 
-     <button onClick={() => watmenu(true)} className="Whatsappsubmit" >Uw aanvraag doorsturen per Whatsapp</button>
-     <button onClick={(e) => Sendemail(e)}  className="Emailsubmit" >Uw aanvraag doorsturen per mail</button>
+     <button  className="Whatsappsubmit" >Uw aanvraag doorsturen per Whatsapp</button>
+     <button   className="Emailsubmit" >Uw aanvraag doorsturen per mail</button>
 
 
-   </div>
+   </form>
 
    </> :
     <>
@@ -235,9 +269,9 @@ export default function Orderpechbjistan() {
                     <div className="regions">
                         <div className="regiontittle">KIES UW REGIO</div>
                         <div className="regionbtn">
-                            {region == "WestVla" ?<button className="choosedbutton" > <img width={120} src="WestVla.webp" alt="" /></button> :<button onClick={() => setregion("WestVla") | setregionprice(195) } className="notchoosedbtn" > <img width={120} src="WestVla.webp" alt="" /></button>}
-                            {region == "OostVla" ?<button className="choosedbutton" > <img width={120} src="OostVla.webp" alt="" /></button> :<button onClick={() => setregion("OostVla") | setregionprice(145) }  className="notchoosedbtn" > <img width={120} src="OostVla.webp" alt="" /></button>}
-                            {region == "Antwerpen" ?<button className="choosedbutton" > <img width={120} src="Antwerpen.webp" alt="" /></button> :<button onClick={() => setregion("Antwerpen") | setregionprice(195) } className="notchoosedbtn" > <img width={120} src="Antwerpen.webp" alt="" /></button>}
+                            {region == "WestVla" ?<button className="choosedbutton" > <img width={120} src="WestVla.webp" alt="" /></button> :<button onClick={() => setregion("WestVla") | setregionprice(region2price + 50) } className="notchoosedbtn" > <img width={120} src="WestVla.webp" alt="" /></button>}
+                            {region == "OostVla" ?<button className="choosedbutton" > <img width={120} src="OostVla.webp" alt="" /></button> :<button onClick={() => setregion("OostVla") | setregionprice(region2price) }  className="notchoosedbtn" > <img width={120} src="OostVla.webp" alt="" /></button>}
+                            {region == "Antwerpen" ?<button className="choosedbutton" > <img width={120} src="Antwerpen.webp" alt="" /></button> :<button onClick={() => setregion("Antwerpen") | setregionprice(region2price + 50) } className="notchoosedbtn" > <img width={120} src="Antwerpen.webp" alt="" /></button>}
     
                         </div>
                         {regionerr == true ? <div className="error">Selecteer een van de</div> : null}
@@ -383,7 +417,7 @@ export default function Orderpechbjistan() {
               center={markerpos}
               >
                 
-                <Marker  draggable onDragEnd={(e) => setmarkerpos(e.latLng.toJSON() | setlocationchanged(true) |  console.log(e.latLng.toJSON()) )} position={markerpos} ></Marker>
+                <Marker  draggable onDragEnd={(e) => setmarkerpos(e.latLng.toJSON() )| setlocationchanged(true) |  console.log(e.latLng.toJSON()) } position={markerpos} ></Marker>
         
         </Map>
         </APIProvider>

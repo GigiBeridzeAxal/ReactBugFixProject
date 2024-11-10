@@ -3,12 +3,10 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 
-export default function useWatsapp(email , number , desc , lat , lng ,region , chooser , Aanvraag , price) {
+export default function useWatsapp(email , number , desc , lat , lng ,region , chooser , Aanvraag , price , lat2 , lng2) {
 
 
 
-
-    console.log(email , number , desc , lat , lng, region , chooser )
 
     
 
@@ -34,7 +32,11 @@ export default function useWatsapp(email , number , desc , lat , lng ,region , c
 
     Locatiedetails
 
-    ${lat ?`    Location:https://react-bug-fix-project.vercel.app/map/${lat}/${lng}` :``}
+    ${lat2 ? `` :`    Location:https://react-bug-fix-project.vercel.app/map/${lat}/${lng}`}
+    
+        ${lat2 ? `Ophaal Location:https://react-bug-fix-project.vercel.app/map/${lat}/${lng}` :``}
+
+                ${lat2 ? `Afzet Location:https://react-bug-fix-project.vercel.app/map/${lat2}/${lng2}` :``}
 
 
     

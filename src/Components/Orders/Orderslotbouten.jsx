@@ -30,7 +30,7 @@ export default function Orderslotbouten() {
 
     const changewindow = () => {window.location = '/'}
     const Sendemail = async(e) => {
-      e.preventDefault();
+
 
       const Aanvraag = "SLOTBOUTEN VERWIJDEREN"
       const price =  regionprice
@@ -112,7 +112,7 @@ export default function Orderslotbouten() {
                    
                         
                     </div>
-                    <form onSubmit={(e) => Sendemail(e)} className="formval"  >
+                    <form onSubmit={(e) => e.preventDefault() | e.nativeEvent.submitter.className == "Emailsubmit" ? Sendemail() : null | e.nativeEvent.submitter.className == "Whatsappsubmit" ? "" : null } className="formval"  >
 
 <label className="label" >Telefoon Nummer</label>
 <div className="phone">

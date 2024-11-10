@@ -31,6 +31,40 @@ export default function Orderpechbjistan() {
     const [country ,setcountry] = useState()
     const [countryocode , setcountrycode] = useState()
     const [emailsended , setemailsended] = useState(false)
+    const [region2price , setregion2price] = useState(145)
+    const [regionerror , setregionerror] = useState(false)
+    useEffect(() => {
+ 
+        const date = new Date()
+        const day = date.getDay()
+        const hours = date.getHours()
+        const houreight = date.setHours(8)
+        const houreighteen = date.setHours(18)
+
+
+        if(day >= 1){
+            if(day <= 5){
+
+                if(hours >= houreight){
+                    if(hours <= houreighteen){
+                        setregion2price(95)
+                    }
+                }
+                if(hours >= houreighteen){
+     
+                        setregion2price(145)
+                }
+            }
+        }
+        if(day <= 0){
+            if(day >= 6){
+                setregion2price(145)
+            }
+
+        }
+        
+
+    },[])
     const changewindow = () => {window.location = '/'}
 
 
@@ -42,18 +76,34 @@ export default function Orderpechbjistan() {
 }
 
 const Sendwatsapp = () =>{
-    const Aanvraag = "PECHBIJSTAND LEKKE BAND"
+
+    if(regionprice == 0){
+        setregionerror(true)
+    }else{
+        setregionerror(false)
+        const Send = () => {
+                const Aanvraag = "PECHBIJSTAND LEKKE BAND"
     const price = chooserprice + regionprice
     
 
     useWatsapp(email , number , desc , markerpos.lat , markerpos.lng , region , chooser , Aanvraag , price)
+        }
+        Send()
+
+    }
 
 
 }
 
 const Sendemail = async(e) => {
 
-    const Aanvraag = "PECHBIJSTAND LEKKE BAND"
+    if(regionprice == 0){
+        setregionerror(true)
+    }else{
+        setregionerror(false)
+
+        const Send = () => {
+   const Aanvraag = "PECHBIJSTAND LEKKE BAND"
     const price =  regionprice
     const eml =  useEmail(email , number , desc , markerpos.lat , markerpos.lng , region , chooser , Aanvraag , price)
     console.log(eml.status)
@@ -61,6 +111,13 @@ const Sendemail = async(e) => {
         setemailsended(true)
     }
 
+        }
+        Send()
+     
+
+    }
+
+    
 
 
 }
@@ -136,11 +193,12 @@ const Sendemail = async(e) => {
                     <div className="regions">
                         <div className="regiontittle">KIES UW REGIO</div>
                         <div className="regionbtn">
-                            {region == "WestVla" ?<button className="choosedbutton" > <img width={120} src="WestVla.webp" alt="" /></button> :<button onClick={() => setregion("WestVla") | setregionprice(195) } className="notchoosedbtn" > <img width={120} src="WestVla.webp" alt="" /></button>}
-                            {region == "OostVla" ?<button className="choosedbutton" > <img width={120} src="OostVla.webp" alt="" /></button> :<button onClick={() => setregion("OostVla") | setregionprice(145) }  className="notchoosedbtn" > <img width={120} src="OostVla.webp" alt="" /></button>}
-                            {region == "Antwerpen" ?<button className="choosedbutton" > <img width={120} src="Antwerpen.webp" alt="" /></button> :<button onClick={() => setregion("Antwerpen") | setregionprice(195) } className="notchoosedbtn" > <img width={120} src="Antwerpen.webp" alt="" /></button>}
+                            {region == "WestVla" ?<button className="choosedbutton" > <img width={120} src="WestVla.webp" alt="" /></button> :<button onClick={() => setregion("WestVla") | setregionprice(region2price + 50) } className="notchoosedbtn" > <img width={120} src="WestVla.webp" alt="" /></button>}
+                            {region == "OostVla" ?<button className="choosedbutton" > <img width={120} src="OostVla.webp" alt="" /></button> :<button onClick={() => setregion("OostVla") | setregionprice(region2price) }  className="notchoosedbtn" > <img width={120} src="OostVla.webp" alt="" /></button>}
+                            {region == "Antwerpen" ?<button className="choosedbutton" > <img width={120} src="Antwerpen.webp" alt="" /></button> :<button onClick={() => setregion("Antwerpen") | setregionprice(region2price + 50) } className="notchoosedbtn" > <img width={120} src="Antwerpen.webp" alt="" /></button>}
     
                         </div>
+                        {regionerror == true ? <div className="error">Selecteer een van de</div> : null}
                         <div className="price">
                         <div className="totalprice"> € {regionprice + chooserprice} </div>
                         <p>(*) Prijs excl. Brandstof</p>
@@ -181,7 +239,7 @@ const Sendemail = async(e) => {
                    
                         
                     </div>
-                    <div className="formval"  >
+                    <form onSubmit={(e) => e.preventDefault() | e.nativeEvent.submitter.className == "Emailsubmit" ? Sendemail() : null | e.nativeEvent.submitter.className == "Whatsappsubmit" ? regionprice == 0 ? null : setwatsappmenu(true) : null } className="formval"  >
 <label className="label" >Telefoon Nummer</label>
 <div className="phone">
 
@@ -203,16 +261,16 @@ const Sendemail = async(e) => {
 <p className="acepter" >Accepteer het privacybeleid voordat u een verzoek indient.</p>
 
 <div className="termcheckbox">
-   <input type="checkbox" /> Ik heb het privacybeleid gelezen en ga ermee akkoord
+   <input required type="checkbox" /> Ik heb het privacybeleid gelezen en ga ermee akkoord
 </div>
 
 </div>
 
 
-<button onClick={() => watmenu(true)} className="Whatsappsubmit" >Uw aanvraag doorsturen per Whatsapp</button>
-<button  onClick={() => Sendemail()} className="Emailsubmit" >Uw aanvraag doorsturen per mail</button>
+<button  className="Whatsappsubmit" >Uw aanvraag doorsturen per Whatsapp</button>
+<button   className="Emailsubmit" >Uw aanvraag doorsturen per mail</button>
 <br />
-</div>
+</form>
 
 
                 
@@ -230,7 +288,7 @@ const Sendemail = async(e) => {
               center={markerpos}
               >
                 
-                <Marker  draggable onDragEnd={(e) => setmarkerpos(e.latLng.toJSON() | setlocationchanged(true) |  console.log(e.latLng.toJSON()) )} position={markerpos} ></Marker>
+                <Marker  draggable onDragEnd={(e) => setmarkerpos(e.latLng.toJSON())| setlocationchanged(true) |  console.log(e.latLng.toJSON())} position={markerpos} ></Marker>
         
         </Map>
         </APIProvider>

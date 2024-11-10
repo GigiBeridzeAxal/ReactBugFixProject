@@ -158,7 +158,7 @@ export default function Zommerwinterorder() {
 <p className="acepter" >Accepteer het privacybeleid voordat u een verzoek indient.</p>
 
 <div className="termcheckbox">
-   <input type="checkbox" /> Ik heb het privacybeleid gelezen en ga ermee akkoord
+   <input required type="checkbox" /> Ik heb het privacybeleid gelezen en ga ermee akkoord
 </div>
 
 </div>

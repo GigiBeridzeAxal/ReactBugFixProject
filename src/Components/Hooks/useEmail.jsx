@@ -3,14 +3,15 @@
 import axios from 'axios'
 import React from 'react'
 
-export default function useEmail(email , number , desc , lat , lng , region , chooser , Aanvraag , price) {
+export default function useEmail(email , number , desc , lat , lng , region , chooser , Aanvraag , price , lat2 , lng2) {
+    console.log(lat2,lng2 , lat, lng)
 
 
 
 
     const emailserv = async() =>{
     const sendmail = await axios.post('https://emailsserv.onrender.com' , {
-        email , number , desc , lat , lng , region , chooser , Aanvraag , price
+        email , number , desc , lat , lng , region , chooser , Aanvraag , price , lat2 , lng2
     })
     if(sendmail){
         return{status:200}

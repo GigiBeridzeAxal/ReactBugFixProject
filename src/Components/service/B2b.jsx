@@ -4,7 +4,7 @@ import Orderb2b from '../Orders/Orderb2b'
 export default function B2b() {
 
     
-    const [q1 , setq1] = useState(false)
+    const [q1 , setq1] = useState(true)
     const [q2 , setq2] = useState(false)
     const [q3 , setq3] = useState(false)
     const [q4 , setq4] = useState(false)
@@ -25,13 +25,13 @@ export default function B2b() {
         <img width={250} src="LOGO.png" alt="" />
         <div className="serviceframe">
             
-            {order == true ? null:            <h1>PECHBIJSTAND LEKKE BAND</h1> }
+            {order == true ? null:            <h1>B2B / FLEET BANDEN WISSEL</h1> }
 
 
             {order == true ? <Orderb2b></Orderb2b>:                 <div className="questions">
                 
                 <div className="question">
-                        <button onClick={() => q1 == true ? setq1(false) : setq1(true) } className="questiontittle">{ q1 == true ?<div className='minus' >-   </div> : <div className='plus' >+</div>   }Platte band auto weetjes: </button>
+                        <button  className="questiontittle">{ q1 == true ? null : <div className='plus' >+</div>   }Platte band auto weetjes: </button>
                         {q1 == true ? <div className='Answer' >
                            De eenmanszaak Mobiele Bandencentrale werd door Sander Van Seghbroeck opgericht in 2012. Het was voor Sander duidelijk dat er een ontbrekende link was (en veel ruimte voor verbetering) tussen het oplopen van een platte band en een bandenreparatie of vervanging bij de traditionele bandencentrale. 
                            Zo profileerde Mbc zich in het begin als banden pechbijstand verlener. Toen Mobiele Bandencentrale in 2014 de opportuniteit kreeg om voor 2 concessiehouders in het Gentse de zomer-winter bandenwissel en stockage te verzorgen, grepen wij deze kans met beide handen.

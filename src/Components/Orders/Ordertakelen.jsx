@@ -12,7 +12,10 @@ export default function Ordertakelen() {
     
     const [center ,setcenter] = useState({lat:0.5353, lng:0.53515})
     const [markerpos , setmarkerpos] = useState({ lat: 50.84852676025505, lng: 4.350960265625017 } )
+    const [center2 ,setcenter2] = useState({lat:0.5353, lng:0.53515})
+    const [markerpos2 , setmarkerpos2] = useState({ lat: 50.84852676025505, lng: 4.350960265625017 } )
     const [locationchanged , setlocationchanged] = useState(false)
+    const [locationchanged2 , setlocationchanged2] = useState(false)
     const [order , setorder] = useState(false)
     const [validationopened , setvalidationopened] = useState(false)
     const [user , setuser] = useState("Wazaa")
@@ -27,6 +30,7 @@ export default function Ordertakelen() {
     const [email , setemail] = useState()
     const [desc , setdesc] = useState()
     const [number , setnumber] = useState()
+    const [locationopened , setlocationopened] = useState(1)
     
     const [country ,setcountry] = useState()
     const [countryocode , setcountrycode] = useState()
@@ -46,7 +50,7 @@ const Sendwatsapp = () =>{
     const price = chooserprice + regionprice
     
 
-    useWatsapp(email , number , desc , markerpos.lat , markerpos.lng , region , chooser , Aanvraag , price)
+    useWatsapp(email , number , desc , markerpos.lat , markerpos.lng , region , chooser , Aanvraag , price , markerpos2.lat , markerpos2.lng)
 
 
 }
@@ -55,7 +59,7 @@ const Sendemail = async(e) => {
 
     const Aanvraag = "TAKELEN"
     const price =  regionprice
-    const eml =  useEmail(email , number , desc , markerpos.lat , markerpos.lng , region , chooser , Aanvraag , price)
+    const eml =  useEmail(email , number , desc , markerpos.lat , markerpos.lng , region , chooser , Aanvraag , price , markerpos2.lat , markerpos2.lng)
     console.log(eml.status)
     if(eml.status == 200){
         setemailsended(true)
@@ -76,10 +80,22 @@ const Sendemail = async(e) => {
         })
     }
 
+
+    const MyLocat2 = () => {
+        navigator.geolocation.getCurrentPosition((position) => {
+            const lat = position.coords.latitude
+            const lng = position.coords.longitude
+            console.log(lat , lng)
+            setmarkerpos2({ lat , lng})
+            setcenter2({lat, lng})
+            setlocationchanged2(true)
+        })
+    }
+
     return(
    validationopened == true ? <>
    
-   <form className="formval"  >
+   <form onSubmit={(e) => e.preventDefault() | e.nativeEvent.submitter.className == "Emailsubmit" ? Sendemail() : null | e.nativeEvent.submitter.className == "Whatsappsubmit" ? Sendwatsapp() : null } className="formval"  >
 
      <label className="label" >Telefoon Nummer</label>
      <div className="phone">
@@ -102,13 +118,13 @@ const Sendemail = async(e) => {
      <p className="acepter" >Accepteer het privacybeleid voordat u een verzoek indient.</p>
 
      <div className="termcheckbox">
-        <input type="checkbox" /> Ik heb het privacybeleid gelezen en ga ermee akkoord
+        <input required type="checkbox" /> Ik heb het privacybeleid gelezen en ga ermee akkoord
      </div>
 
      </div>
 
 
-     <button className="Whatsappsubmit" >Uw aanvraag doorsturen per Whatsapp</button>
+     <button onSubmit={(e) => console.log("Whatsaap")} className="Whatsappsubmit" >Uw aanvraag doorsturen per Whatsapp</button>
      <button className="Emailsubmit" >Uw aanvraag doorsturen per mail</button>
 
 
@@ -122,8 +138,11 @@ const Sendemail = async(e) => {
     
     {order == true  ? null: <div className="locationframe" >
                 Waar is uw voertuig?
-    
-                {locationchanged == true  ? <button onClick={() => setorder(true)} >Doorgaan</button>:<button onClick={() => MyLocat()} >Zoek mij</button>}
+                {locationopened == 1 ?locationchanged == true  ? <button onClick={() =>setlocationopened(2) } >Doorgaan</button> : <button onClick={() => MyLocat()} >Zoek mij</button> : null
+                }
+                {locationopened == 2 ?locationchanged2 == true  ? <button onClick={() => setorder(true)} >Doorgaan</button> : <button onClick={() => MyLocat2()} >Zoek mij</button> : null
+                }
+
     
     
     
@@ -170,7 +189,7 @@ const Sendemail = async(e) => {
                    
                         
                     </div>
-                    <div className="formval"  >
+                    <form onSubmit={(e) => e.preventDefault() | e.nativeEvent.submitter.className == "Emailsubmit" ? Sendemail() : null | e.nativeEvent.submitter.className == "Whatsappsubmit" ? Sendwatsapp() : null } className="formval"  >
 <label className="label" >Telefoon Nummer</label>
 <div className="phone">
 
@@ -192,16 +211,16 @@ const Sendemail = async(e) => {
 <p className="acepter" >Accepteer het privacybeleid voordat u een verzoek indient.</p>
 
 <div className="termcheckbox">
-   <input type="checkbox" /> Ik heb het privacybeleid gelezen en ga ermee akkoord
+   <input required type="checkbox" /> Ik heb het privacybeleid gelezen en ga ermee akkoord
 </div>
 
 </div>
 
 
-<button onClick={() => watmenu(true)} className="Whatsappsubmit" >Uw aanvraag doorsturen per Whatsapp</button>
-<button  onClick={() => Sendemail()} className="Emailsubmit" >Uw aanvraag doorsturen per mail</button>
+<button  className="Whatsappsubmit" >Uw aanvraag doorsturen per Whatsapp</button>
+<button  className="Emailsubmit" >Uw aanvraag doorsturen per mail</button>
 <br />
-</div>
+</form>
 
 
                 
@@ -210,19 +229,37 @@ const Sendemail = async(e) => {
                 </>
                 
                 :  <div className="map" >
-                
-             
-                <APIProvider onLoad={() => console.log("Loaded")} apiKey="AIzaSyBYrVjCDtU5vIiwetkkggADFrFhW8VVjQ4
+
+
+                {locationopened == 1 ? <> Selecteer de Ophaal locatie <APIProvider onLoad={() => console.log("Loaded")} apiKey="AIzaSyBYrVjCDtU5vIiwetkkggADFrFhW8VVjQ4
         ">
          <Map
               defaultZoom={10}
               center={markerpos}
               >
                 
-                <Marker  draggable onDragEnd={(e) => setmarkerpos(e.latLng.toJSON() | setlocationchanged(true) |  console.log(e.latLng.toJSON()) )} position={markerpos} ></Marker>
+                <Marker  draggable onDragEnd={(e) => setmarkerpos(e.latLng.toJSON() ) | setlocationchanged(true) |  console.log(markerpos)} position={markerpos} ></Marker>
         
         </Map>
+        
         </APIProvider>
+                
+                
+                </>  : <>                     Selecteer de vervolgkeuzelijst
+        <APIProvider onLoad={() => console.log("Loaded")} apiKey="AIzaSyBYrVjCDtU5vIiwetkkggADFrFhW8VVjQ4
+        ">
+         <Map
+              defaultZoom={10}
+              center={markerpos2}
+              >
+                
+                <Marker  draggable onDragEnd={(e) => setmarkerpos2(e.latLng.toJSON()) | setlocationchanged2(true) |  console.log(markerpos2)  } position={markerpos2} ></Marker>
+        
+        </Map>
+        </APIProvider> 
+        </>  }
+             
+               
         </div>
          }
     

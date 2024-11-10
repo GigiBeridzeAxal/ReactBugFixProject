@@ -11,6 +11,7 @@
   display: flex;
 
   justify-content: end;
+  height: 800px;
 
 }
 .panel{
@@ -199,7 +200,7 @@
 
 .homepanel{
  display: flex;
-  height: 90vh;
+  height: 800px;
   width: 400px;
   margin: 25px;
   border-radius: .5rem;
@@ -231,6 +232,12 @@
   color: rgb(96 165 250 / var(--tw-text-opacity));
 }
 
+.map{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  color: white;
+}
 .mapservice{
   display: flex;
   flex-direction: column;
@@ -656,6 +663,9 @@ body{
   
   .Main{
     justify-content: center;
+    position: absolute;
+    margin: 0px;
+    height: auto;
   }
   
 }
