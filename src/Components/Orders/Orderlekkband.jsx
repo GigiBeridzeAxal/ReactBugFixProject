@@ -41,6 +41,7 @@ export default function Orderpechbjistan() {
     const [choosererr , setcherr] = useState(false)
     const [choosedregion , setchoosedregion] = useState()
     const [region2price , setregion2price] = useState(145)
+    const [regionselected  ,setregionselected] = useState(false)
     useEffect(() => {
  
         const date = new Date()
@@ -60,6 +61,13 @@ export default function Orderpechbjistan() {
                         setregion2price(95)
 
                 }
+                if(hours >= 18 && hours < 22){
+
+                    setregion2price(145)
+
+            }
+
+
             }
         }
         if(day <= 0){
@@ -267,9 +275,9 @@ export default function Orderpechbjistan() {
                     <div className="regions">
                         <div className="regiontittle">KIES UW REGIO</div>
                         <div className="regionbtn">
-                            {region == "WestVla" ?<button className="choosedbutton" > <img width={120} src="WestVla.webp" alt="" /></button> :<button onClick={() => setregion("WestVla") | setregionprice(region2price + 50) } className="notchoosedbtn" > <img width={120} src="WestVla.webp" alt="" /></button>}
-                            {region == "OostVla" ?<button className="choosedbutton" > <img width={120} src="OostVla.webp" alt="" /></button> :<button onClick={() => setregion("OostVla") | setregionprice(region2price) }  className="notchoosedbtn" > <img width={120} src="OostVla.webp" alt="" /></button>}
-                            {region == "Antwerpen" ?<button className="choosedbutton" > <img width={120} src="Antwerpen.webp" alt="" /></button> :<button onClick={() => setregion("Antwerpen") | setregionprice(region2price + 50) } className="notchoosedbtn" > <img width={120} src="Antwerpen.webp" alt="" /></button>}
+                            {region == "WestVla" ?<button className="choosedbutton" > <img width={120} src="WestVla.webp" alt="" /></button> :<button onClick={() => setregion("WestVla") |setregionselected(true) | setregionprice(region2price == 0 ?  0: region2price + 50) } className="notchoosedbtn" > <img width={120} src="WestVla.webp" alt="" /></button>}
+                            {region == "OostVla" ?<button className="choosedbutton" > <img width={120} src="OostVla.webp" alt="" /></button> :<button onClick={() => setregion("OostVla") |setregionselected(true) | setregionprice(region2price) }  className="notchoosedbtn" > <img width={120} src="OostVla.webp" alt="" /></button>}
+                            {region == "Antwerpen" ?<button className="choosedbutton" > <img width={120} src="Antwerpen.webp" alt="" /></button> :<button onClick={() => setregion("Antwerpen") |setregionselected(true) | setregionprice(region2price == 0 ?  0: region2price + 50) } className="notchoosedbtn" > <img width={120} src="Antwerpen.webp" alt="" /></button>}
     
                         </div>
                         {regionerr == true ? <div className="error">Selecteer een van de</div> : null}

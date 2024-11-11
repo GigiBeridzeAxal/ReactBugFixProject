@@ -685,10 +685,23 @@ body{
 
     margin: 0px;
     height: auto;
-    width: 400px;
+    width: 100%;
+  }
+  .panel{
+    width: 100%;
   }
   .Footer{
     width: 400px;
+  }
+  .button1{
+    width: 100%;
+  }
+  .autocall{
+    width: 100%;
+    padding: 0;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
   }
   
 }

@@ -52,9 +52,14 @@ export default function OrderPlattebatterij() {
 
                 if(hours >= 8 && hours < 18){
 
-                        setregion2price(95)
+                    setregion2price(95)
 
-                }
+            }
+            if(hours >= 18 && hours < 22){
+
+                setregion2price(145)
+
+        }
             }
         }
         if(day <= 0){
@@ -79,7 +84,7 @@ export default function OrderPlattebatterij() {
 const Sendwatsapp = () =>{
 
 
-    if(regionprice == 0){
+    if(!region){
 
     }else{
         const Send = () => {
@@ -100,7 +105,7 @@ const Sendwatsapp = () =>{
 
 const Sendemail = async(e) => {
 
-    if(regionprice == 0){
+    if(!region){
 
     }else{
 
