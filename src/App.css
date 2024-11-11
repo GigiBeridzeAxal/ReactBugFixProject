@@ -693,5 +693,8 @@ body{
   .BG{
     display: none;
   }
+  .Main{
+    justify-content: center;
+  }
   
 }
