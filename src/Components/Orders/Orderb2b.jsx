@@ -36,8 +36,7 @@ export default function Orderb2b() {
     const Aanvraag = "PECHBIJSTAND LEKKE BAND"
     const price =  regionprice
     const eml =  useEmail(email , number , desc , markerpos.lat , markerpos.lng , region , chooser , Aanvraag , price)
-    (eml.status)
-    
+
     if(eml.status == 200){
         setemailsended(true)
     }
@@ -51,7 +50,7 @@ export default function Orderb2b() {
       navigator.geolocation.getCurrentPosition((position) => {
           const lat = position.coords.latitude
           const lng = position.coords.longitude
-          (lat , lng)
+
           setmarkerpos({ lat , lng})
           setcenter({lat, lng})
           setlocationchanged(true)

@@ -103,11 +103,11 @@ export default function Orderpechbjistan() {
             if(number.length < 9 || !email.includes('@')){
                 
                 if(number.length < 9){
-                    (number.length)
+
                 }
 
                 if(!email.includes('@')){
-                    (number.length)
+
                 }
             }
 
@@ -151,7 +151,7 @@ export default function Orderpechbjistan() {
         const Aanvraag = "PECHBIJSTAND LEKKE BAND"
         const price = chooserprice + regionprice
         const eml =  useEmail(email , number , desc , markerpos.lat , markerpos.lng , region , chooser , Aanvraag , price)
-        (eml.status)
+
         if(eml.status == 200){
             setemailsended(true)
         }
@@ -165,7 +165,7 @@ export default function Orderpechbjistan() {
         navigator.geolocation.getCurrentPosition((position) => {
             const lat = position.coords.latitude
             const lng = position.coords.longitude
-            (lat , lng)
+
             setmarkerpos({ lat , lng})
             setcenter({lat, lng})
             setlocationchanged(true)
@@ -193,7 +193,7 @@ export default function Orderpechbjistan() {
      <input onChange={(e)=>setemail(e.target.value)} className="email" required  type="email" />
 
      <label className="label" >Bericht</label>
-     <textarea onChange={(e)=> setdesc(e.target.value) | (desc)} className="bericht" type="text" required ></textarea>
+     <textarea onChange={(e)=> setdesc(e.target.value) } className="bericht" type="text" required ></textarea>
   
 
      <div className="terms" >
@@ -415,7 +415,7 @@ export default function Orderpechbjistan() {
               center={markerpos}
               >
                 
-                <Marker  draggable onDragEnd={(e) => setmarkerpos(e.latLng.toJSON() )| setlocationchanged(true) |  (e.latLng.toJSON()) } position={markerpos} ></Marker>
+                <Marker  draggable onDragEnd={(e) => setmarkerpos(e.latLng.toJSON() )| setlocationchanged(true)  } position={markerpos} ></Marker>
         
         </Map>
         </APIProvider>

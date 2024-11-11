@@ -47,7 +47,7 @@ export default function Onlinebandenorder() {
         navigator.geolocation.getCurrentPosition((position) => {
             const lat = position.coords.latitude
             const lng = position.coords.longitude
-            (lat , lng)
+
             setmarkerpos({ lat , lng})
             setcenter({lat, lng})
             setlocationchanged(true)

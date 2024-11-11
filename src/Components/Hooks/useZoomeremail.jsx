@@ -4,7 +4,7 @@ import axios from 'axios'
 import React from 'react'
 
 export default function useZoomeremail(email , number , desc , Stockage , price , Aanvraag) {
-    (Stockage)
+
 
 
 

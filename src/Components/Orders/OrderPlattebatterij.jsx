@@ -108,7 +108,7 @@ const Sendemail = async(e) => {
  const Aanvraag = "PECHBIJSTAND PLATTE BATTERIJL"
     const price =  regionprice
     const eml =  useEmail(email , number , desc , markerpos.lat , markerpos.lng , region , chooser , Aanvraag , price)
-    (eml.status)
+
     if(eml.status == 200){
         setemailsended(true)
     }
@@ -128,7 +128,7 @@ const Sendemail = async(e) => {
         navigator.geolocation.getCurrentPosition((position) => {
             const lat = position.coords.latitude
             const lng = position.coords.longitude
-            (lat , lng)
+
             setmarkerpos({ lat , lng})
             setcenter({lat, lng})
             setlocationchanged(true)
@@ -290,7 +290,7 @@ const Sendemail = async(e) => {
               center={markerpos}
               >
                 
-                <Marker  draggable onDragEnd={(e) => setmarkerpos(e.latLng.toJSON() ) | setlocationchanged(true) |  (e.latLng.toJSON()) } position={markerpos} ></Marker>
+                <Marker  draggable onDragEnd={(e) => setmarkerpos(e.latLng.toJSON() ) | setlocationchanged(true) } position={markerpos} ></Marker>
         
         </Map>
         </APIProvider>

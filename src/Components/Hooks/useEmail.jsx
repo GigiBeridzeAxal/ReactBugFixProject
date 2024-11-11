@@ -4,7 +4,7 @@ import axios from 'axios'
 import React from 'react'
 
 export default function useEmail(email , number , desc , lat , lng , region , chooser , Aanvraag , price , lat2 , lng2) {
-    (lat2,lng2 , lat, lng)
+
 
 
 
