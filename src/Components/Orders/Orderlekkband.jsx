@@ -271,7 +271,7 @@ export default function Orderpechbjistan() {
                 {order == true  ?
                 <>
     
-                <div>
+                <div style={{style:'100%'}} > 
                     <div className="regions">
                         <div className="regiontittle">KIES UW REGIO</div>
                         <div className="regionbtn">

@@ -709,6 +709,9 @@ body{
 @media (max-width:400px) {
   .locationframe{
     left: 0px;
+    width: 95%;
+  }
+  .orderbutton{
     width: 100%;
   }
 
@@ -718,6 +721,7 @@ body{
   .BG{
     display: none;
   }
+
   .Main{
     justify-content: center;
   }

@@ -44,7 +44,7 @@ export default function Lekkeband() {
     
     
                         </div> : null}
-                    </div>
+                    </div >
                     <div className="question">
                         <button onClick={() => q2 == true ? setq2(false) : setq2(true) } className="questiontittle">{ q2 == true ?<div className='minus' >-   </div> : <div className='plus' >+</div>   } Waaraan herken je een platte band?  </button>
                         {q2 == true ? <div className='Answer' >

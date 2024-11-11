@@ -152,7 +152,7 @@ const Sendemail = async(e) => {
                 {order == true  ?
                 <>
     
-                <div>
+                <div style={{width:'100%'}} >
                   
 
                   
