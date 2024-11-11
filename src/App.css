@@ -674,6 +674,10 @@ body{
   flex-direction: column;
 }
 
+.titldesc{
+  width: 90%;
+}
+
 @media (max-width:450px) {
   
   .Main{
