@@ -14,13 +14,13 @@ app.post('/' , (req,res) => {
 
 
 
-    const {email , number , desc , lat , lng , Stockage , price , Aanvraag , region , TypeBand , lat2 , lng2 } = req.body
+    const {email , number , desc , lat , lng , Stockage , price , Aanvraag , region , TypeBand , lat2 , lng2 , afzet } = req.body
     const nodemailer = require("nodemailer");
 
 
 
-    const locationurl = `http://localhost:3000/map/${lat}/${lng}`
-    const locationurl2 = `http://localhost:3000/map/${lat2}/${lng2}`
+    const locationurl = `https://react-bug-fix-project.vercel.app/map/${lat}/${lng}`
+    const locationurl2 = `https://react-bug-fix-project.vercel.app/map/${lat2}/${lng2}`
     
 
     const transporter = nodemailer.createTransport({
@@ -91,7 +91,7 @@ app.post('/' , (req,res) => {
             ${Aanvraag ? `<p>Aanvrag Type: ${Aanvraag}</p>` : ''}
             ${TypeBand ? `<p>TypeBand: ${TypeBand}</p>` : ''}
             ${price ? `<p>Prijs: ${price} €</p>` : ''}
-  
+             ${afzet ? `Afzet Locatioe: ${afzet}` : ''}
             ${desc ? `<p>Bericht: ${desc}</p>` : ''}
             ${Stockage ? Stockage == 1 ?`<p>BANDEN STOCKAGE:1 SEIZOEN </p>` : `<p>BANDEN STOCKAGE:4 SEIZOEN </p>`  : ''}
             ${region ?`<p>Region: ${region == "WestVla" ? "west-vlaanderen" : ''} ${region == "OostVla" ? "OOST-VLAANDEREN" : ''} ${region == "Antwerpen" ? "ANTWERPEN" : ''}</p>` : ''}

@@ -35,6 +35,7 @@ export default function Ordertakelen() {
     const [country ,setcountry] = useState()
     const [countryocode , setcountrycode] = useState()
     const [emailsended , setemailsended] = useState(false)
+    const [afzet , setafzet] = useState()
     const changewindow = () => {window.location = '/'}
 
 
@@ -50,7 +51,7 @@ const Sendwatsapp = () =>{
     const price = chooserprice + regionprice
     
 
-    useWatsapp(email , number , desc , markerpos.lat , markerpos.lng , region , chooser , Aanvraag , price , markerpos2.lat , markerpos2.lng)
+    useWatsapp(email , number , desc , markerpos.lat , markerpos.lng , region , chooser , Aanvraag , price , markerpos2.lat , markerpos2.lng , afzet)
 
 
 }
@@ -59,8 +60,8 @@ const Sendemail = async(e) => {
 
     const Aanvraag = "TAKELEN"
     const price =  regionprice
-    const eml =  useEmail(email , number , desc , markerpos.lat , markerpos.lng , region , chooser , Aanvraag , price , markerpos2.lat , markerpos2.lng)
-    (eml.status)
+    const eml =  useEmail(email , number , desc , markerpos.lat , markerpos.lng , region , chooser , Aanvraag , price , markerpos2.lat , markerpos2.lng , afzet)
+
     if(eml.status == 200){
         setemailsended(true)
     }
@@ -203,6 +204,10 @@ const Sendemail = async(e) => {
 <label className="label" >Email Adres</label>
 <input onChange={(e) => setemail(e.target.value)} className="email" required  type="email" />
 
+<label className="label" >Afzet Locatie</label>
+<input onChange={(e) => setafzet(e.target.value)} className="email" required  type="text" />
+
+
 <label className="label" >Bericht</label>
 <textarea onChange={(e) => setdesc(e.target.value)} className="bericht" required name="" id=""></textarea>
 
@@ -245,7 +250,7 @@ const Sendemail = async(e) => {
         </APIProvider>
                 
                 
-                </>  : <>                     Selecteer de vervolgkeuzelijst
+                </>  : <>                     Selecteer de Afzet locatie
         <APIProvider apiKey="AIzaSyBYrVjCDtU5vIiwetkkggADFrFhW8VVjQ4
         ">
          <Map

@@ -32,17 +32,40 @@ export default function Zommerwinterorder() {
     const [desc , setdesc] = useState()
     const [number , setnumber] = useState()
     const [Stockage , setstockage] = useState()
+    const [emailsended , setemailsended] = useState(false)
+    const [benderr ,setbenderr] = useState(false)
+    const [selerr , setselerr] = useState(false)
 
 
-    
+    const changewindow = () => {window.location = '/'}
     const Sendmail = (e) => {
         e.preventDefault();
 
+        if(regionprice == 0){
+            setbenderr(true)
 
-        const price = checkbox1price2 == 150 ?checkbox1price2  :  regionprice + checkbox1price1 + checkbox1price2 
+        }else{
+            setbenderr(false)
+            if(checkbox1price1 !== 0 || checkbox1price2 !==0){
+                const Send = () => {
+ const price = checkbox1price2 == 150 ?checkbox1price2  :  regionprice + checkbox1price1 + checkbox1price2 
 
-        const Aanvrag = "ZOMER-WINTER BANDEN WISSEL"
-        useZoomeremail(email , number , desc , Stockage , price  , Aanvrag )
+            const Aanvrag = "ZOMER-WINTER BANDEN WISSEL"
+            useZoomeremail(email , number , desc , Stockage , price  , Aanvrag)
+            setemailsended(true)
+                }
+                Send()
+                
+            }else{
+                setselerr(true)
+            }
+           
+        }
+
+       
+
+
+       
 
 
 
@@ -116,6 +139,7 @@ export default function Zommerwinterorder() {
                             {region == "Antwerpen" ?<button className="choosedbutton" > <img width={120} src="18-26.webp" alt="" /></button> :<button onClick={() => setregion("Antwerpen") | setregionprice(92) } className="notchoosedbtn" > <img width={120} src="18-26.webp" alt="" /></button>}
     
                         </div>
+                        {benderr == true ? <div className="error">Selecteer een van de</div> : null}
                         <div className="bandemat">
 
                      
@@ -125,6 +149,7 @@ export default function Zommerwinterorder() {
                         <div className="checkbox">
                         NIEUWE BANDEN NIET AANGEKOCHT BIJ MBC <input checked={Stockage == 4 ? true : false} onClick={(e) => e.target.checked == true ?setchkp2(150) | setstockage(4) : setstockage() | setchkp2(0)  | setchkp1(0)    } type="checkbox" />
                         </div>
+                        {selerr == true ? <div className="error">Selecteer een van de</div> : null}
                         
                     </div>
                     <div className="price">
@@ -149,7 +174,22 @@ export default function Zommerwinterorder() {
 </div>
 <label className="label" >Email Adres</label>
 <input onChange={(e) => setemail(e.target.value)} className="email" required  type="email" />
+{emailsended == true ?  <div className="watsappmenu">
+        <div className="watframe">
+            <img src="Warning.png" alt="" />
+        <div className="watmenutittle">Een bericht succesvol verzonden</div>
+        <div className="watdesc">Bedankt voor het gebruik van onze service</div>
 
+        <div className="watbtns">
+            <button className="yesbtn" onClick={() => setemailsended(false) | changewindow()} >Ok!</button>
+        </div>
+        </div>
+       
+
+
+     </div>
+ : null}
+                  
 <label className="label" >Bericht</label>
 <textarea onChange={(e) => setdesc(e.target.value) } className="bericht" required name="" id=""></textarea>
 
