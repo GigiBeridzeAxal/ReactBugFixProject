@@ -303,7 +303,7 @@
   
 }
 .regions{
-  width: 95%;
+  width: 90%;
 }
 .chooselist{
   display: flex;
@@ -657,6 +657,21 @@ body{
 }
 .Vernden:active{
   background-color: #da004ca4;
+}
+.homepanelframe{
+  align-items: center;
+}
+.services{
+  align-items: center;
+}
+.panel{
+  display: flex;
+  align-items: center;
+}
+.question{
+  align-items: center;
+  display: flex;
+  flex-direction: column;
 }
 
 @media (max-width:450px) {

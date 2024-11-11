@@ -42,7 +42,7 @@ export default function useWatsapp(email , number , desc , lat , lng ,region , c
     
     `)
 
-    window.location = `https://wa.me/593484636?text=${message}`
+    window.location = `https://wa.me/32476452948?text=${message}`
 
 
 
