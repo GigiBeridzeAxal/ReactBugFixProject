@@ -32,7 +32,7 @@ export default function Onlinebandenorder() {
    
     const Sendmail = (e) => {
         e.preventDefault();
-        console.log("Working")
+
 
         const Aanvrag = "ONLINE BANDEN KOPEN MET MONTAGE AAN HUIS"
         useOnlineemail(email , number , desc  , Aanvrag , TypeBand )
@@ -47,7 +47,7 @@ export default function Onlinebandenorder() {
         navigator.geolocation.getCurrentPosition((position) => {
             const lat = position.coords.latitude
             const lng = position.coords.longitude
-            console.log(lat , lng)
+            (lat , lng)
             setmarkerpos({ lat , lng})
             setcenter({lat, lng})
             setlocationchanged(true)

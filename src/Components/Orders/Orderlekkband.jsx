@@ -48,19 +48,17 @@ export default function Orderpechbjistan() {
         const hours = date.getHours()
         const houreight = date.setHours(8)
         const houreighteen = date.setHours(18)
+        const nowhours = date.setHours(date.getHours())
+
 
 
         if(day >= 1){
             if(day <= 5){
 
-                if(hours >= houreight){
-                    if(hours <= houreighteen){
+                if(hours >= 8 && hours < 18){
+
                         setregion2price(95)
-                    }
-                }
-                if(hours >= houreighteen){
-     
-                        setregion2price(145)
+
                 }
             }
         }
@@ -105,11 +103,11 @@ export default function Orderpechbjistan() {
             if(number.length < 9 || !email.includes('@')){
                 
                 if(number.length < 9){
-                    console.log(number.length)
+                    (number.length)
                 }
 
                 if(!email.includes('@')){
-                    console.log(number.length)
+                    (number.length)
                 }
             }
 
@@ -153,7 +151,7 @@ export default function Orderpechbjistan() {
         const Aanvraag = "PECHBIJSTAND LEKKE BAND"
         const price = chooserprice + regionprice
         const eml =  useEmail(email , number , desc , markerpos.lat , markerpos.lng , region , chooser , Aanvraag , price)
-        console.log(eml.status)
+        (eml.status)
         if(eml.status == 200){
             setemailsended(true)
         }
@@ -167,7 +165,7 @@ export default function Orderpechbjistan() {
         navigator.geolocation.getCurrentPosition((position) => {
             const lat = position.coords.latitude
             const lng = position.coords.longitude
-            console.log(lat , lng)
+            (lat , lng)
             setmarkerpos({ lat , lng})
             setcenter({lat, lng})
             setlocationchanged(true)
@@ -195,7 +193,7 @@ export default function Orderpechbjistan() {
      <input onChange={(e)=>setemail(e.target.value)} className="email" required  type="email" />
 
      <label className="label" >Bericht</label>
-     <textarea onChange={(e)=> setdesc(e.target.value) | console.log(desc)} className="bericht" type="text" required ></textarea>
+     <textarea onChange={(e)=> setdesc(e.target.value) | (desc)} className="bericht" type="text" required ></textarea>
   
 
      <div className="terms" >
@@ -410,14 +408,14 @@ export default function Orderpechbjistan() {
                     
                 
              
-                <APIProvider onLoad={() => console.log("Loaded")} apiKey="AIzaSyBYrVjCDtU5vIiwetkkggADFrFhW8VVjQ4
+                <APIProvider onLoad={() => ("Loaded")} apiKey="AIzaSyBYrVjCDtU5vIiwetkkggADFrFhW8VVjQ4
         ">
          <Map
               defaultZoom={10}
               center={markerpos}
               >
                 
-                <Marker  draggable onDragEnd={(e) => setmarkerpos(e.latLng.toJSON() )| setlocationchanged(true) |  console.log(e.latLng.toJSON()) } position={markerpos} ></Marker>
+                <Marker  draggable onDragEnd={(e) => setmarkerpos(e.latLng.toJSON() )| setlocationchanged(true) |  (e.latLng.toJSON()) } position={markerpos} ></Marker>
         
         </Map>
         </APIProvider>

@@ -40,19 +40,17 @@ export default function Orderpechbjistan() {
         const hours = date.getHours()
         const houreight = date.setHours(8)
         const houreighteen = date.setHours(18)
+        const nowhours = date.setHours(date.getHours())
+
 
 
         if(day >= 1){
             if(day <= 5){
 
-                if(hours >= houreight){
-                    if(hours <= houreighteen){
+                if(hours >= 8 && hours < 18){
+
                         setregion2price(95)
-                    }
-                }
-                if(hours >= houreighteen){
-     
-                        setregion2price(145)
+
                 }
             }
         }
@@ -106,7 +104,7 @@ const Sendemail = async(e) => {
    const Aanvraag = "PECHBIJSTAND LEKKE BAND"
     const price =  regionprice
     const eml =  useEmail(email , number , desc , markerpos.lat , markerpos.lng , region , chooser , Aanvraag , price)
-    console.log(eml.status)
+    (eml.status)
     if(eml.status == 200){
         setemailsended(true)
     }
@@ -126,7 +124,7 @@ const Sendemail = async(e) => {
         navigator.geolocation.getCurrentPosition((position) => {
             const lat = position.coords.latitude
             const lng = position.coords.longitude
-            console.log(lat , lng)
+            (lat , lng)
             setmarkerpos({ lat , lng})
             setcenter({lat, lng})
             setlocationchanged(true)
@@ -281,14 +279,14 @@ const Sendemail = async(e) => {
                 :  <div className="map" >
                 
              
-                <APIProvider onLoad={() => console.log("Loaded")} apiKey="AIzaSyBYrVjCDtU5vIiwetkkggADFrFhW8VVjQ4
+                <APIProvider onLoad={() => ("Loaded")} apiKey="AIzaSyBYrVjCDtU5vIiwetkkggADFrFhW8VVjQ4
         ">
          <Map
               defaultZoom={10}
               center={markerpos}
               >
                 
-                <Marker  draggable onDragEnd={(e) => setmarkerpos(e.latLng.toJSON())| setlocationchanged(true) |  console.log(e.latLng.toJSON())} position={markerpos} ></Marker>
+                <Marker  draggable onDragEnd={(e) => setmarkerpos(e.latLng.toJSON())| setlocationchanged(true) |  (e.latLng.toJSON())} position={markerpos} ></Marker>
         
         </Map>
         </APIProvider>

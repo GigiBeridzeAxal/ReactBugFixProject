@@ -10,18 +10,18 @@ export default function Maps() {
 
     const locat = {lat:Number(lat), lng:Number(lng)} 
 
-    console.log(locat)
+    (locat)
 
 
 
     const [center ,setcenter] = useState({lat:0.5353, lng:0.53515})
-    console.log(lat,lng)
+    (lat,lng)
     const [markerpos , setmarkerpos] = useState({lat:0.5353, lng:0.53515} )
 
 
-    console.log("hello")
+    ("hello")
   return (
-    <div className='Map' > <APIProvider onLoad={() => console.log("Loaded")} apiKey="AIzaSyBYrVjCDtU5vIiwetkkggADFrFhW8VVjQ4
+    <div className='Map' > <APIProvider onLoad={() => ("Loaded")} apiKey="AIzaSyBYrVjCDtU5vIiwetkkggADFrFhW8VVjQ4
     ">
      <Map
           defaultZoom={10}

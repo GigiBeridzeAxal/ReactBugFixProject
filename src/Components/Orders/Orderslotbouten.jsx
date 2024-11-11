@@ -35,7 +35,7 @@ export default function Orderslotbouten() {
       const Aanvraag = "SLOTBOUTEN VERWIJDEREN"
       const price =  regionprice
       const eml =  useEmail(email , number , desc , markerpos.lat , markerpos.lng , region , chooser , Aanvraag , price)
-      console.log(eml.status)
+      (eml.status)
       
       if(eml.status == 200){
           setemailsended(true)
@@ -50,7 +50,7 @@ export default function Orderslotbouten() {
         navigator.geolocation.getCurrentPosition((position) => {
             const lat = position.coords.latitude
             const lng = position.coords.longitude
-            console.log(lat , lng)
+            (lat , lng)
             setmarkerpos({ lat , lng})
             setcenter({lat, lng})
             setlocationchanged(true)

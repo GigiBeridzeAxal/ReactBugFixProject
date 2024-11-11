@@ -60,7 +60,7 @@ const Sendemail = async(e) => {
     const Aanvraag = "TAKELEN"
     const price =  regionprice
     const eml =  useEmail(email , number , desc , markerpos.lat , markerpos.lng , region , chooser , Aanvraag , price , markerpos2.lat , markerpos2.lng)
-    console.log(eml.status)
+    (eml.status)
     if(eml.status == 200){
         setemailsended(true)
     }
@@ -73,7 +73,7 @@ const Sendemail = async(e) => {
         navigator.geolocation.getCurrentPosition((position) => {
             const lat = position.coords.latitude
             const lng = position.coords.longitude
-            console.log(lat , lng)
+  
             setmarkerpos({ lat , lng})
             setcenter({lat, lng})
             setlocationchanged(true)
@@ -85,7 +85,7 @@ const Sendemail = async(e) => {
         navigator.geolocation.getCurrentPosition((position) => {
             const lat = position.coords.latitude
             const lng = position.coords.longitude
-            console.log(lat , lng)
+
             setmarkerpos2({ lat , lng})
             setcenter2({lat, lng})
             setlocationchanged2(true)
@@ -124,7 +124,7 @@ const Sendemail = async(e) => {
      </div>
 
 
-     <button onSubmit={(e) => console.log("Whatsaap")} className="Whatsappsubmit" >Uw aanvraag doorsturen per Whatsapp</button>
+     <button onSubmit={(e) => ("Whatsaap")} className="Whatsappsubmit" >Uw aanvraag doorsturen per Whatsapp</button>
      <button className="Emailsubmit" >Uw aanvraag doorsturen per mail</button>
 
 
@@ -231,14 +231,14 @@ const Sendemail = async(e) => {
                 :  <div className="map" >
 
 
-                {locationopened == 1 ? <> Selecteer de Ophaal locatie <APIProvider onLoad={() => console.log("Loaded")} apiKey="AIzaSyBYrVjCDtU5vIiwetkkggADFrFhW8VVjQ4
+                {locationopened == 1 ? <> Selecteer de Ophaal locatie <APIProvider  apiKey="AIzaSyBYrVjCDtU5vIiwetkkggADFrFhW8VVjQ4
         ">
          <Map
               defaultZoom={10}
               center={markerpos}
               >
                 
-                <Marker  draggable onDragEnd={(e) => setmarkerpos(e.latLng.toJSON() ) | setlocationchanged(true) |  console.log(markerpos)} position={markerpos} ></Marker>
+                <Marker  draggable onDragEnd={(e) => setmarkerpos(e.latLng.toJSON() ) | setlocationchanged(true) } position={markerpos} ></Marker>
         
         </Map>
         
@@ -246,14 +246,14 @@ const Sendemail = async(e) => {
                 
                 
                 </>  : <>                     Selecteer de vervolgkeuzelijst
-        <APIProvider onLoad={() => console.log("Loaded")} apiKey="AIzaSyBYrVjCDtU5vIiwetkkggADFrFhW8VVjQ4
+        <APIProvider apiKey="AIzaSyBYrVjCDtU5vIiwetkkggADFrFhW8VVjQ4
         ">
          <Map
               defaultZoom={10}
               center={markerpos2}
               >
                 
-                <Marker  draggable onDragEnd={(e) => setmarkerpos2(e.latLng.toJSON()) | setlocationchanged2(true) |  console.log(markerpos2)  } position={markerpos2} ></Marker>
+                <Marker  draggable onDragEnd={(e) => setmarkerpos2(e.latLng.toJSON()) | setlocationchanged2(true)  } position={markerpos2} ></Marker>
         
         </Map>
         </APIProvider> 

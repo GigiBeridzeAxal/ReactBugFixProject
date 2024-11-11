@@ -13,7 +13,6 @@ import Takelen from './service/Takelen'
 export default function Panel() {
   const {id} = useParams()
 
-  console.log(id)
 
   
    

@@ -37,7 +37,7 @@ export default function Zommerwinterorder() {
     
     const Sendmail = (e) => {
         e.preventDefault();
-        console.log("Working")
+
 
         const price = checkbox1price2 == 150 ?checkbox1price2  :  regionprice + checkbox1price1 + checkbox1price2 
 
@@ -52,7 +52,7 @@ export default function Zommerwinterorder() {
         navigator.geolocation.getCurrentPosition((position) => {
             const lat = position.coords.latitude
             const lng = position.coords.longitude
-            console.log(lat , lng)
+
             setmarkerpos({ lat , lng})
             setcenter({lat, lng})
             setlocationchanged(true)

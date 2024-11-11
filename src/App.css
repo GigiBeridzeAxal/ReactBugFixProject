@@ -663,9 +663,20 @@ body{
   
   .Main{
     justify-content: center;
-    position: absolute;
+
     margin: 0px;
     height: auto;
+    width: 400px;
+  }
+  .Footer{
+    width: 400px;
+  }
+  
+}
+@media (max-width:750px) {
+  
+  .BG{
+    display: none;
   }
   
 }
