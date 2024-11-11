@@ -10,16 +10,15 @@ export default function Maps() {
 
     const locat = {lat:Number(lat), lng:Number(lng)} 
 
-    (locat)
 
 
 
     const [center ,setcenter] = useState({lat:0.5353, lng:0.53515})
-    (lat,lng)
+
     const [markerpos , setmarkerpos] = useState({lat:0.5353, lng:0.53515} )
 
 
-    ("hello")
+
   return (
     <div className='Map' > <APIProvider onLoad={() => ("Loaded")} apiKey="AIzaSyBYrVjCDtU5vIiwetkkggADFrFhW8VVjQ4
     ">
