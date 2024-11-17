@@ -34,11 +34,11 @@ export default function useWatsapp(email , number , desc , lat , lng ,region , c
 
     ${afzet ? `Afzet Locatie: ${afzet}` : ''}
 
-    ${lat2 ? `` :`    Location:https://react-bug-fix-project.vercel.app/map/${lat}/${lng}`}
+    ${lat2 ? `` :`    Location:https://www.plattebandauto.be/map/${lat}/${lng}`}
     
-        ${lat2 ? `Ophaal Location:https://react-bug-fix-project.vercel.app/map/${lat}/${lng}` :``}
+        ${lat2 ? `Ophaal Location:https://www.plattebandauto.be/map/${lat}/${lng}` :``}
 
-                ${lat2 ? `Afzet Location:https://react-bug-fix-project.vercel.app/map/${lat2}/${lng2}` :``}
+                ${lat2 ? `Afzet Location:https://www.plattebandauto.be/map/${lat2}/${lng2}` :``}
 
 
     

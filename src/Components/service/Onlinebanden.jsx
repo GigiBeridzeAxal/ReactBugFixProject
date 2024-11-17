@@ -24,6 +24,8 @@ export default function Onlinebanden() {
     <div className="service">
         <img width={250} src="LOGO.png" alt="" />
         <div className="serviceframe">
+        {order == true ? null : <> <button onClick={() => setorder(true)} className='button1' >Prijsofferte aanvragen</button></> }
+       
             {order == true ? null :             <h1>ONLINE BANDEN KOPEN MET MONTAGE AAN HUIS</h1>}
 
 
@@ -133,9 +135,7 @@ export default function Onlinebanden() {
             
 
         </div>
-        {order == true ? null : <> <button onClick={() => setorder(true)} className='button1' >prijsofferte/interventie aanvragen in 2 stappen</button>
-        <a href='tel:0032476452948' className='autocall' >Direct Contact</a></> }
-       
+
     </div>
   )
 }

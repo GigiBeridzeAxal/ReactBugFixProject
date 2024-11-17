@@ -14,6 +14,9 @@ export default function Zommerwinter() {
     <div className="service">
         <img width={250} src="LOGO.png" alt="" />
         <div className="serviceframe">
+        {order == true ? null : <> <button onClick={() => setorder(true)} className='button1' >Afspraak inplannen</button>
+ </>      }
+
             
             {order == true ? null :<h1>ZOMER-WINTER BANDEN WISSEL</h1> } 
 
@@ -41,6 +44,14 @@ export default function Zommerwinter() {
     
                         </div> : null}
                     </div>
+
+                    <div className="question">
+                        <button onClick={() => q3 == true ? setq3(false) : setq3(true) } className="questiontittle">{ q3 == true ?<div className='minus' >-   </div> : <div className='plus' >+</div>   }welke montage tijdstippen passen u? </button>
+                        {q3 == true ? <div className='Answer' >
+                            Winterbanden zijn vrij makkelijk te herkennen aan hun lamellenprofiel en aan het sneeuwvloksymbool op de zijkant van de band.
+    
+                        </div> : null}
+                    </div>
                   
     
     
@@ -55,8 +66,6 @@ export default function Zommerwinter() {
             
 
         </div>
-        {order == true ? null : <> <button onClick={() => setorder(true)} className='button1' >prijsofferte/interventie aanvragen in 2 stappen</button>
-        <a href='tel:0032476452948' className='autocall' >Direct Contact</a> </>      }
 
     </div>
   )

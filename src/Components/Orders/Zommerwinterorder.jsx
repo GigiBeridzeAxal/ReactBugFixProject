@@ -100,7 +100,7 @@ export default function Zommerwinterorder() {
      <label className="label" >Email Adres</label>
      <input className="email" required  type="email" />
 
-     <label className="label" >Bericht</label>
+     <label className="label" >Wat is het montage adres?</label>
      <textarea className="bericht" required name="" id=""></textarea>
 
      <div className="terms" >
@@ -190,7 +190,7 @@ export default function Zommerwinterorder() {
      </div>
  : null}
                   
-<label className="label" >Bericht</label>
+<label className="label" >Wat is het montage adres?</label>
 <textarea onChange={(e) => setdesc(e.target.value) } className="bericht" required name="" id=""></textarea>
 
 <div className="terms" >

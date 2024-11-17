@@ -24,6 +24,9 @@ export default function Lekkeband() {
     <div className="service">
         <img width={250} src="LOGO.png" alt="" />
         <div className="serviceframe">
+        {map == true ? null :<> <button onClick={() => setmap(true)} className='button1' >prijsofferte/interventie aanvragen in 2 stappen</button>
+        <a href='tel:0032476452948' className='autocall' >Direct Contact</a></> }
+
             {map == true ? null :            <h1>PECHBIJSTAND LEKKE BAND</h1>}
 
 
@@ -164,8 +167,6 @@ export default function Lekkeband() {
             
 
         </div>
-        {map == true ? null :<> <button onClick={() => setmap(true)} className='button1' >prijsofferte/interventie aanvragen in 2 stappen</button>
-        <a href='tel:0032476452948' className='autocall' >Direct Contact</a></> }
 
        
     </div>

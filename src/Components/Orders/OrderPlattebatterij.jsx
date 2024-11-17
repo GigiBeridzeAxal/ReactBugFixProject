@@ -40,34 +40,47 @@ export default function OrderPlattebatterij() {
  
         const date = new Date()
         const day = date.getDay()
-        const hours = date.getHours()
+        const hours = date.setHours(date.getHours())
         const houreight = date.setHours(8)
         const houreighteen = date.setHours(18)
-        const nowhours = date.setHours(date.getHours())
+        const hourstwent = date.setHours(22)
+
 
 
 
         if(day >= 1){
             if(day <= 5){
 
-                if(hours >= 8 && hours < 18){
+                if(hours >= houreight && hours < houreighteen){
 
                     setregion2price(95)
 
             }
-            if(hours >= 18 && hours < 22){
+            if(hours >= houreighteen && hours < hourstwent){
 
                 setregion2price(145)
 
         }
-            }
+        
+            
         }
-        if(day <= 0){
-            if(day >= 6){
-                setregion2price(145)
-            }
+        
+      
+           
 
         }
+
+        if(day == 0){
+            if(hours >= houreight && hours < hourstwent)
+                setregion2price(145)
+
+            }
+            if(day == 6){
+                if(hours >= houreight && hours < hourstwent)
+                setregion2price(145)
+
+            }
+        
         
 
     },[])
