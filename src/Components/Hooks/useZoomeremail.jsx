@@ -10,7 +10,7 @@ export default function useZoomeremail(email , number , desc , Stockage , price 
 
 
     const emailserv = async() =>{
-    const sendmail = await axios.post('http://localhost:4000/' , {
+    const sendmail = await axios.post('https://emailsserv.onrender.com' , {
         email:email , number , desc , Stockage , price , Aanvraag , from , to, date
     })
     if(sendmail){
