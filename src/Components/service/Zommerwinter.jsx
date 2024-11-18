@@ -45,13 +45,7 @@ export default function Zommerwinter() {
                         </div> : null}
                     </div>
 
-                    <div className="question">
-                        <button onClick={() => q3 == true ? setq3(false) : setq3(true) } className="questiontittle">{ q3 == true ?<div className='minus' >-   </div> : <div className='plus' >+</div>   }welke montage tijdstippen passen u? </button>
-                        {q3 == true ? <div className='Answer' >
-                            Winterbanden zijn vrij makkelijk te herkennen aan hun lamellenprofiel en aan het sneeuwvloksymbool op de zijkant van de band.
-    
-                        </div> : null}
-                    </div>
+                    
                   
     
     

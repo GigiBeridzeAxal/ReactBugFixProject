@@ -166,6 +166,24 @@
   width: 95%;
 
 }
+.calendar{
+  width: 100%;
+  color: white;
+}
+.calendar input{
+  width: 75%;
+  padding: 10px;
+}
+.calendar select{
+  padding: 10px;
+  margin-top: 5px;
+}
+.calendar{
+  display: flex;
+  align-items: center;
+ 
+  gap: 15px;
+}
 .Answer{
   color: black;
   padding: 5px;
