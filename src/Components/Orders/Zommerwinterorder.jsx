@@ -38,6 +38,7 @@ export default function Zommerwinterorder() {
     const [to , setto] = useState("00:00")
     const [from , setfrom] = useState("00:00")
     const [date , setdate] = useState()
+    const [calendaropened , setcalendaropened] = useState(false)
 
 
     const changewindow = () => {window.location = '/'}
@@ -197,8 +198,8 @@ export default function Zommerwinterorder() {
 <textarea onChange={(e) => setdesc(e.target.value) } className="bericht" required name="" id=""></textarea>
 
 <label className="label">welke montage tijdstippen passen u?</label>
-<div className="calendar">Day:<input required type="date" onChange={(e) => setdate(e.target.value)}  /></div>
-<div className="calendar">From:<select required onChange={(e) => setfrom(e.target.value)}>
+<div className="calendar">Dag:<input required type="date" onChange={(e) => setdate(e.target.value) | setcalendaropened(true) }  /></div>
+{calendaropened == true ? <div className="calendar">From:<select required onChange={(e) => setfrom(e.target.value)}>
 <option value="00:00">00:00</option>
   <option value="00:30">00:30</option>
   <option value="01:00">01:00</option>
@@ -300,7 +301,8 @@ export default function Zommerwinterorder() {
   <option value="23:30">23:30</option>
   
   </select>
-  </div>
+  </div> : null}
+
 
 <div className="terms" >
 < h1 className="vorwarden">Voorwaarden</h1>
