@@ -1,12 +1,11 @@
 
-
 import axios from 'axios'
 import React, { useState } from 'react'
 
-export default function useWatsapp(email , number , desc , lat , lng ,region , chooser , Aanvraag , price , lat2 , lng2 , afzet) {
+export default function useLekkebandwatsapp(email , number , desc , lat , lng , region , chooser , Aanvraag , price , tiresize , tiresize2 , tiresize3 , tiresize4 , tiresize5) {
 
 
-
+console.log(tiresize,tiresize2,tiresize3,tiresize4,tiresize5)
 
     
 
@@ -28,17 +27,15 @@ export default function useWatsapp(email , number , desc , lat , lng ,region , c
 
     Bericht: ${desc}
     ${region ? `Region: ${region == "WestVla" ? "west-vlaanderen" : ''} ${region == "OostVla" ? "OOST-VLAANDEREN" : ''} ${region == "Antwerpen" ? "ANTWERPEN" : ''}` : ''}
-
+    ${tiresize ? `Bandenmaat:${tiresize} ${tiresize2} ${tiresize3} ${tiresize4} ${tiresize5} ` : ''}
+    ${chooser == "velvebroken" ? `KIES INDIEN VAN TOEPASSING:Ventiel afgebroken` : `KIES INDIEN VAN TOEPASSING:Zichtbare schade`}
     
     Locatie
 
-    ${afzet ? `Afzet Locatie: ${afzet}` : ''}
 
-    ${lat2 ? `` :`    Location:https://maps.google.com/?q=${lat},${lng}`}
+    ${!lat ? `` :`    Location:https://maps.google.com/?q=${lat},${lng}`}
     
-        ${lat2 ? `Ophaal Location:https://maps.google.com/?q=${lat},${lng}` :``}
-
-                ${lat2 ? `Afzet Location:https://maps.google.com/?q=${lat2},${lng2}` :``}
+ 
 
 
     

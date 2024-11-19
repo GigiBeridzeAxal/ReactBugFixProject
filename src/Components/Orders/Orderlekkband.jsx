@@ -7,6 +7,8 @@ import React, { useEffect, useState } from 'react'
 import axios from "axios";
 import useEmail from "../Hooks/useEmail";
 import useWatsapp from "../Hooks/useWatsapp";
+import useLekkebandwatsapp from "../Hooks/useLekkebandwatsapp";
+import useLekkebandemail from "../Hooks/useLekkebandemail";
 export default function Orderpechbjistan() {
     
     
@@ -42,6 +44,16 @@ export default function Orderpechbjistan() {
     const [choosedregion , setchoosedregion] = useState()
     const [region2price , setregion2price] = useState(145)
     const [regionselected  ,setregionselected] = useState(false)
+    const [tiresize , settiresize] = useState(205)
+    const [tiresize2 , settiresize2] = useState(55)
+    const [tiresize3 , settiresize3] = useState("R16")
+    const [tiresize4 , settiresize4] = useState(91)
+    const [tiresize5 , settiresize5] = useState("T")
+
+
+
+
+
     useEffect(() => {
  
         const date = new Date()
@@ -132,7 +144,7 @@ export default function Orderpechbjistan() {
         const price = chooserprice + regionprice
         
 
-        useWatsapp(email , number , desc , markerpos.lat , markerpos.lng , region , chooser , Aanvraag , price)
+        useLekkebandwatsapp(email , number , desc , markerpos.lat , markerpos.lng , region , chooser , Aanvraag , price , tiresize , tiresize2 , tiresize3 , tiresize4 , tiresize5, chooser)
 
 
     }
@@ -158,7 +170,7 @@ export default function Orderpechbjistan() {
 
         const Aanvraag = "PECHBIJSTAND LEKKE BAND"
         const price = chooserprice + regionprice
-        const eml =  useEmail(email , number , desc , markerpos.lat , markerpos.lng , region , chooser , Aanvraag , price)
+        const eml =  useLekkebandemail(email , number , desc , markerpos.lat , markerpos.lng , region , chooser , Aanvraag , price , tiresize , tiresize2 , tiresize3 , tiresize4 , tiresize5 , chooser)
 
         if(eml.status == 200){
             setemailsended(true)
@@ -295,7 +307,7 @@ export default function Orderpechbjistan() {
                     <div className="bandemat">
                         <div className="bandemattitle">Bandenmaat</div>
                         <div className="selectlist">
-                            <select name="" id="">
+                            <select onChange={(e) => settiresize(e.target.value)} value={tiresize} name="" id="">
                             <option value="315">315</option>
                             <option value="325">325</option>
                             <option value="335">335</option>
@@ -318,7 +330,7 @@ export default function Orderpechbjistan() {
     
     
                             </select>
-                            <select name="" id="">
+                            <select value={tiresize2} onChange={(e) => settiresize2(e.target.value)} name="" id="">
                             <option value="20">20</option>
                             <option value="25">25</option>
                             <option value="30">30</option>
@@ -336,7 +348,7 @@ export default function Orderpechbjistan() {
     
     
                             </select>
-                            <select name="" id="">
+                            <select onChange={(e) => settiresize3(e.target.value)} value={tiresize3} name="" id="">
                             <option value="R10"> R10 </option>
                             <option value="R11">R11</option>
                             <option value="R12">R12</option>
@@ -354,7 +366,7 @@ export default function Orderpechbjistan() {
     
     
                             </select>
-                            <select name="" id="">
+                            <select onChange={(e) => settiresize4(e.target.value)} value={tiresize4} name="" id="">
                             <option value="50">50</option>
                             <option value="51">51</option>
                             <option value="52">52</option>
@@ -439,7 +451,7 @@ export default function Orderpechbjistan() {
     
     
                             </select>
-                            <select name="" id="">
+                            <select onChange={(e) => settiresize5(e.target.value)} value={tiresize5} name="" id="">
                             <option value="R">R</option>
                             <option value="S">S</option>
                             <option value="T">T</option>
