@@ -10,6 +10,8 @@ import useEmail from "../Hooks/useEmail";
 
 
 import useWatsapp from "../Hooks/useWatsapp";
+import usePlatebaterijmail from "../Hooks/usePlatebaterijmail";
+import usePlatebaterijwatsapp from "../Hooks/usePlatebaterijwatsapp";
 export default function OrderPlattebatterij() {
     
     
@@ -36,6 +38,7 @@ export default function OrderPlattebatterij() {
     const [emailsended , setemailsended] = useState(false)
     const [region2price , setregion2price] = useState(145)
     const [regionerror , setregionerror] = useState(false)
+    const [locaties , setlocatie] = useState()
     useEffect(() => {
  
         const date = new Date()
@@ -106,7 +109,7 @@ const Sendwatsapp = () =>{
     const price = chooserprice + regionprice
     
 
-    useWatsapp(email , number , desc , markerpos.lat , markerpos.lng , region , chooser , Aanvraag , price)
+    usePlatebaterijwatsapp(email , number , desc , markerpos.lat , markerpos.lng , region , chooser , Aanvraag , price , locaties)
 
         }
         Send()
@@ -125,7 +128,7 @@ const Sendemail = async(e) => {
         const Send = () => {
  const Aanvraag = "PECHBIJSTAND PLATTE BATTERIJL"
     const price =  regionprice
-    const eml =  useEmail(email , number , desc , markerpos.lat , markerpos.lng , region , chooser , Aanvraag , price)
+    const eml =  usePlatebaterijmail(email , number , desc , markerpos.lat , markerpos.lng , region , chooser , Aanvraag , price , locaties)
 
     if(eml.status == 200){
         setemailsended(true)
@@ -272,7 +275,8 @@ const Sendemail = async(e) => {
 </div>
 <label className="label" >Email Adres</label>
 <input onChange={(e) => setemail(e.target.value)} className="email" required  type="email" />
-
+<label className="label" >Locatie</label>
+<input onChange={(e)=>setlocatie(e.target.value)} className="email" type="text" />
 <label className="label" >Bericht</label>
 <textarea onChange={(e) => setdesc(e.target.value)} className="bericht" required name="" id=""></textarea>
 

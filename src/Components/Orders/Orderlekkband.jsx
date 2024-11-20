@@ -49,6 +49,7 @@ export default function Orderpechbjistan() {
     const [tiresize3 , settiresize3] = useState("R16")
     const [tiresize4 , settiresize4] = useState(91)
     const [tiresize5 , settiresize5] = useState("T")
+    const [locaties , setlocatie] = useState()
 
 
 
@@ -144,7 +145,7 @@ export default function Orderpechbjistan() {
         const price = chooserprice + regionprice
         
 
-        useLekkebandwatsapp(email , number , desc , markerpos.lat , markerpos.lng , region , chooser , Aanvraag , price , tiresize , tiresize2 , tiresize3 , tiresize4 , tiresize5, chooser)
+        useLekkebandwatsapp(email , number , desc , lat , lng , region , chooser , Aanvraag , price , tiresize , tiresize2 , tiresize3 , tiresize4 , tiresize5 , locaties)
 
 
     }
@@ -170,7 +171,7 @@ export default function Orderpechbjistan() {
 
         const Aanvraag = "PECHBIJSTAND LEKKE BAND"
         const price = chooserprice + regionprice
-        const eml =  useLekkebandemail(email , number , desc , markerpos.lat , markerpos.lng , region , chooser , Aanvraag , price , tiresize , tiresize2 , tiresize3 , tiresize4 , tiresize5 , chooser)
+        const eml =  useLekkebandemail(email , number , desc , lat , lng , region , chooser , Aanvraag , price , tiresize , tiresize2 , tiresize3 , tiresize4 , tiresize5 , locaties)
 
         if(eml.status == 200){
             setemailsended(true)
@@ -211,6 +212,9 @@ export default function Orderpechbjistan() {
      </div>
      <label className="label" >Email Adres</label>
      <input onChange={(e)=>setemail(e.target.value)} className="email" required  type="email" />
+     
+     <label className="label" >Locatie</label>
+     <input onChange={(e)=>setlocatie(e.target.value)} className="email" type="text" />
 
      <label className="label" >Bericht</label>
      <textarea onChange={(e)=> setdesc(e.target.value) } className="bericht" type="text" required ></textarea>
