@@ -57,7 +57,7 @@ export default function Zommerwinterorder() {
 
         }else{
             setbenderr(false)
-            if(checkbox1price1 !== 0 || checkbox1price2 !==0){
+
                 const Send = () => {
  const price = checkbox1price2 == 150 ?checkbox1price2  :  regionprice + checkbox1price1 + checkbox1price2 
 
@@ -67,9 +67,7 @@ export default function Zommerwinterorder() {
                 }
                 Send()
                 
-            }else{
-                setselerr(true)
-            }
+            
            
         }
 
@@ -160,7 +158,7 @@ export default function Zommerwinterorder() {
                         <div className="checkbox">
                         NIEUWE BANDEN NIET AANGEKOCHT BIJ MBC <input checked={Stockage == 4 ? true : false} onClick={(e) => e.target.checked == true ?setchkp2(150) | setstockage(4) : setstockage() | setchkp2(0)  | setchkp1(0)    } type="checkbox" />
                         </div>
-                        {selerr == true ? <div className="error">Selecteer een van de</div> : null}
+
                         
                     </div>
                     <div className="price">

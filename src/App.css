@@ -443,7 +443,6 @@
   margin-top: 15px;
 }
 .orderbutton{
-  position: absolute;
   padding-top: 25px;
   bottom: 1%;
   left: -8px;
@@ -749,6 +748,9 @@ body{
 }
 
 @media (max-width:450px) {
+  .orderbutton{
+    position: relative;
+  }
   
   .Main{
     justify-content: center;
