@@ -50,6 +50,27 @@ export default function Orderpechbjistan() {
     const [tiresize4 , settiresize4] = useState(91)
     const [tiresize5 , settiresize5] = useState("T")
     const [locaties , setlocatie] = useState()
+    const [navigatorcheck , setnavigatorcheck] = useState(false)
+
+
+    const navigatorchecker = () => {
+
+       if(navigator.geolocation){
+
+        navigator.geolocation.getCurrentPosition(
+            
+            (position) =>{
+            },
+            (err) => {
+                setnavigatorcheck(true)
+
+            }
+            
+        )
+
+       }
+    }
+    navigatorchecker()
 
 
 
@@ -63,6 +84,7 @@ export default function Orderpechbjistan() {
         const houreight = date.setHours(8)
         const houreighteen = date.setHours(18)
         const nowhours = date.setHours(date.getHours())
+
 
 
 
@@ -198,7 +220,7 @@ export default function Orderpechbjistan() {
    validationopened == true ? <>
       
       <form onSubmit={(e) => e.preventDefault() | e.nativeEvent.submitter.className == "Emailsubmit" ? Sendemail() : null | e.nativeEvent.submitter.className == "Whatsappsubmit" ? Sendwatsapp() : null } className="formval"  >
-
+      
      <label className="label" >Telefoon Nummer</label>
      <div className="phone">
 
@@ -213,8 +235,9 @@ export default function Orderpechbjistan() {
      <label className="label" >Email Adres</label>
      <input onChange={(e)=>setemail(e.target.value)} className="email" required  type="email" />
      
-     <label className="label" >Locatie</label>
-     <input onChange={(e)=>setlocatie(e.target.value)} className="email" type="text" />
+     {locationchanged == false ?  <><label className="label" >Locatie</label>
+        <input required onChange={(e)=>setlocatie(e.target.value)} className="email" type="text" /></> :null }
+
 
      <label className="label" >Bericht</label>
      <textarea onChange={(e)=> setdesc(e.target.value) } className="bericht" type="text" required ></textarea>
@@ -286,6 +309,7 @@ export default function Orderpechbjistan() {
                
                 {order == true  ?
                 <>
+              
     
                 <div style={{style:'100%'}} > 
                     <div className="regions">
@@ -490,6 +514,14 @@ export default function Orderpechbjistan() {
                 
                 
                 :  <div className="map" >
+                      {navigatorcheck == true ?<div className="navigatorinfo">
+                        <div className="navigator">
+                                    <div className="notiflogo"><img src="Mark.png" alt="" /></div>
+        <div className="notiftitlte">Onze app maakt gebruik van de apparaatlocatie. Schakel deze locatie in</div>
+        <div className="btns"><button onClick={() => setorder(true)} >OK</button></div>
+      </div>
+                        </div>
+ : null}
                     
                 
              

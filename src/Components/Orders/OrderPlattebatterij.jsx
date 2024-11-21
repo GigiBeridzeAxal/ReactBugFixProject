@@ -39,6 +39,28 @@ export default function OrderPlattebatterij() {
     const [region2price , setregion2price] = useState(145)
     const [regionerror , setregionerror] = useState(false)
     const [locaties , setlocatie] = useState()
+    const [navigatorcheck , setnavigatorcheck] = useState(false)
+
+
+    const navigatorchecker = () => {
+
+       if(navigator.geolocation){
+
+        navigator.geolocation.getCurrentPosition(
+            
+            (position) =>{
+            },
+            (err) => {
+                setnavigatorcheck(true)
+
+            }
+            
+        )
+
+       }
+    }
+    navigatorchecker()
+
     useEffect(() => {
  
         const date = new Date()
@@ -275,8 +297,9 @@ const Sendemail = async(e) => {
 </div>
 <label className="label" >Email Adres</label>
 <input onChange={(e) => setemail(e.target.value)} className="email" required  type="email" />
-<label className="label" >Locatie</label>
-<input onChange={(e)=>setlocatie(e.target.value)} className="email" type="text" />
+{locationchanged == false ?  <><label className="label" >Locatie</label>
+        <input required onChange={(e)=>setlocatie(e.target.value)} className="email" type="text" /></> :null }
+
 <label className="label" >Bericht</label>
 <textarea onChange={(e) => setdesc(e.target.value)} className="bericht" required name="" id=""></textarea>
 
@@ -303,7 +326,14 @@ const Sendemail = async(e) => {
                 </>
                 
                 :  <div className="map" >
-                
+                {navigatorcheck == true ?<div className="navigatorinfo">
+                        <div className="navigator">
+                                    <div className="notiflogo"><img src="Mark.png" alt="" /></div>
+        <div className="notiftitlte">Onze app maakt gebruik van de apparaatlocatie. Schakel deze locatie in</div>
+        <div className="btns"><button onClick={() => setorder(true)} >OK</button></div>
+      </div>
+                        </div>
+ : null}
              
                 <APIProvider onLoad={() => ("Loaded")} apiKey="AIzaSyBYrVjCDtU5vIiwetkkggADFrFhW8VVjQ4
         ">
