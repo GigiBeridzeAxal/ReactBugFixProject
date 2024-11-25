@@ -40,8 +40,8 @@ export default function Onlinebandenorder() {
         e.preventDefault();
 
 
-        const Aanvrag = "Aanvraag banden"
-        useOnlineemail(email , number , desc  , Aanvrag , TypeBand , tiresize, tiresize2 , tiresize3 , tiresize4 , tiresize5 , bandenmerk )
+        const Aanvraag = "Aanvraag banden"
+        useOnlineemail(email , number , desc  , Aanvraag , TypeBand , tiresize, tiresize2 , tiresize3 , tiresize4 , tiresize5 , bandenmerk )
         setemailsended(true)
 
 
