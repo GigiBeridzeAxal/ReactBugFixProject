@@ -61,7 +61,7 @@ export default function Zommerwinterorder() {
                 const Send = () => {
  const price = checkbox1price2 == 150 ?checkbox1price2  :  regionprice + checkbox1price1 + checkbox1price2 
 
-            const Aanvrag = "ZOMER-WINTER BANDEN WISSEL"
+            const Aanvrag = "Aanvraag bandenwissel"
             useZoomeremail(email , number , desc , Stockage , price  , Aanvrag , from1 , to1, date1 , from2 , to2, date2 , from3 , to3, date3)
             setemailsended(true)
                 }

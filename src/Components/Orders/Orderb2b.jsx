@@ -33,7 +33,7 @@ export default function Orderb2b() {
   const Sendemail = async(e) => {
     e.preventDefault();
 
-    const Aanvraag = "PECHBIJSTAND LEKKE BAND"
+    const Aanvraag = "Aanvraag B2B"
     const price =  regionprice
     const eml =  useEmail(email , number , desc , markerpos.lat , markerpos.lng , region , chooser , Aanvraag , price)
 

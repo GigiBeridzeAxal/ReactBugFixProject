@@ -32,7 +32,7 @@ export default function Orderslotbouten() {
     const Sendemail = async(e) => {
 
 
-      const Aanvraag = "SLOTBOUTEN VERWIJDEREN"
+      const Aanvraag = "Aanvraag slotbout verwijderen"
       const price =  regionprice
       const eml =  useEmail(email , number , desc , markerpos.lat , markerpos.lng , region , chooser , Aanvraag , price)
 
@@ -112,8 +112,9 @@ export default function Orderslotbouten() {
                    
                         
                     </div>
+                    
                     <form onSubmit={(e) => e.preventDefault() | e.nativeEvent.submitter.className == "Emailsubmit" ? Sendemail() : null | e.nativeEvent.submitter.className == "Whatsappsubmit" ? "" : null } className="formval"  >
-
+                    <div className="noti">prijs verwijderen slotbout in onze vestiging: €50. Indien uw voertuig niet meer mobiel is kunnen we transport voorzien</div>
 <label className="label" >Telefoon Nummer</label>
 <div className="phone">
 </div>

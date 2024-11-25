@@ -7,6 +7,7 @@ import React, { useEffect, useState } from 'react'
 import axios from "axios";
 import useEmail from "../Hooks/useEmail";
 import useWatsapp from "../Hooks/useWatsapp";
+import useTakelenmail from "../Hooks/useTakelenmail";
 export default function Ordertakelen() {
      
     
@@ -16,7 +17,7 @@ export default function Ordertakelen() {
     const [markerpos2 , setmarkerpos2] = useState({ lat: 50.84852676025505, lng: 4.350960265625017 } )
     const [locationchanged , setlocationchanged] = useState(false)
     const [locationchanged2 , setlocationchanged2] = useState(false)
-    const [order , setorder] = useState(false)
+    const [order , setorder] = useState(true)
     const [validationopened , setvalidationopened] = useState(false)
     const [user , setuser] = useState("Wazaa")
 
@@ -36,6 +37,8 @@ export default function Ordertakelen() {
     const [countryocode , setcountrycode] = useState()
     const [emailsended , setemailsended] = useState(false)
     const [afzet , setafzet] = useState()
+    const [ophal , setophal] = useState()
+    
     const changewindow = () => {window.location = '/'}
 
 
@@ -47,20 +50,20 @@ export default function Ordertakelen() {
 }
 
 const Sendwatsapp = () =>{
-    const Aanvraag = "TAKELEN"
+    const Aanvraag = "Aanvraag takeling"
     const price = chooserprice + regionprice
     
 
-    useWatsapp(email , number , desc , markerpos.lat , markerpos.lng , region , chooser , Aanvraag , price , markerpos2.lat , markerpos2.lng , afzet)
+    useWatsapp(email , number , desc , region , chooser , Aanvraag , price  , afzet , ophal)
 
 
 }
 
 const Sendemail = async(e) => {
 
-    const Aanvraag = "TAKELEN"
+    const Aanvraag = "Aanvraag takeling"
     const price =  regionprice
-    const eml =  useEmail(email , number , desc , markerpos.lat , markerpos.lng , region , chooser , Aanvraag , price , markerpos2.lat , markerpos2.lng , afzet)
+    const eml =  useTakelenmail(email , number , desc , region , chooser , Aanvraag , price  , afzet , ophal)
 
     if(eml.status == 200){
         setemailsended(true)
@@ -206,6 +209,10 @@ const Sendemail = async(e) => {
 
 <label className="label" >Afzet Locatie</label>
 <input onChange={(e) => setafzet(e.target.value)} className="email" required  type="text" />
+
+<label className="label" >ophaal Locatie</label>
+<input onChange={(e) => setophal(e.target.value)} className="email" required  type="text" />
+
 
 
 <label className="label" >Bericht</label>

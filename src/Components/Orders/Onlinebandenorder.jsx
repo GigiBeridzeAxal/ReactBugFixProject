@@ -28,14 +28,20 @@ export default function Onlinebandenorder() {
     const [countryocode , setcountrycode] = useState()
     const [TypeBand , setTypeBand] = useState("Summer")
     const [emailsended , setemailsended ] = useState(false)
+    const [tiresize , settiresize] = useState(205)
+    const [tiresize2 , settiresize2] = useState(55)
+    const [tiresize3 , settiresize3] = useState("R16")
+    const [tiresize4 , settiresize4] = useState(91)
+    const [tiresize5 , settiresize5] = useState("T")
+    const [bandenmerk , setbandenmerk] = useState("Geen voorkeur")
     const changewindow = () => {window.location = '/'}
    
     const Sendmail = (e) => {
         e.preventDefault();
 
 
-        const Aanvrag = "ONLINE BANDEN KOPEN MET MONTAGE AAN HUIS"
-        useOnlineemail(email , number , desc  , Aanvrag , TypeBand )
+        const Aanvrag = "Aanvraag banden"
+        useOnlineemail(email , number , desc  , Aanvrag , TypeBand , tiresize, tiresize2 , tiresize3 , tiresize4 , tiresize5 , bandenmerk )
         setemailsended(true)
 
 
@@ -109,9 +115,9 @@ export default function Onlinebandenorder() {
                             <label htmlFor="">Ik weet mijn bandenmaat niet</label> <input type="checkbox" />
                         </div>
                         <div className="bandenmaat">
-                        <div className="bandemattitle">Bandenmaat </div>
+                        <div className="bandemattitle">Bandenmaat: </div>
                         <div className="selectlistband">
-                            <select name="" id="">
+                        <select onChange={(e) => settiresize(e.target.value)} value={tiresize} name="" id="">
                             <option value="315">315</option>
                             <option value="325">325</option>
                             <option value="335">335</option>
@@ -134,7 +140,7 @@ export default function Onlinebandenorder() {
     
     
                             </select>
-                            <select name="" id="">
+                            <select onChange={(e) => settiresize2(e.target.value)} value={tiresize2} name="" id="">
                             <option value="20">20</option>
                             <option value="25">25</option>
                             <option value="30">30</option>
@@ -152,7 +158,7 @@ export default function Onlinebandenorder() {
     
     
                             </select>
-                            <select name="" id="">
+                            <select onChange={(e) => settiresize3(e.target.value)} value={tiresize3} name="" id="">
                             <option value="R10"> R10 </option>
                             <option value="R11">R11</option>
                             <option value="R12">R12</option>
@@ -170,7 +176,7 @@ export default function Onlinebandenorder() {
     
     
                             </select>
-                            <select name="" id="">
+                            <select onChange={(e) => settiresize4(e.target.value)} value={tiresize4} name="" id="">
                             <option value="50">50</option>
                             <option value="51">51</option>
                             <option value="52">52</option>
@@ -255,7 +261,7 @@ export default function Onlinebandenorder() {
     
     
                             </select>
-                            <select name="" id="">
+                            <select onChange={(e) => settiresize5(e.target.value)} value={tiresize5} name="" id="">
                             <option value="R">R</option>
                             <option value="S">S</option>
                             <option value="T">T</option>
@@ -272,7 +278,7 @@ export default function Onlinebandenorder() {
                         </div>
                         <div className="bandenmerk">
                             <label htmlFor="">Bandenmerk</label>      
-                            <select name="" id="">
+                            <select value={bandenmerk} onChange={(e) => setbandenmerk(e.target.value)} name="" id="">
                             <option value="R">Geen voorkeur</option>
                             <option value="S">Budget</option>
                             <option value="T">Bridgestone</option>

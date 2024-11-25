@@ -126,7 +126,7 @@ const Sendwatsapp = () =>{
     }else{
         setregionerror(false)
         const Send = () => {
-                const Aanvraag = "PECHBIJSTAND LEKKE BAND"
+                const Aanvraag = "Aanvraag brandstof"
     const price = chooserprice + regionprice
     
 
@@ -147,7 +147,7 @@ const Sendemail = async(e) => {
         setregionerror(false)
 
         const Send = () => {
-   const Aanvraag = "PECHBIJSTAND LEKKE BAND"
+   const Aanvraag = "Aanvraag brandstof"
     const price =  regionprice
     const eml =  usePechibijistandemail(email , number , desc , markerpos.lat , markerpos.lng , region , chooser , Aanvraag , price , locaties)
 

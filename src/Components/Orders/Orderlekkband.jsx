@@ -327,6 +327,8 @@ export default function Orderpechbjistan() {
                         <div className="chooselist">
                             {chooser == "velvebroken" ?<button onClick={() => setchooser() | setchooserprice(0)}  ><img className="choosedchooser" width={112} src="velveBroken.webp" alt="" /></button> :  <button onClick={() => setchooser("velvebroken") | setchooserprice(50) } className="notchoosedchooser" ><img width={112} src="velveBroken.webp" alt="" /></button> }
                             {chooser == "visiOrDroveFlat" ?<button onClick={() => setchooser() | setchooserprice(0)}  ><img className="choosedchooser" width={112} src="visiOrDroveFlat.webp" alt="" /></button> :  <button onClick={() => setchooser("visiOrDroveFlat") | setchooserprice(0) }  className="notchoosedchooser" ><img width={112} src="visiOrDroveFlat.webp" alt="" /></button> }
+                            {chooser == "MEERDERE" ?<button onClick={() => setchooser() | setchooserprice(0)}  ><img className="choosedchooser" width={112} src="Image3.jpg" alt="" /></button> :  <button onClick={() => setchooser("MEERDERE") | setchooserprice(0) }  className="notchoosedchooser" ><img width={112} src="Image3.jpg" alt="" /></button> }
+                          
                       
                         </div>
                         {choosererr == true ? <div className="error">Selecteer een van de</div> : null}
@@ -496,8 +498,10 @@ export default function Orderpechbjistan() {
                         </div>
                         
                     </div>
+
                     <div className="price">
                         <div className="totalprice"> € {regionprice + chooserprice} BTW INCL.</div>
+                        <div className="interventie" >Uw interventie bedraagt</div>
                         <p>(*) Kostprijs aankoop banden niet inbegrepen</p>
 
                     </div>
@@ -505,7 +509,7 @@ export default function Orderpechbjistan() {
                 </div>
   
    
-                <button onClick={() => validopener()} className='orderbutton' >prijsofferte/interventie aanvragen in 2 stappen</button>
+                <button onClick={() => validopener()} className='orderbutton' >Interventie aanvragen</button>
                     <br />
 
                 

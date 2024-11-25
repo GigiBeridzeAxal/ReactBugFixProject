@@ -27,7 +27,7 @@ export default function useLekkebandwatsapp(email , number , desc , lat , lng , 
     Bericht: ${desc}
     ${region ? `Region: ${region == "WestVla" ? "west-vlaanderen" : ''} ${region == "OostVla" ? "OOST-VLAANDEREN" : ''} ${region == "Antwerpen" ? "ANTWERPEN" : ''}` : ''}
     ${tiresize ? `Bandenmaat:${tiresize} ${tiresize2} ${tiresize3} ${tiresize4} ${tiresize5} ` : ''}
-    ${chooser == "velvebroken" ? `KIES INDIEN VAN TOEPASSING:Ventiel afgebroken` : `KIES INDIEN VAN TOEPASSING:Zichtbare schade`}
+    ${chooser == "velvebroken" ? `KIES INDIEN VAN TOEPASSING:Ventiel afgebroken` : `${chooser == "MEERDERE" ? " KIES INDIEN VAN TOEPASSING:MEERDERE LEKKE BANDEN" : " KIES INDIEN VAN TOEPASSING:ZICHTBAAR SCHADE OF PLAT VERDER GERDEN" }`}
     ${locaties ? `Locatie:${locaties}` : ''}
     
     Locatie

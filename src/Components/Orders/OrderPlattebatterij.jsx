@@ -127,7 +127,7 @@ const Sendwatsapp = () =>{
     }else{
         const Send = () => {
 
-    const Aanvraag = "PECHBIJSTAND PLATTE BATTERIJL"
+    const Aanvraag = "Aanvraag platte batterij"
     const price = chooserprice + regionprice
     
 
@@ -148,7 +148,7 @@ const Sendemail = async(e) => {
     }else{
 
         const Send = () => {
- const Aanvraag = "PECHBIJSTAND PLATTE BATTERIJL"
+ const Aanvraag = "Aanvraag platte batterij"
     const price =  regionprice
     const eml =  usePlatebaterijmail(email , number , desc , markerpos.lat , markerpos.lng , region , chooser , Aanvraag , price , locaties)
 

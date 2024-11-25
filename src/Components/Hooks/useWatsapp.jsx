@@ -3,7 +3,7 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 
-export default function useWatsapp(email , number , desc , lat , lng ,region , chooser , Aanvraag , price , lat2 , lng2 , afzet) {
+export default function useWatsapp(email , number , desc , lat , lng ,region , chooser , Aanvraag , price , lat2 , lng2 , afzet , ophal) {
 
 
 
@@ -33,12 +33,8 @@ export default function useWatsapp(email , number , desc , lat , lng ,region , c
     Locatie
 
     ${afzet ? `Afzet Locatie: ${afzet}` : ''}
+    ${ophal ? `Ophaal Locatie: ${ophal}` : ''}
 
-    ${lat2 ? `` :`    Location:https://maps.google.com/?q=${lat},${lng}`}
-    
-        ${lat2 ? `Ophaal Location:https://maps.google.com/?q=${lat},${lng}` :``}
-
-                ${lat2 ? `Afzet Location:https://maps.google.com/?q=${lat2},${lng2}` :``}
 
 
     

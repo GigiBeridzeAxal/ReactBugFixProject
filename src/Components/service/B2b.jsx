@@ -24,7 +24,7 @@ export default function B2b() {
     <div className="service">
         <img width={250} src="LOGO.png" alt="" />
         <div className="serviceframe">
-        {order == true ? null: <>        <button onClick={() => setorder(true)} className='button1' >prijsofferte/interventie aanvragen in 2 stappen</button></>}
+        {order == true ? null: <>        <button onClick={() => setorder(true)} className='button1' >Contacteer ons</button></>}
             
             {order == true ? null:            <h1>B2B / FLEET BANDEN WISSEL</h1> }
 

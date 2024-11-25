@@ -45,6 +45,7 @@
 .Footerframe{
   padding: 2.5rem;
 }
+
 .desc{
   display: flex;
   flex-direction: column;
@@ -107,7 +108,8 @@
   flex-direction: column;
   align-items: center;
   overflow-y: scroll;
-  overflow-x: hidden;
+
+
 }
 
 .serviceframe::-webkit-scrollbar{
@@ -188,7 +190,7 @@
   color: black;
   padding: 5px;
   text-align: start;
-  width: 100%;
+  width: 90%;
 }
 .tire{
   width: 100%;
@@ -206,7 +208,7 @@
 .autocall{
   --tw-bg-opacity: 1;
   background-color: rgb(34 197 94 / var(--tw-bg-opacity));
-  width: 95%;
+  width: 99%;
   border: 0;
   padding: 10px;
   text-align: center;
@@ -216,6 +218,10 @@
   
 
   text-decoration: none;
+}
+.answerimage{
+  width: 94%;
+
 }
 .notif{
   width: 100%;
@@ -307,7 +313,9 @@
   flex-direction: column;
   text-align: center;
   color: white;
+
 }
+
 .mapservice{
   display: flex;
   flex-direction: column;
@@ -331,6 +339,7 @@
 }
 .locationframe{
   position: absolute;
+
   z-index: 2;
   top: 80%;
   display: flex;
@@ -340,7 +349,7 @@
   width: 260px;
   justify-content: space-between;
   height: 100px;
-  left: 12%;
+
   --tw-text-opacity: 1;
   color: rgb(59 130 246 / var(--tw-text-opacity));
   text-align: center;
@@ -447,9 +456,8 @@
   bottom: 1%;
   left: -8px;
   padding: 15px;
-  width: 400px;
-  border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
+  width: 100%;
+
   --tw-bg-opacity: 1;
   background-color: rgb(34 197 94 / var(--tw-bg-opacity));
   color: white;
@@ -714,8 +722,17 @@ border-radius: 10px;
 }
 
 .Answer{
-  width: 95%;
+  width: 90%;
 }
+.interventie{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  margin-top: 5px;
+}
+
 .navigatorinfo{
   width: 300px;
   height: 300px;
@@ -792,11 +809,38 @@ body{
 .titldesc{
   width: 90%;
 }
+.noti{
+  color: white;
+}
+
+@media (max-height:550px) {
+  .locationframe{
+    top: 75% !important;
+  }
+  
+}
+@media (max-height:475px) {
+  .locationframe{
+    top: 70% !important;
+  }
+  
+}
+@media (max-height:475px) {
+  .locationframe{
+    top: 70% !important;
+    width: 240px !important;
+
+  }
+ 
+  
+}
 
 @media (max-width:450px) {
-  .orderbutton{
-    position: relative;
+  .bandenmaat{
+    flex-direction: column;
+    align-items: start;
   }
+
   
   .Main{
     justify-content: center;
@@ -826,9 +870,14 @@ body{
   
 }
 @media (max-width:400px) {
+
+  .chooselist img{
+    width: 100px;
+
+  }
   .locationframe{
-    left: 0px;
-    width: 95%;
+
+    width: 230px;
   }
   .orderbutton{
     width: 100%;
